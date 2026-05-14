@@ -1,0 +1,16 @@
+[
+  {"name": "ANIVITA H Syrup", "category": "Syrup"},
+  {"name": "ANIVITE GP Syrup", "category": "Syrup"},
+  {"name": "EXFLUK 100ML", "category": "Syrup"},
+  {"name": "HELMIKILL I10", "category": "Tablet"},
+  {"name": "HELMIKILL PLUS", "category": "Tablet"},
+  {"name": "HIFARO ER 300", "category": "Tablet"},
+  {"name": "D Vitaal Forte", "category": "Capsule"},
+  {"name": "Esokal K2D", "category": "Capsule"},
+  {"name": "MP Forte 100ML", "category": "Injection"},
+  {"name": "SCABAN Soap", "category": "Personal Care"},
+  {"name": "TOPHEAL Spray", "category": "Medical Spray"},
+  {"name": "ZERRID 500ML", "category": "Liquid"},
+  {"name": "ZOZYME 200GM", "category": "Powder"},
+  {"name": "WYZYME Health 500ML", "category": "Liquid"}
+]

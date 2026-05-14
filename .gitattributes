@@ -1,0 +1,5 @@
+data/appointments.json filter=lfs diff=lfs merge=lfs -text
+data/billing.json filter=lfs diff=lfs merge=lfs -text
+data/patients.json filter=lfs diff=lfs merge=lfs -text
+data/vitals.json filter=lfs diff=lfs merge=lfs -text
+data/voxa_system.duckdb filter=lfs diff=lfs merge=lfs -text

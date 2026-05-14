@@ -1,0 +1,42 @@
+[
+  {
+    "id": "SVC1",
+    "name": "Inpatient"
+  },
+  {
+    "id": "SVC2",
+    "name": "Outpatient"
+  },
+  {
+    "id": "SVC3",
+    "name": "Emergency"
+  },
+  {
+    "id": "SVC4",
+    "name": "Telehealth"
+  },
+  {
+    "id": "SVC5",
+    "name": "Laboratory"
+  },
+  {
+    "id": "SVC6",
+    "name": "Pharmacy"
+  },
+  {
+    "id": "SVC7",
+    "name": "Surgery"
+  },
+  {
+    "id": "SVC8",
+    "name": "Diagnostics"
+  },
+  {
+    "id": "SVC9",
+    "name": "Rehabilitation"
+  },
+  {
+    "id": "SVC10",
+    "name": "Hospice"
+  }
+]

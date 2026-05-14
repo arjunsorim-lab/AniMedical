@@ -1,0 +1,226 @@
+{
+  "summary": {
+    "total_doctors": 50000,
+    "average_patients_per_doctor": 10,
+    "overloaded_count": 20154
+  },
+  "distribution_top_primary_physicians": [
+    {
+      "doctor_name": "Dr. Emily Miller",
+      "patient_count": 4405,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 95.3
+    },
+    {
+      "doctor_name": "Dr. John Thompson",
+      "patient_count": 2803,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 73.86
+    },
+    {
+      "doctor_name": "Dr. Patricia Lewis",
+      "patient_count": 3005,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 67.94
+    },
+    {
+      "doctor_name": "Dr. William Williams",
+      "patient_count": 1662,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 73.44
+    },
+    {
+      "doctor_name": "Dr. Jennifer Robinson",
+      "patient_count": 1362,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 71.96
+    },
+    {
+      "doctor_name": "Dr. Steven Harris",
+      "patient_count": 1875,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 77.51
+    },
+    {
+      "doctor_name": "Dr. Kimberly Robinson",
+      "patient_count": 3076,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 95.94
+    },
+    {
+      "doctor_name": "Dr. Mary Perez",
+      "patient_count": 4217,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 92.98
+    },
+    {
+      "doctor_name": "Dr. Patricia Perez",
+      "patient_count": 4969,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 65.67
+    },
+    {
+      "doctor_name": "Dr. Jennifer Taylor",
+      "patient_count": 532,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 73.46
+    },
+    {
+      "doctor_name": "Dr. Paul Lee",
+      "patient_count": 2740,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 83.1
+    },
+    {
+      "doctor_name": "Dr. Lisa Walker",
+      "patient_count": 4363,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 91.58
+    },
+    {
+      "doctor_name": "Dr. Barbara Brown",
+      "patient_count": 4939,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 86.76
+    },
+    {
+      "doctor_name": "Dr. Linda Martinez",
+      "patient_count": 229,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 89.82
+    },
+    {
+      "doctor_name": "Dr. John Williams",
+      "patient_count": 2409,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 78.71
+    },
+    {
+      "doctor_name": "Dr. Linda Young",
+      "patient_count": 1901,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 78.88
+    },
+    {
+      "doctor_name": "Dr. Mary Anderson",
+      "patient_count": 3158,
+      "status": "Overloaded",
+      "capacity": 200,
+      "efficiency_percent": 60.4
+    },
+    {
+      "doctor_name": "Dr. Michael Perez",
+      "patient_count": 2240,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 93.79
+    },
+    {
+      "doctor_name": "Dr. Robert Lewis",
+      "patient_count": 1315,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 80.43
+    },
+    {
+      "doctor_name": "Dr. Margaret King",
+      "patient_count": 1253,
+      "status": "Normal",
+      "capacity": 200,
+      "efficiency_percent": 70.92
+    }
+  ],
+  "regional_load_distribution": [
+    {
+      "region": "New York",
+      "active_doctors": 1603,
+      "avg_patients_per_doctor": 10
+    },
+    {
+      "region": "California",
+      "active_doctors": 1656,
+      "avg_patients_per_doctor": 10
+    },
+    {
+      "region": "Texas",
+      "active_doctors": 1705,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Florida",
+      "active_doctors": 1725,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Illinois",
+      "active_doctors": 1727,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Pennsylvania",
+      "active_doctors": 1723,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Ohio",
+      "active_doctors": 1690,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Georgia",
+      "active_doctors": 1709,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "North Carolina",
+      "active_doctors": 1605,
+      "avg_patients_per_doctor": 10
+    },
+    {
+      "region": "Michigan",
+      "active_doctors": 1614,
+      "avg_patients_per_doctor": 10
+    },
+    {
+      "region": "New Jersey",
+      "active_doctors": 1677,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Virginia",
+      "active_doctors": 1670,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Washington",
+      "active_doctors": 1637,
+      "avg_patients_per_doctor": 10
+    },
+    {
+      "region": "Arizona",
+      "active_doctors": 1736,
+      "avg_patients_per_doctor": 9
+    },
+    {
+      "region": "Massachusetts",
+      "active_doctors": 1598,
+      "avg_patients_per_doctor": 10
+    }
+  ]
+}

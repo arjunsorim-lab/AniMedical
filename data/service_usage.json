@@ -1,0 +1,7202 @@
+[
+  {
+    "id": "USG00001",
+    "patient_id": "PAT0467",
+    "service_id": "SRV009",
+    "doctor_id": "DOC009",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-10"
+  },
+  {
+    "id": "USG00002",
+    "patient_id": "PAT0547",
+    "service_id": "SRV004",
+    "doctor_id": "DOC110",
+    "sessions_count": 11,
+    "last_used_date": "2025-09-23"
+  },
+  {
+    "id": "USG00003",
+    "patient_id": "PAT0553",
+    "service_id": "SRV007",
+    "doctor_id": "DOC069",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-08"
+  },
+  {
+    "id": "USG00004",
+    "patient_id": "PAT0397",
+    "service_id": "SRV001",
+    "doctor_id": "DOC098",
+    "sessions_count": 3,
+    "last_used_date": "2025-10-26"
+  },
+  {
+    "id": "USG00005",
+    "patient_id": "PAT0517",
+    "service_id": "SRV012",
+    "doctor_id": "DOC046",
+    "sessions_count": 14,
+    "last_used_date": "2025-07-28"
+  },
+  {
+    "id": "USG00006",
+    "patient_id": "PAT0425",
+    "service_id": "SRV005",
+    "doctor_id": "DOC019",
+    "sessions_count": 21,
+    "last_used_date": "2025-08-04"
+  },
+  {
+    "id": "USG00007",
+    "patient_id": "PAT0592",
+    "service_id": "SRV008",
+    "doctor_id": "DOC059",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00008",
+    "patient_id": "PAT0025",
+    "service_id": "SRV009",
+    "doctor_id": "DOC106",
+    "sessions_count": 1,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00009",
+    "patient_id": "PAT0217",
+    "service_id": "SRV008",
+    "doctor_id": "DOC099",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-20"
+  },
+  {
+    "id": "USG00010",
+    "patient_id": "PAT0343",
+    "service_id": "SRV012",
+    "doctor_id": "DOC113",
+    "sessions_count": 5,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00011",
+    "patient_id": "PAT0429",
+    "service_id": "SRV012",
+    "doctor_id": "DOC017",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00012",
+    "patient_id": "PAT0295",
+    "service_id": "SRV002",
+    "doctor_id": "DOC110",
+    "sessions_count": 18,
+    "last_used_date": "2025-12-22"
+  },
+  {
+    "id": "USG00013",
+    "patient_id": "PAT0101",
+    "service_id": "SRV004",
+    "doctor_id": "DOC053",
+    "sessions_count": 7,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00014",
+    "patient_id": "PAT0080",
+    "service_id": "SRV005",
+    "doctor_id": "DOC038",
+    "sessions_count": 16,
+    "last_used_date": "2025-11-30"
+  },
+  {
+    "id": "USG00015",
+    "patient_id": "PAT0347",
+    "service_id": "SRV007",
+    "doctor_id": "DOC100",
+    "sessions_count": 20,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00016",
+    "patient_id": "PAT0617",
+    "service_id": "SRV005",
+    "doctor_id": "DOC104",
+    "sessions_count": 4,
+    "last_used_date": "2025-09-11"
+  },
+  {
+    "id": "USG00017",
+    "patient_id": "PAT0509",
+    "service_id": "SRV009",
+    "doctor_id": "DOC115",
+    "sessions_count": 24,
+    "last_used_date": "2025-10-21"
+  },
+  {
+    "id": "USG00018",
+    "patient_id": "PAT0040",
+    "service_id": "SRV006",
+    "doctor_id": "DOC056",
+    "sessions_count": 5,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00019",
+    "patient_id": "PAT0033",
+    "service_id": "SRV009",
+    "doctor_id": "DOC074",
+    "sessions_count": 15,
+    "last_used_date": "2026-02-05"
+  },
+  {
+    "id": "USG00020",
+    "patient_id": "PAT0534",
+    "service_id": "SRV005",
+    "doctor_id": "DOC003",
+    "sessions_count": 1,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00021",
+    "patient_id": "PAT0118",
+    "service_id": "SRV006",
+    "doctor_id": "DOC061",
+    "sessions_count": 14,
+    "last_used_date": "2026-01-02"
+  },
+  {
+    "id": "USG00022",
+    "patient_id": "PAT0396",
+    "service_id": "SRV003",
+    "doctor_id": "DOC094",
+    "sessions_count": 23,
+    "last_used_date": "2025-09-06"
+  },
+  {
+    "id": "USG00023",
+    "patient_id": "PAT0498",
+    "service_id": "SRV009",
+    "doctor_id": "DOC081",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00024",
+    "patient_id": "PAT0129",
+    "service_id": "SRV006",
+    "doctor_id": "DOC086",
+    "sessions_count": 10,
+    "last_used_date": "2026-01-25"
+  },
+  {
+    "id": "USG00025",
+    "patient_id": "PAT0154",
+    "service_id": "SRV005",
+    "doctor_id": "DOC075",
+    "sessions_count": 14,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00026",
+    "patient_id": "PAT0412",
+    "service_id": "SRV008",
+    "doctor_id": "DOC070",
+    "sessions_count": 19,
+    "last_used_date": "2026-02-26"
+  },
+  {
+    "id": "USG00027",
+    "patient_id": "PAT0057",
+    "service_id": "SRV008",
+    "doctor_id": "DOC048",
+    "sessions_count": 14,
+    "last_used_date": "2025-10-05"
+  },
+  {
+    "id": "USG00028",
+    "patient_id": "PAT0484",
+    "service_id": "SRV010",
+    "doctor_id": "DOC020",
+    "sessions_count": 22,
+    "last_used_date": "2026-02-05"
+  },
+  {
+    "id": "USG00029",
+    "patient_id": "PAT0025",
+    "service_id": "SRV002",
+    "doctor_id": "DOC106",
+    "sessions_count": 8,
+    "last_used_date": "2025-10-13"
+  },
+  {
+    "id": "USG00030",
+    "patient_id": "PAT0530",
+    "service_id": "SRV003",
+    "doctor_id": "DOC071",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00031",
+    "patient_id": "PAT0571",
+    "service_id": "SRV007",
+    "doctor_id": "DOC060",
+    "sessions_count": 8,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00032",
+    "patient_id": "PAT0139",
+    "service_id": "SRV004",
+    "doctor_id": "DOC004",
+    "sessions_count": 20,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00033",
+    "patient_id": "PAT0538",
+    "service_id": "SRV007",
+    "doctor_id": "DOC118",
+    "sessions_count": 21,
+    "last_used_date": "2025-11-28"
+  },
+  {
+    "id": "USG00034",
+    "patient_id": "PAT0259",
+    "service_id": "SRV007",
+    "doctor_id": "DOC055",
+    "sessions_count": 6,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00035",
+    "patient_id": "PAT0577",
+    "service_id": "SRV007",
+    "doctor_id": "DOC001",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00036",
+    "patient_id": "PAT0370",
+    "service_id": "SRV007",
+    "doctor_id": "DOC071",
+    "sessions_count": 21,
+    "last_used_date": "2025-12-16"
+  },
+  {
+    "id": "USG00037",
+    "patient_id": "PAT0568",
+    "service_id": "SRV001",
+    "doctor_id": "DOC101",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00038",
+    "patient_id": "PAT0082",
+    "service_id": "SRV012",
+    "doctor_id": "DOC118",
+    "sessions_count": 14,
+    "last_used_date": "2025-11-17"
+  },
+  {
+    "id": "USG00039",
+    "patient_id": "PAT0150",
+    "service_id": "SRV008",
+    "doctor_id": "DOC005",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-10"
+  },
+  {
+    "id": "USG00040",
+    "patient_id": "PAT0409",
+    "service_id": "SRV001",
+    "doctor_id": "DOC017",
+    "sessions_count": 5,
+    "last_used_date": "2025-08-22"
+  },
+  {
+    "id": "USG00041",
+    "patient_id": "PAT0439",
+    "service_id": "SRV007",
+    "doctor_id": "DOC098",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00042",
+    "patient_id": "PAT0038",
+    "service_id": "SRV010",
+    "doctor_id": "DOC009",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00043",
+    "patient_id": "PAT0620",
+    "service_id": "SRV001",
+    "doctor_id": "DOC116",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00044",
+    "patient_id": "PAT0612",
+    "service_id": "SRV002",
+    "doctor_id": "DOC052",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-31"
+  },
+  {
+    "id": "USG00045",
+    "patient_id": "PAT0608",
+    "service_id": "SRV006",
+    "doctor_id": "DOC059",
+    "sessions_count": 24,
+    "last_used_date": "2025-12-29"
+  },
+  {
+    "id": "USG00046",
+    "patient_id": "PAT0255",
+    "service_id": "SRV001",
+    "doctor_id": "DOC118",
+    "sessions_count": 17,
+    "last_used_date": "2025-07-02"
+  },
+  {
+    "id": "USG00047",
+    "patient_id": "PAT0276",
+    "service_id": "SRV007",
+    "doctor_id": "DOC098",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-11"
+  },
+  {
+    "id": "USG00048",
+    "patient_id": "PAT0306",
+    "service_id": "SRV011",
+    "doctor_id": "DOC115",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00049",
+    "patient_id": "PAT0323",
+    "service_id": "SRV003",
+    "doctor_id": "DOC084",
+    "sessions_count": 22,
+    "last_used_date": "2025-10-03"
+  },
+  {
+    "id": "USG00050",
+    "patient_id": "PAT0564",
+    "service_id": "SRV010",
+    "doctor_id": "DOC024",
+    "sessions_count": 7,
+    "last_used_date": "2026-03-29"
+  },
+  {
+    "id": "USG00051",
+    "patient_id": "PAT0058",
+    "service_id": "SRV008",
+    "doctor_id": "DOC008",
+    "sessions_count": 14,
+    "last_used_date": "2026-01-14"
+  },
+  {
+    "id": "USG00052",
+    "patient_id": "PAT0407",
+    "service_id": "SRV006",
+    "doctor_id": "DOC083",
+    "sessions_count": 4,
+    "last_used_date": "2026-02-20"
+  },
+  {
+    "id": "USG00053",
+    "patient_id": "PAT0047",
+    "service_id": "SRV012",
+    "doctor_id": "DOC099",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-22"
+  },
+  {
+    "id": "USG00054",
+    "patient_id": "PAT0414",
+    "service_id": "SRV002",
+    "doctor_id": "DOC058",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-15"
+  },
+  {
+    "id": "USG00055",
+    "patient_id": "PAT0096",
+    "service_id": "SRV004",
+    "doctor_id": "DOC090",
+    "sessions_count": 21,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00056",
+    "patient_id": "PAT0151",
+    "service_id": "SRV006",
+    "doctor_id": "DOC041",
+    "sessions_count": 9,
+    "last_used_date": "2025-08-14"
+  },
+  {
+    "id": "USG00057",
+    "patient_id": "PAT0181",
+    "service_id": "SRV003",
+    "doctor_id": "DOC096",
+    "sessions_count": 9,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00058",
+    "patient_id": "PAT0252",
+    "service_id": "SRV005",
+    "doctor_id": "DOC076",
+    "sessions_count": 22,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00059",
+    "patient_id": "PAT0424",
+    "service_id": "SRV006",
+    "doctor_id": "DOC019",
+    "sessions_count": 22,
+    "last_used_date": "2025-11-09"
+  },
+  {
+    "id": "USG00060",
+    "patient_id": "PAT0365",
+    "service_id": "SRV001",
+    "doctor_id": "DOC050",
+    "sessions_count": 16,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00061",
+    "patient_id": "PAT0503",
+    "service_id": "SRV011",
+    "doctor_id": "DOC055",
+    "sessions_count": 14,
+    "last_used_date": "2026-04-07"
+  },
+  {
+    "id": "USG00062",
+    "patient_id": "PAT0016",
+    "service_id": "SRV003",
+    "doctor_id": "DOC077",
+    "sessions_count": 19,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00063",
+    "patient_id": "PAT0361",
+    "service_id": "SRV004",
+    "doctor_id": "DOC063",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00064",
+    "patient_id": "PAT0511",
+    "service_id": "SRV006",
+    "doctor_id": "DOC040",
+    "sessions_count": 18,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00065",
+    "patient_id": "PAT0506",
+    "service_id": "SRV006",
+    "doctor_id": "DOC024",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-11"
+  },
+  {
+    "id": "USG00066",
+    "patient_id": "PAT0267",
+    "service_id": "SRV012",
+    "doctor_id": "DOC057",
+    "sessions_count": 11,
+    "last_used_date": "2025-11-18"
+  },
+  {
+    "id": "USG00067",
+    "patient_id": "PAT0168",
+    "service_id": "SRV009",
+    "doctor_id": "DOC112",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-06"
+  },
+  {
+    "id": "USG00068",
+    "patient_id": "PAT0051",
+    "service_id": "SRV002",
+    "doctor_id": "DOC111",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00069",
+    "patient_id": "PAT0021",
+    "service_id": "SRV011",
+    "doctor_id": "DOC076",
+    "sessions_count": 20,
+    "last_used_date": "2025-09-19"
+  },
+  {
+    "id": "USG00070",
+    "patient_id": "PAT0507",
+    "service_id": "SRV008",
+    "doctor_id": "DOC002",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00071",
+    "patient_id": "PAT0295",
+    "service_id": "SRV004",
+    "doctor_id": "DOC110",
+    "sessions_count": 19,
+    "last_used_date": "2025-10-29"
+  },
+  {
+    "id": "USG00072",
+    "patient_id": "PAT0317",
+    "service_id": "SRV006",
+    "doctor_id": "DOC043",
+    "sessions_count": 16,
+    "last_used_date": "2026-02-02"
+  },
+  {
+    "id": "USG00073",
+    "patient_id": "PAT0290",
+    "service_id": "SRV012",
+    "doctor_id": "DOC036",
+    "sessions_count": 16,
+    "last_used_date": "2025-07-18"
+  },
+  {
+    "id": "USG00074",
+    "patient_id": "PAT0466",
+    "service_id": "SRV003",
+    "doctor_id": "DOC012",
+    "sessions_count": 13,
+    "last_used_date": "2025-11-30"
+  },
+  {
+    "id": "USG00075",
+    "patient_id": "PAT0281",
+    "service_id": "SRV010",
+    "doctor_id": "DOC008",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-18"
+  },
+  {
+    "id": "USG00076",
+    "patient_id": "PAT0523",
+    "service_id": "SRV004",
+    "doctor_id": "DOC023",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00077",
+    "patient_id": "PAT0011",
+    "service_id": "SRV007",
+    "doctor_id": "DOC033",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00078",
+    "patient_id": "PAT0077",
+    "service_id": "SRV001",
+    "doctor_id": "DOC011",
+    "sessions_count": 15,
+    "last_used_date": "2025-09-30"
+  },
+  {
+    "id": "USG00079",
+    "patient_id": "PAT0573",
+    "service_id": "SRV005",
+    "doctor_id": "DOC042",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00080",
+    "patient_id": "PAT0170",
+    "service_id": "SRV010",
+    "doctor_id": "DOC043",
+    "sessions_count": 21,
+    "last_used_date": "2025-12-01"
+  },
+  {
+    "id": "USG00081",
+    "patient_id": "PAT0266",
+    "service_id": "SRV003",
+    "doctor_id": "DOC049",
+    "sessions_count": 5,
+    "last_used_date": "2025-09-13"
+  },
+  {
+    "id": "USG00082",
+    "patient_id": "PAT0434",
+    "service_id": "SRV006",
+    "doctor_id": "DOC094",
+    "sessions_count": 16,
+    "last_used_date": "2026-02-26"
+  },
+  {
+    "id": "USG00083",
+    "patient_id": "PAT0052",
+    "service_id": "SRV003",
+    "doctor_id": "DOC069",
+    "sessions_count": 3,
+    "last_used_date": "2025-11-30"
+  },
+  {
+    "id": "USG00084",
+    "patient_id": "PAT0002",
+    "service_id": "SRV006",
+    "doctor_id": "DOC073",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00085",
+    "patient_id": "PAT0587",
+    "service_id": "SRV010",
+    "doctor_id": "DOC114",
+    "sessions_count": 17,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00086",
+    "patient_id": "PAT0268",
+    "service_id": "SRV004",
+    "doctor_id": "DOC018",
+    "sessions_count": 13,
+    "last_used_date": "2025-11-20"
+  },
+  {
+    "id": "USG00087",
+    "patient_id": "PAT0359",
+    "service_id": "SRV002",
+    "doctor_id": "DOC114",
+    "sessions_count": 7,
+    "last_used_date": "2025-10-27"
+  },
+  {
+    "id": "USG00088",
+    "patient_id": "PAT0272",
+    "service_id": "SRV005",
+    "doctor_id": "DOC054",
+    "sessions_count": 15,
+    "last_used_date": "2025-11-23"
+  },
+  {
+    "id": "USG00089",
+    "patient_id": "PAT0028",
+    "service_id": "SRV009",
+    "doctor_id": "DOC053",
+    "sessions_count": 21,
+    "last_used_date": "2025-07-02"
+  },
+  {
+    "id": "USG00090",
+    "patient_id": "PAT0222",
+    "service_id": "SRV002",
+    "doctor_id": "DOC022",
+    "sessions_count": 20,
+    "last_used_date": "2025-11-15"
+  },
+  {
+    "id": "USG00091",
+    "patient_id": "PAT0300",
+    "service_id": "SRV004",
+    "doctor_id": "DOC116",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00092",
+    "patient_id": "PAT0276",
+    "service_id": "SRV006",
+    "doctor_id": "DOC098",
+    "sessions_count": 7,
+    "last_used_date": "2026-04-04"
+  },
+  {
+    "id": "USG00093",
+    "patient_id": "PAT0127",
+    "service_id": "SRV003",
+    "doctor_id": "DOC117",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00094",
+    "patient_id": "PAT0104",
+    "service_id": "SRV002",
+    "doctor_id": "DOC018",
+    "sessions_count": 21,
+    "last_used_date": "2025-10-26"
+  },
+  {
+    "id": "USG00095",
+    "patient_id": "PAT0156",
+    "service_id": "SRV002",
+    "doctor_id": "DOC089",
+    "sessions_count": 9,
+    "last_used_date": "2025-09-27"
+  },
+  {
+    "id": "USG00096",
+    "patient_id": "PAT0508",
+    "service_id": "SRV009",
+    "doctor_id": "DOC043",
+    "sessions_count": 15,
+    "last_used_date": "2026-02-28"
+  },
+  {
+    "id": "USG00097",
+    "patient_id": "PAT0467",
+    "service_id": "SRV001",
+    "doctor_id": "DOC009",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-25"
+  },
+  {
+    "id": "USG00098",
+    "patient_id": "PAT0455",
+    "service_id": "SRV001",
+    "doctor_id": "DOC033",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00099",
+    "patient_id": "PAT0021",
+    "service_id": "SRV011",
+    "doctor_id": "DOC076",
+    "sessions_count": 22,
+    "last_used_date": "2025-12-07"
+  },
+  {
+    "id": "USG00100",
+    "patient_id": "PAT0223",
+    "service_id": "SRV003",
+    "doctor_id": "DOC039",
+    "sessions_count": 9,
+    "last_used_date": "2026-03-04"
+  },
+  {
+    "id": "USG00101",
+    "patient_id": "PAT0208",
+    "service_id": "SRV003",
+    "doctor_id": "DOC059",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00102",
+    "patient_id": "PAT0004",
+    "service_id": "SRV008",
+    "doctor_id": "DOC031",
+    "sessions_count": 9,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00103",
+    "patient_id": "PAT0503",
+    "service_id": "SRV001",
+    "doctor_id": "DOC055",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00104",
+    "patient_id": "PAT0248",
+    "service_id": "SRV008",
+    "doctor_id": "DOC073",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00105",
+    "patient_id": "PAT0337",
+    "service_id": "SRV003",
+    "doctor_id": "DOC113",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00106",
+    "patient_id": "PAT0604",
+    "service_id": "SRV010",
+    "doctor_id": "DOC074",
+    "sessions_count": 19,
+    "last_used_date": "2025-12-27"
+  },
+  {
+    "id": "USG00107",
+    "patient_id": "PAT0112",
+    "service_id": "SRV009",
+    "doctor_id": "DOC079",
+    "sessions_count": 9,
+    "last_used_date": "2026-01-17"
+  },
+  {
+    "id": "USG00108",
+    "patient_id": "PAT0111",
+    "service_id": "SRV011",
+    "doctor_id": "DOC077",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00109",
+    "patient_id": "PAT0520",
+    "service_id": "SRV006",
+    "doctor_id": "DOC001",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00110",
+    "patient_id": "PAT0158",
+    "service_id": "SRV009",
+    "doctor_id": "DOC070",
+    "sessions_count": 5,
+    "last_used_date": "2025-12-15"
+  },
+  {
+    "id": "USG00111",
+    "patient_id": "PAT0620",
+    "service_id": "SRV001",
+    "doctor_id": "DOC116",
+    "sessions_count": 12,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00112",
+    "patient_id": "PAT0108",
+    "service_id": "SRV006",
+    "doctor_id": "DOC102",
+    "sessions_count": 10,
+    "last_used_date": "2025-12-25"
+  },
+  {
+    "id": "USG00113",
+    "patient_id": "PAT0458",
+    "service_id": "SRV009",
+    "doctor_id": "DOC055",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00114",
+    "patient_id": "PAT0340",
+    "service_id": "SRV012",
+    "doctor_id": "DOC110",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00115",
+    "patient_id": "PAT0457",
+    "service_id": "SRV010",
+    "doctor_id": "DOC027",
+    "sessions_count": 22,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00116",
+    "patient_id": "PAT0219",
+    "service_id": "SRV011",
+    "doctor_id": "DOC047",
+    "sessions_count": 13,
+    "last_used_date": "2025-12-05"
+  },
+  {
+    "id": "USG00117",
+    "patient_id": "PAT0066",
+    "service_id": "SRV010",
+    "doctor_id": "DOC049",
+    "sessions_count": 4,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00118",
+    "patient_id": "PAT0476",
+    "service_id": "SRV007",
+    "doctor_id": "DOC016",
+    "sessions_count": 5,
+    "last_used_date": "2025-12-16"
+  },
+  {
+    "id": "USG00119",
+    "patient_id": "PAT0116",
+    "service_id": "SRV001",
+    "doctor_id": "DOC023",
+    "sessions_count": 2,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00120",
+    "patient_id": "PAT0176",
+    "service_id": "SRV008",
+    "doctor_id": "DOC048",
+    "sessions_count": 22,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00121",
+    "patient_id": "PAT0577",
+    "service_id": "SRV006",
+    "doctor_id": "DOC001",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-22"
+  },
+  {
+    "id": "USG00122",
+    "patient_id": "PAT0058",
+    "service_id": "SRV001",
+    "doctor_id": "DOC008",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00123",
+    "patient_id": "PAT0334",
+    "service_id": "SRV004",
+    "doctor_id": "DOC034",
+    "sessions_count": 21,
+    "last_used_date": "2026-02-24"
+  },
+  {
+    "id": "USG00124",
+    "patient_id": "PAT0432",
+    "service_id": "SRV004",
+    "doctor_id": "DOC018",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00125",
+    "patient_id": "PAT0339",
+    "service_id": "SRV004",
+    "doctor_id": "DOC096",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00126",
+    "patient_id": "PAT0613",
+    "service_id": "SRV004",
+    "doctor_id": "DOC076",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-24"
+  },
+  {
+    "id": "USG00127",
+    "patient_id": "PAT0590",
+    "service_id": "SRV011",
+    "doctor_id": "DOC071",
+    "sessions_count": 16,
+    "last_used_date": "2025-11-28"
+  },
+  {
+    "id": "USG00128",
+    "patient_id": "PAT0294",
+    "service_id": "SRV011",
+    "doctor_id": "DOC041",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00129",
+    "patient_id": "PAT0528",
+    "service_id": "SRV011",
+    "doctor_id": "DOC025",
+    "sessions_count": 7,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00130",
+    "patient_id": "PAT0091",
+    "service_id": "SRV002",
+    "doctor_id": "DOC117",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-07"
+  },
+  {
+    "id": "USG00131",
+    "patient_id": "PAT0212",
+    "service_id": "SRV009",
+    "doctor_id": "DOC005",
+    "sessions_count": 22,
+    "last_used_date": "2026-04-13"
+  },
+  {
+    "id": "USG00132",
+    "patient_id": "PAT0027",
+    "service_id": "SRV008",
+    "doctor_id": "DOC063",
+    "sessions_count": 7,
+    "last_used_date": "2025-12-19"
+  },
+  {
+    "id": "USG00133",
+    "patient_id": "PAT0100",
+    "service_id": "SRV005",
+    "doctor_id": "DOC085",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00134",
+    "patient_id": "PAT0275",
+    "service_id": "SRV002",
+    "doctor_id": "DOC011",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00135",
+    "patient_id": "PAT0277",
+    "service_id": "SRV006",
+    "doctor_id": "DOC119",
+    "sessions_count": 9,
+    "last_used_date": "2026-03-21"
+  },
+  {
+    "id": "USG00136",
+    "patient_id": "PAT0208",
+    "service_id": "SRV009",
+    "doctor_id": "DOC059",
+    "sessions_count": 23,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00137",
+    "patient_id": "PAT0145",
+    "service_id": "SRV008",
+    "doctor_id": "DOC059",
+    "sessions_count": 12,
+    "last_used_date": "2025-12-28"
+  },
+  {
+    "id": "USG00138",
+    "patient_id": "PAT0462",
+    "service_id": "SRV004",
+    "doctor_id": "DOC106",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-15"
+  },
+  {
+    "id": "USG00139",
+    "patient_id": "PAT0456",
+    "service_id": "SRV001",
+    "doctor_id": "DOC001",
+    "sessions_count": 18,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00140",
+    "patient_id": "PAT0160",
+    "service_id": "SRV006",
+    "doctor_id": "DOC091",
+    "sessions_count": 4,
+    "last_used_date": "2026-01-22"
+  },
+  {
+    "id": "USG00141",
+    "patient_id": "PAT0032",
+    "service_id": "SRV004",
+    "doctor_id": "DOC045",
+    "sessions_count": 14,
+    "last_used_date": "2025-11-14"
+  },
+  {
+    "id": "USG00142",
+    "patient_id": "PAT0464",
+    "service_id": "SRV003",
+    "doctor_id": "DOC057",
+    "sessions_count": 19,
+    "last_used_date": "2025-05-20"
+  },
+  {
+    "id": "USG00143",
+    "patient_id": "PAT0108",
+    "service_id": "SRV005",
+    "doctor_id": "DOC102",
+    "sessions_count": 14,
+    "last_used_date": "2025-12-07"
+  },
+  {
+    "id": "USG00144",
+    "patient_id": "PAT0440",
+    "service_id": "SRV002",
+    "doctor_id": "DOC050",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-21"
+  },
+  {
+    "id": "USG00145",
+    "patient_id": "PAT0471",
+    "service_id": "SRV011",
+    "doctor_id": "DOC111",
+    "sessions_count": 24,
+    "last_used_date": "2025-11-28"
+  },
+  {
+    "id": "USG00146",
+    "patient_id": "PAT0341",
+    "service_id": "SRV001",
+    "doctor_id": "DOC035",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-12"
+  },
+  {
+    "id": "USG00147",
+    "patient_id": "PAT0084",
+    "service_id": "SRV001",
+    "doctor_id": "DOC032",
+    "sessions_count": 12,
+    "last_used_date": "2026-01-31"
+  },
+  {
+    "id": "USG00148",
+    "patient_id": "PAT0351",
+    "service_id": "SRV008",
+    "doctor_id": "DOC072",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00149",
+    "patient_id": "PAT0380",
+    "service_id": "SRV007",
+    "doctor_id": "DOC117",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00150",
+    "patient_id": "PAT0372",
+    "service_id": "SRV012",
+    "doctor_id": "DOC016",
+    "sessions_count": 5,
+    "last_used_date": "2026-01-21"
+  },
+  {
+    "id": "USG00151",
+    "patient_id": "PAT0603",
+    "service_id": "SRV011",
+    "doctor_id": "DOC072",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00152",
+    "patient_id": "PAT0061",
+    "service_id": "SRV006",
+    "doctor_id": "DOC033",
+    "sessions_count": 11,
+    "last_used_date": "2025-08-03"
+  },
+  {
+    "id": "USG00153",
+    "patient_id": "PAT0022",
+    "service_id": "SRV012",
+    "doctor_id": "DOC057",
+    "sessions_count": 2,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00154",
+    "patient_id": "PAT0305",
+    "service_id": "SRV007",
+    "doctor_id": "DOC045",
+    "sessions_count": 23,
+    "last_used_date": "2026-03-14"
+  },
+  {
+    "id": "USG00155",
+    "patient_id": "PAT0497",
+    "service_id": "SRV011",
+    "doctor_id": "DOC120",
+    "sessions_count": 4,
+    "last_used_date": "2025-09-27"
+  },
+  {
+    "id": "USG00156",
+    "patient_id": "PAT0385",
+    "service_id": "SRV006",
+    "doctor_id": "DOC110",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-10"
+  },
+  {
+    "id": "USG00157",
+    "patient_id": "PAT0330",
+    "service_id": "SRV004",
+    "doctor_id": "DOC104",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-16"
+  },
+  {
+    "id": "USG00158",
+    "patient_id": "PAT0001",
+    "service_id": "SRV008",
+    "doctor_id": "DOC076",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00159",
+    "patient_id": "PAT0428",
+    "service_id": "SRV003",
+    "doctor_id": "DOC071",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-04"
+  },
+  {
+    "id": "USG00160",
+    "patient_id": "PAT0387",
+    "service_id": "SRV002",
+    "doctor_id": "DOC058",
+    "sessions_count": 4,
+    "last_used_date": "2026-01-11"
+  },
+  {
+    "id": "USG00161",
+    "patient_id": "PAT0052",
+    "service_id": "SRV007",
+    "doctor_id": "DOC069",
+    "sessions_count": 20,
+    "last_used_date": "2026-01-27"
+  },
+  {
+    "id": "USG00162",
+    "patient_id": "PAT0056",
+    "service_id": "SRV004",
+    "doctor_id": "DOC094",
+    "sessions_count": 11,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00163",
+    "patient_id": "PAT0591",
+    "service_id": "SRV001",
+    "doctor_id": "DOC025",
+    "sessions_count": 15,
+    "last_used_date": "2025-12-29"
+  },
+  {
+    "id": "USG00164",
+    "patient_id": "PAT0588",
+    "service_id": "SRV011",
+    "doctor_id": "DOC102",
+    "sessions_count": 14,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00165",
+    "patient_id": "PAT0208",
+    "service_id": "SRV002",
+    "doctor_id": "DOC059",
+    "sessions_count": 15,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00166",
+    "patient_id": "PAT0034",
+    "service_id": "SRV010",
+    "doctor_id": "DOC050",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00167",
+    "patient_id": "PAT0563",
+    "service_id": "SRV008",
+    "doctor_id": "DOC088",
+    "sessions_count": 3,
+    "last_used_date": "2025-10-04"
+  },
+  {
+    "id": "USG00168",
+    "patient_id": "PAT0153",
+    "service_id": "SRV003",
+    "doctor_id": "DOC102",
+    "sessions_count": 1,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00169",
+    "patient_id": "PAT0526",
+    "service_id": "SRV011",
+    "doctor_id": "DOC114",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-08"
+  },
+  {
+    "id": "USG00170",
+    "patient_id": "PAT0481",
+    "service_id": "SRV008",
+    "doctor_id": "DOC031",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00171",
+    "patient_id": "PAT0517",
+    "service_id": "SRV003",
+    "doctor_id": "DOC046",
+    "sessions_count": 12,
+    "last_used_date": "2025-11-21"
+  },
+  {
+    "id": "USG00172",
+    "patient_id": "PAT0413",
+    "service_id": "SRV009",
+    "doctor_id": "DOC028",
+    "sessions_count": 22,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00173",
+    "patient_id": "PAT0442",
+    "service_id": "SRV003",
+    "doctor_id": "DOC115",
+    "sessions_count": 17,
+    "last_used_date": "2026-01-28"
+  },
+  {
+    "id": "USG00174",
+    "patient_id": "PAT0192",
+    "service_id": "SRV012",
+    "doctor_id": "DOC097",
+    "sessions_count": 2,
+    "last_used_date": "2026-03-06"
+  },
+  {
+    "id": "USG00175",
+    "patient_id": "PAT0584",
+    "service_id": "SRV012",
+    "doctor_id": "DOC068",
+    "sessions_count": 11,
+    "last_used_date": "2026-04-03"
+  },
+  {
+    "id": "USG00176",
+    "patient_id": "PAT0264",
+    "service_id": "SRV008",
+    "doctor_id": "DOC029",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00177",
+    "patient_id": "PAT0119",
+    "service_id": "SRV004",
+    "doctor_id": "DOC016",
+    "sessions_count": 5,
+    "last_used_date": "2026-01-04"
+  },
+  {
+    "id": "USG00178",
+    "patient_id": "PAT0090",
+    "service_id": "SRV002",
+    "doctor_id": "DOC111",
+    "sessions_count": 24,
+    "last_used_date": "2025-12-05"
+  },
+  {
+    "id": "USG00179",
+    "patient_id": "PAT0535",
+    "service_id": "SRV002",
+    "doctor_id": "DOC020",
+    "sessions_count": 6,
+    "last_used_date": "2025-12-03"
+  },
+  {
+    "id": "USG00180",
+    "patient_id": "PAT0548",
+    "service_id": "SRV003",
+    "doctor_id": "DOC089",
+    "sessions_count": 20,
+    "last_used_date": "2025-11-28"
+  },
+  {
+    "id": "USG00181",
+    "patient_id": "PAT0122",
+    "service_id": "SRV011",
+    "doctor_id": "DOC092",
+    "sessions_count": 14,
+    "last_used_date": "2026-02-08"
+  },
+  {
+    "id": "USG00182",
+    "patient_id": "PAT0334",
+    "service_id": "SRV001",
+    "doctor_id": "DOC034",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00183",
+    "patient_id": "PAT0172",
+    "service_id": "SRV011",
+    "doctor_id": "DOC013",
+    "sessions_count": 12,
+    "last_used_date": "2025-11-25"
+  },
+  {
+    "id": "USG00184",
+    "patient_id": "PAT0584",
+    "service_id": "SRV007",
+    "doctor_id": "DOC068",
+    "sessions_count": 3,
+    "last_used_date": "2025-12-19"
+  },
+  {
+    "id": "USG00185",
+    "patient_id": "PAT0229",
+    "service_id": "SRV002",
+    "doctor_id": "DOC018",
+    "sessions_count": 4,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00186",
+    "patient_id": "PAT0525",
+    "service_id": "SRV012",
+    "doctor_id": "DOC002",
+    "sessions_count": 13,
+    "last_used_date": "2025-09-27"
+  },
+  {
+    "id": "USG00187",
+    "patient_id": "PAT0595",
+    "service_id": "SRV001",
+    "doctor_id": "DOC111",
+    "sessions_count": 15,
+    "last_used_date": "2025-10-16"
+  },
+  {
+    "id": "USG00188",
+    "patient_id": "PAT0609",
+    "service_id": "SRV001",
+    "doctor_id": "DOC034",
+    "sessions_count": 10,
+    "last_used_date": "2026-01-24"
+  },
+  {
+    "id": "USG00189",
+    "patient_id": "PAT0289",
+    "service_id": "SRV010",
+    "doctor_id": "DOC049",
+    "sessions_count": 12,
+    "last_used_date": "2025-12-15"
+  },
+  {
+    "id": "USG00190",
+    "patient_id": "PAT0560",
+    "service_id": "SRV002",
+    "doctor_id": "DOC072",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-16"
+  },
+  {
+    "id": "USG00191",
+    "patient_id": "PAT0262",
+    "service_id": "SRV003",
+    "doctor_id": "DOC112",
+    "sessions_count": 3,
+    "last_used_date": "2026-01-26"
+  },
+  {
+    "id": "USG00192",
+    "patient_id": "PAT0075",
+    "service_id": "SRV010",
+    "doctor_id": "DOC082",
+    "sessions_count": 18,
+    "last_used_date": "2025-08-10"
+  },
+  {
+    "id": "USG00193",
+    "patient_id": "PAT0611",
+    "service_id": "SRV001",
+    "doctor_id": "DOC066",
+    "sessions_count": 14,
+    "last_used_date": "2025-07-07"
+  },
+  {
+    "id": "USG00194",
+    "patient_id": "PAT0052",
+    "service_id": "SRV011",
+    "doctor_id": "DOC069",
+    "sessions_count": 10,
+    "last_used_date": "2026-02-09"
+  },
+  {
+    "id": "USG00195",
+    "patient_id": "PAT0316",
+    "service_id": "SRV002",
+    "doctor_id": "DOC109",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00196",
+    "patient_id": "PAT0399",
+    "service_id": "SRV002",
+    "doctor_id": "DOC027",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-27"
+  },
+  {
+    "id": "USG00197",
+    "patient_id": "PAT0156",
+    "service_id": "SRV010",
+    "doctor_id": "DOC089",
+    "sessions_count": 14,
+    "last_used_date": "2026-01-07"
+  },
+  {
+    "id": "USG00198",
+    "patient_id": "PAT0481",
+    "service_id": "SRV001",
+    "doctor_id": "DOC031",
+    "sessions_count": 24,
+    "last_used_date": "2026-02-09"
+  },
+  {
+    "id": "USG00199",
+    "patient_id": "PAT0532",
+    "service_id": "SRV012",
+    "doctor_id": "DOC049",
+    "sessions_count": 9,
+    "last_used_date": "2026-03-27"
+  },
+  {
+    "id": "USG00200",
+    "patient_id": "PAT0012",
+    "service_id": "SRV005",
+    "doctor_id": "DOC020",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00201",
+    "patient_id": "PAT0604",
+    "service_id": "SRV012",
+    "doctor_id": "DOC074",
+    "sessions_count": 6,
+    "last_used_date": "2025-11-28"
+  },
+  {
+    "id": "USG00202",
+    "patient_id": "PAT0292",
+    "service_id": "SRV001",
+    "doctor_id": "DOC017",
+    "sessions_count": 7,
+    "last_used_date": "2025-09-12"
+  },
+  {
+    "id": "USG00203",
+    "patient_id": "PAT0086",
+    "service_id": "SRV006",
+    "doctor_id": "DOC105",
+    "sessions_count": 17,
+    "last_used_date": "2025-08-22"
+  },
+  {
+    "id": "USG00204",
+    "patient_id": "PAT0424",
+    "service_id": "SRV002",
+    "doctor_id": "DOC019",
+    "sessions_count": 18,
+    "last_used_date": "2026-01-27"
+  },
+  {
+    "id": "USG00205",
+    "patient_id": "PAT0446",
+    "service_id": "SRV003",
+    "doctor_id": "DOC107",
+    "sessions_count": 20,
+    "last_used_date": "2026-01-08"
+  },
+  {
+    "id": "USG00206",
+    "patient_id": "PAT0312",
+    "service_id": "SRV011",
+    "doctor_id": "DOC076",
+    "sessions_count": 21,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00207",
+    "patient_id": "PAT0103",
+    "service_id": "SRV010",
+    "doctor_id": "DOC057",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00208",
+    "patient_id": "PAT0519",
+    "service_id": "SRV004",
+    "doctor_id": "DOC118",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00209",
+    "patient_id": "PAT0587",
+    "service_id": "SRV001",
+    "doctor_id": "DOC114",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00210",
+    "patient_id": "PAT0238",
+    "service_id": "SRV004",
+    "doctor_id": "DOC023",
+    "sessions_count": 5,
+    "last_used_date": "2026-03-16"
+  },
+  {
+    "id": "USG00211",
+    "patient_id": "PAT0149",
+    "service_id": "SRV008",
+    "doctor_id": "DOC048",
+    "sessions_count": 16,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00212",
+    "patient_id": "PAT0057",
+    "service_id": "SRV009",
+    "doctor_id": "DOC048",
+    "sessions_count": 22,
+    "last_used_date": "2025-11-16"
+  },
+  {
+    "id": "USG00213",
+    "patient_id": "PAT0170",
+    "service_id": "SRV007",
+    "doctor_id": "DOC043",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-13"
+  },
+  {
+    "id": "USG00214",
+    "patient_id": "PAT0370",
+    "service_id": "SRV012",
+    "doctor_id": "DOC071",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-15"
+  },
+  {
+    "id": "USG00215",
+    "patient_id": "PAT0285",
+    "service_id": "SRV005",
+    "doctor_id": "DOC029",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-02"
+  },
+  {
+    "id": "USG00216",
+    "patient_id": "PAT0536",
+    "service_id": "SRV011",
+    "doctor_id": "DOC073",
+    "sessions_count": 11,
+    "last_used_date": "2025-08-26"
+  },
+  {
+    "id": "USG00217",
+    "patient_id": "PAT0348",
+    "service_id": "SRV008",
+    "doctor_id": "DOC002",
+    "sessions_count": 4,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00218",
+    "patient_id": "PAT0380",
+    "service_id": "SRV002",
+    "doctor_id": "DOC117",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-17"
+  },
+  {
+    "id": "USG00219",
+    "patient_id": "PAT0378",
+    "service_id": "SRV004",
+    "doctor_id": "DOC012",
+    "sessions_count": 12,
+    "last_used_date": "2025-12-22"
+  },
+  {
+    "id": "USG00220",
+    "patient_id": "PAT0015",
+    "service_id": "SRV009",
+    "doctor_id": "DOC085",
+    "sessions_count": 8,
+    "last_used_date": "2025-10-03"
+  },
+  {
+    "id": "USG00221",
+    "patient_id": "PAT0121",
+    "service_id": "SRV008",
+    "doctor_id": "DOC106",
+    "sessions_count": 11,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00222",
+    "patient_id": "PAT0154",
+    "service_id": "SRV011",
+    "doctor_id": "DOC075",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-06"
+  },
+  {
+    "id": "USG00223",
+    "patient_id": "PAT0241",
+    "service_id": "SRV005",
+    "doctor_id": "DOC024",
+    "sessions_count": 7,
+    "last_used_date": "2025-12-16"
+  },
+  {
+    "id": "USG00224",
+    "patient_id": "PAT0583",
+    "service_id": "SRV006",
+    "doctor_id": "DOC098",
+    "sessions_count": 14,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00225",
+    "patient_id": "PAT0334",
+    "service_id": "SRV007",
+    "doctor_id": "DOC034",
+    "sessions_count": 16,
+    "last_used_date": "2025-11-27"
+  },
+  {
+    "id": "USG00226",
+    "patient_id": "PAT0203",
+    "service_id": "SRV004",
+    "doctor_id": "DOC083",
+    "sessions_count": 14,
+    "last_used_date": "2025-12-13"
+  },
+  {
+    "id": "USG00227",
+    "patient_id": "PAT0266",
+    "service_id": "SRV012",
+    "doctor_id": "DOC049",
+    "sessions_count": 17,
+    "last_used_date": "2025-12-26"
+  },
+  {
+    "id": "USG00228",
+    "patient_id": "PAT0046",
+    "service_id": "SRV005",
+    "doctor_id": "DOC107",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-17"
+  },
+  {
+    "id": "USG00229",
+    "patient_id": "PAT0300",
+    "service_id": "SRV001",
+    "doctor_id": "DOC116",
+    "sessions_count": 6,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00230",
+    "patient_id": "PAT0532",
+    "service_id": "SRV007",
+    "doctor_id": "DOC049",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-06"
+  },
+  {
+    "id": "USG00231",
+    "patient_id": "PAT0535",
+    "service_id": "SRV008",
+    "doctor_id": "DOC020",
+    "sessions_count": 24,
+    "last_used_date": "2025-10-15"
+  },
+  {
+    "id": "USG00232",
+    "patient_id": "PAT0463",
+    "service_id": "SRV001",
+    "doctor_id": "DOC005",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00233",
+    "patient_id": "PAT0370",
+    "service_id": "SRV009",
+    "doctor_id": "DOC071",
+    "sessions_count": 13,
+    "last_used_date": "2026-01-08"
+  },
+  {
+    "id": "USG00234",
+    "patient_id": "PAT0020",
+    "service_id": "SRV009",
+    "doctor_id": "DOC077",
+    "sessions_count": 18,
+    "last_used_date": "2025-06-25"
+  },
+  {
+    "id": "USG00235",
+    "patient_id": "PAT0137",
+    "service_id": "SRV011",
+    "doctor_id": "DOC022",
+    "sessions_count": 7,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00236",
+    "patient_id": "PAT0085",
+    "service_id": "SRV007",
+    "doctor_id": "DOC043",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00237",
+    "patient_id": "PAT0066",
+    "service_id": "SRV002",
+    "doctor_id": "DOC049",
+    "sessions_count": 5,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00238",
+    "patient_id": "PAT0461",
+    "service_id": "SRV012",
+    "doctor_id": "DOC101",
+    "sessions_count": 10,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00239",
+    "patient_id": "PAT0098",
+    "service_id": "SRV005",
+    "doctor_id": "DOC055",
+    "sessions_count": 11,
+    "last_used_date": "2026-03-18"
+  },
+  {
+    "id": "USG00240",
+    "patient_id": "PAT0389",
+    "service_id": "SRV012",
+    "doctor_id": "DOC044",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00241",
+    "patient_id": "PAT0432",
+    "service_id": "SRV004",
+    "doctor_id": "DOC018",
+    "sessions_count": 15,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00242",
+    "patient_id": "PAT0605",
+    "service_id": "SRV010",
+    "doctor_id": "DOC061",
+    "sessions_count": 17,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00243",
+    "patient_id": "PAT0032",
+    "service_id": "SRV012",
+    "doctor_id": "DOC045",
+    "sessions_count": 6,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00244",
+    "patient_id": "PAT0553",
+    "service_id": "SRV010",
+    "doctor_id": "DOC069",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-27"
+  },
+  {
+    "id": "USG00245",
+    "patient_id": "PAT0154",
+    "service_id": "SRV011",
+    "doctor_id": "DOC075",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-15"
+  },
+  {
+    "id": "USG00246",
+    "patient_id": "PAT0400",
+    "service_id": "SRV006",
+    "doctor_id": "DOC082",
+    "sessions_count": 12,
+    "last_used_date": "2026-02-10"
+  },
+  {
+    "id": "USG00247",
+    "patient_id": "PAT0200",
+    "service_id": "SRV011",
+    "doctor_id": "DOC034",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00248",
+    "patient_id": "PAT0341",
+    "service_id": "SRV002",
+    "doctor_id": "DOC035",
+    "sessions_count": 13,
+    "last_used_date": "2026-01-14"
+  },
+  {
+    "id": "USG00249",
+    "patient_id": "PAT0159",
+    "service_id": "SRV003",
+    "doctor_id": "DOC032",
+    "sessions_count": 22,
+    "last_used_date": "2025-11-03"
+  },
+  {
+    "id": "USG00250",
+    "patient_id": "PAT0211",
+    "service_id": "SRV005",
+    "doctor_id": "DOC028",
+    "sessions_count": 9,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00251",
+    "patient_id": "PAT0135",
+    "service_id": "SRV010",
+    "doctor_id": "DOC029",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00252",
+    "patient_id": "PAT0125",
+    "service_id": "SRV004",
+    "doctor_id": "DOC005",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00253",
+    "patient_id": "PAT0573",
+    "service_id": "SRV011",
+    "doctor_id": "DOC042",
+    "sessions_count": 24,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00254",
+    "patient_id": "PAT0443",
+    "service_id": "SRV010",
+    "doctor_id": "DOC063",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00255",
+    "patient_id": "PAT0614",
+    "service_id": "SRV005",
+    "doctor_id": "DOC095",
+    "sessions_count": 11,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00256",
+    "patient_id": "PAT0077",
+    "service_id": "SRV001",
+    "doctor_id": "DOC011",
+    "sessions_count": 17,
+    "last_used_date": "2025-12-29"
+  },
+  {
+    "id": "USG00257",
+    "patient_id": "PAT0205",
+    "service_id": "SRV009",
+    "doctor_id": "DOC086",
+    "sessions_count": 5,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00258",
+    "patient_id": "PAT0073",
+    "service_id": "SRV007",
+    "doctor_id": "DOC079",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-20"
+  },
+  {
+    "id": "USG00259",
+    "patient_id": "PAT0387",
+    "service_id": "SRV001",
+    "doctor_id": "DOC058",
+    "sessions_count": 16,
+    "last_used_date": "2025-12-30"
+  },
+  {
+    "id": "USG00260",
+    "patient_id": "PAT0520",
+    "service_id": "SRV006",
+    "doctor_id": "DOC001",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00261",
+    "patient_id": "PAT0252",
+    "service_id": "SRV007",
+    "doctor_id": "DOC076",
+    "sessions_count": 1,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00262",
+    "patient_id": "PAT0369",
+    "service_id": "SRV007",
+    "doctor_id": "DOC007",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00263",
+    "patient_id": "PAT0426",
+    "service_id": "SRV003",
+    "doctor_id": "DOC095",
+    "sessions_count": 22,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00264",
+    "patient_id": "PAT0596",
+    "service_id": "SRV007",
+    "doctor_id": "DOC048",
+    "sessions_count": 7,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00265",
+    "patient_id": "PAT0327",
+    "service_id": "SRV003",
+    "doctor_id": "DOC011",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-13"
+  },
+  {
+    "id": "USG00266",
+    "patient_id": "PAT0597",
+    "service_id": "SRV011",
+    "doctor_id": "DOC117",
+    "sessions_count": 17,
+    "last_used_date": "2025-06-22"
+  },
+  {
+    "id": "USG00267",
+    "patient_id": "PAT0532",
+    "service_id": "SRV007",
+    "doctor_id": "DOC049",
+    "sessions_count": 3,
+    "last_used_date": "2026-02-14"
+  },
+  {
+    "id": "USG00268",
+    "patient_id": "PAT0004",
+    "service_id": "SRV008",
+    "doctor_id": "DOC031",
+    "sessions_count": 24,
+    "last_used_date": "2025-12-25"
+  },
+  {
+    "id": "USG00269",
+    "patient_id": "PAT0179",
+    "service_id": "SRV004",
+    "doctor_id": "DOC027",
+    "sessions_count": 14,
+    "last_used_date": "2026-04-20"
+  },
+  {
+    "id": "USG00270",
+    "patient_id": "PAT0524",
+    "service_id": "SRV001",
+    "doctor_id": "DOC085",
+    "sessions_count": 18,
+    "last_used_date": "2026-03-16"
+  },
+  {
+    "id": "USG00271",
+    "patient_id": "PAT0518",
+    "service_id": "SRV005",
+    "doctor_id": "DOC063",
+    "sessions_count": 16,
+    "last_used_date": "2025-12-22"
+  },
+  {
+    "id": "USG00272",
+    "patient_id": "PAT0138",
+    "service_id": "SRV002",
+    "doctor_id": "DOC011",
+    "sessions_count": 23,
+    "last_used_date": "2025-09-07"
+  },
+  {
+    "id": "USG00273",
+    "patient_id": "PAT0507",
+    "service_id": "SRV008",
+    "doctor_id": "DOC002",
+    "sessions_count": 18,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00274",
+    "patient_id": "PAT0230",
+    "service_id": "SRV002",
+    "doctor_id": "DOC077",
+    "sessions_count": 22,
+    "last_used_date": "2026-04-07"
+  },
+  {
+    "id": "USG00275",
+    "patient_id": "PAT0517",
+    "service_id": "SRV001",
+    "doctor_id": "DOC046",
+    "sessions_count": 10,
+    "last_used_date": "2025-12-15"
+  },
+  {
+    "id": "USG00276",
+    "patient_id": "PAT0247",
+    "service_id": "SRV001",
+    "doctor_id": "DOC072",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00277",
+    "patient_id": "PAT0500",
+    "service_id": "SRV006",
+    "doctor_id": "DOC105",
+    "sessions_count": 9,
+    "last_used_date": "2026-01-22"
+  },
+  {
+    "id": "USG00278",
+    "patient_id": "PAT0181",
+    "service_id": "SRV002",
+    "doctor_id": "DOC096",
+    "sessions_count": 2,
+    "last_used_date": "2026-01-14"
+  },
+  {
+    "id": "USG00279",
+    "patient_id": "PAT0068",
+    "service_id": "SRV009",
+    "doctor_id": "DOC052",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-03"
+  },
+  {
+    "id": "USG00280",
+    "patient_id": "PAT0613",
+    "service_id": "SRV002",
+    "doctor_id": "DOC076",
+    "sessions_count": 6,
+    "last_used_date": "2026-02-08"
+  },
+  {
+    "id": "USG00281",
+    "patient_id": "PAT0396",
+    "service_id": "SRV006",
+    "doctor_id": "DOC094",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00282",
+    "patient_id": "PAT0223",
+    "service_id": "SRV001",
+    "doctor_id": "DOC039",
+    "sessions_count": 4,
+    "last_used_date": "2026-01-23"
+  },
+  {
+    "id": "USG00283",
+    "patient_id": "PAT0137",
+    "service_id": "SRV002",
+    "doctor_id": "DOC022",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00284",
+    "patient_id": "PAT0018",
+    "service_id": "SRV005",
+    "doctor_id": "DOC117",
+    "sessions_count": 5,
+    "last_used_date": "2025-11-02"
+  },
+  {
+    "id": "USG00285",
+    "patient_id": "PAT0506",
+    "service_id": "SRV006",
+    "doctor_id": "DOC024",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00286",
+    "patient_id": "PAT0082",
+    "service_id": "SRV009",
+    "doctor_id": "DOC118",
+    "sessions_count": 6,
+    "last_used_date": "2025-11-23"
+  },
+  {
+    "id": "USG00287",
+    "patient_id": "PAT0025",
+    "service_id": "SRV007",
+    "doctor_id": "DOC106",
+    "sessions_count": 9,
+    "last_used_date": "2025-08-25"
+  },
+  {
+    "id": "USG00288",
+    "patient_id": "PAT0120",
+    "service_id": "SRV007",
+    "doctor_id": "DOC089",
+    "sessions_count": 15,
+    "last_used_date": "2026-02-28"
+  },
+  {
+    "id": "USG00289",
+    "patient_id": "PAT0172",
+    "service_id": "SRV007",
+    "doctor_id": "DOC013",
+    "sessions_count": 19,
+    "last_used_date": "2025-09-21"
+  },
+  {
+    "id": "USG00290",
+    "patient_id": "PAT0106",
+    "service_id": "SRV001",
+    "doctor_id": "DOC012",
+    "sessions_count": 4,
+    "last_used_date": "2026-01-21"
+  },
+  {
+    "id": "USG00291",
+    "patient_id": "PAT0044",
+    "service_id": "SRV001",
+    "doctor_id": "DOC110",
+    "sessions_count": 20,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00292",
+    "patient_id": "PAT0186",
+    "service_id": "SRV006",
+    "doctor_id": "DOC025",
+    "sessions_count": 21,
+    "last_used_date": "2025-08-02"
+  },
+  {
+    "id": "USG00293",
+    "patient_id": "PAT0174",
+    "service_id": "SRV003",
+    "doctor_id": "DOC086",
+    "sessions_count": 1,
+    "last_used_date": "2025-10-12"
+  },
+  {
+    "id": "USG00294",
+    "patient_id": "PAT0077",
+    "service_id": "SRV004",
+    "doctor_id": "DOC011",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00295",
+    "patient_id": "PAT0031",
+    "service_id": "SRV010",
+    "doctor_id": "DOC037",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-21"
+  },
+  {
+    "id": "USG00296",
+    "patient_id": "PAT0612",
+    "service_id": "SRV005",
+    "doctor_id": "DOC052",
+    "sessions_count": 9,
+    "last_used_date": "2026-03-04"
+  },
+  {
+    "id": "USG00297",
+    "patient_id": "PAT0398",
+    "service_id": "SRV010",
+    "doctor_id": "DOC090",
+    "sessions_count": 23,
+    "last_used_date": "2026-03-13"
+  },
+  {
+    "id": "USG00298",
+    "patient_id": "PAT0242",
+    "service_id": "SRV007",
+    "doctor_id": "DOC077",
+    "sessions_count": 5,
+    "last_used_date": "2025-11-29"
+  },
+  {
+    "id": "USG00299",
+    "patient_id": "PAT0503",
+    "service_id": "SRV003",
+    "doctor_id": "DOC055",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-24"
+  },
+  {
+    "id": "USG00300",
+    "patient_id": "PAT0374",
+    "service_id": "SRV001",
+    "doctor_id": "DOC043",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00301",
+    "patient_id": "PAT0008",
+    "service_id": "SRV007",
+    "doctor_id": "DOC036",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-29"
+  },
+  {
+    "id": "USG00302",
+    "patient_id": "PAT0235",
+    "service_id": "SRV004",
+    "doctor_id": "DOC118",
+    "sessions_count": 4,
+    "last_used_date": "2025-09-30"
+  },
+  {
+    "id": "USG00303",
+    "patient_id": "PAT0412",
+    "service_id": "SRV012",
+    "doctor_id": "DOC070",
+    "sessions_count": 11,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00304",
+    "patient_id": "PAT0070",
+    "service_id": "SRV001",
+    "doctor_id": "DOC076",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-28"
+  },
+  {
+    "id": "USG00305",
+    "patient_id": "PAT0123",
+    "service_id": "SRV008",
+    "doctor_id": "DOC082",
+    "sessions_count": 12,
+    "last_used_date": "2025-10-06"
+  },
+  {
+    "id": "USG00306",
+    "patient_id": "PAT0077",
+    "service_id": "SRV012",
+    "doctor_id": "DOC011",
+    "sessions_count": 8,
+    "last_used_date": "2025-12-17"
+  },
+  {
+    "id": "USG00307",
+    "patient_id": "PAT0129",
+    "service_id": "SRV001",
+    "doctor_id": "DOC086",
+    "sessions_count": 7,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00308",
+    "patient_id": "PAT0057",
+    "service_id": "SRV010",
+    "doctor_id": "DOC048",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00309",
+    "patient_id": "PAT0490",
+    "service_id": "SRV005",
+    "doctor_id": "DOC054",
+    "sessions_count": 7,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00310",
+    "patient_id": "PAT0347",
+    "service_id": "SRV010",
+    "doctor_id": "DOC100",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00311",
+    "patient_id": "PAT0243",
+    "service_id": "SRV010",
+    "doctor_id": "DOC091",
+    "sessions_count": 13,
+    "last_used_date": "2025-10-17"
+  },
+  {
+    "id": "USG00312",
+    "patient_id": "PAT0231",
+    "service_id": "SRV011",
+    "doctor_id": "DOC090",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-11"
+  },
+  {
+    "id": "USG00313",
+    "patient_id": "PAT0206",
+    "service_id": "SRV004",
+    "doctor_id": "DOC068",
+    "sessions_count": 11,
+    "last_used_date": "2026-02-24"
+  },
+  {
+    "id": "USG00314",
+    "patient_id": "PAT0517",
+    "service_id": "SRV001",
+    "doctor_id": "DOC046",
+    "sessions_count": 18,
+    "last_used_date": "2025-07-18"
+  },
+  {
+    "id": "USG00315",
+    "patient_id": "PAT0306",
+    "service_id": "SRV002",
+    "doctor_id": "DOC115",
+    "sessions_count": 13,
+    "last_used_date": "2026-01-03"
+  },
+  {
+    "id": "USG00316",
+    "patient_id": "PAT0500",
+    "service_id": "SRV006",
+    "doctor_id": "DOC105",
+    "sessions_count": 10,
+    "last_used_date": "2025-08-05"
+  },
+  {
+    "id": "USG00317",
+    "patient_id": "PAT0441",
+    "service_id": "SRV009",
+    "doctor_id": "DOC107",
+    "sessions_count": 9,
+    "last_used_date": "2025-11-23"
+  },
+  {
+    "id": "USG00318",
+    "patient_id": "PAT0401",
+    "service_id": "SRV006",
+    "doctor_id": "DOC087",
+    "sessions_count": 19,
+    "last_used_date": "2026-02-03"
+  },
+  {
+    "id": "USG00319",
+    "patient_id": "PAT0262",
+    "service_id": "SRV011",
+    "doctor_id": "DOC112",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-25"
+  },
+  {
+    "id": "USG00320",
+    "patient_id": "PAT0298",
+    "service_id": "SRV007",
+    "doctor_id": "DOC103",
+    "sessions_count": 2,
+    "last_used_date": "2025-12-09"
+  },
+  {
+    "id": "USG00321",
+    "patient_id": "PAT0101",
+    "service_id": "SRV009",
+    "doctor_id": "DOC053",
+    "sessions_count": 20,
+    "last_used_date": "2025-12-05"
+  },
+  {
+    "id": "USG00322",
+    "patient_id": "PAT0022",
+    "service_id": "SRV003",
+    "doctor_id": "DOC057",
+    "sessions_count": 4,
+    "last_used_date": "2025-11-17"
+  },
+  {
+    "id": "USG00323",
+    "patient_id": "PAT0385",
+    "service_id": "SRV006",
+    "doctor_id": "DOC110",
+    "sessions_count": 18,
+    "last_used_date": "2026-01-26"
+  },
+  {
+    "id": "USG00324",
+    "patient_id": "PAT0619",
+    "service_id": "SRV001",
+    "doctor_id": "DOC012",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00325",
+    "patient_id": "PAT0115",
+    "service_id": "SRV008",
+    "doctor_id": "DOC014",
+    "sessions_count": 11,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00326",
+    "patient_id": "PAT0123",
+    "service_id": "SRV012",
+    "doctor_id": "DOC082",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00327",
+    "patient_id": "PAT0485",
+    "service_id": "SRV011",
+    "doctor_id": "DOC101",
+    "sessions_count": 13,
+    "last_used_date": "2026-02-24"
+  },
+  {
+    "id": "USG00328",
+    "patient_id": "PAT0097",
+    "service_id": "SRV007",
+    "doctor_id": "DOC105",
+    "sessions_count": 22,
+    "last_used_date": "2025-09-29"
+  },
+  {
+    "id": "USG00329",
+    "patient_id": "PAT0528",
+    "service_id": "SRV011",
+    "doctor_id": "DOC025",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00330",
+    "patient_id": "PAT0442",
+    "service_id": "SRV006",
+    "doctor_id": "DOC115",
+    "sessions_count": 24,
+    "last_used_date": "2026-01-17"
+  },
+  {
+    "id": "USG00331",
+    "patient_id": "PAT0572",
+    "service_id": "SRV011",
+    "doctor_id": "DOC051",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00332",
+    "patient_id": "PAT0004",
+    "service_id": "SRV005",
+    "doctor_id": "DOC031",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00333",
+    "patient_id": "PAT0233",
+    "service_id": "SRV007",
+    "doctor_id": "DOC013",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-03"
+  },
+  {
+    "id": "USG00334",
+    "patient_id": "PAT0292",
+    "service_id": "SRV008",
+    "doctor_id": "DOC017",
+    "sessions_count": 9,
+    "last_used_date": "2025-12-09"
+  },
+  {
+    "id": "USG00335",
+    "patient_id": "PAT0299",
+    "service_id": "SRV003",
+    "doctor_id": "DOC048",
+    "sessions_count": 24,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00336",
+    "patient_id": "PAT0481",
+    "service_id": "SRV002",
+    "doctor_id": "DOC031",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-14"
+  },
+  {
+    "id": "USG00337",
+    "patient_id": "PAT0303",
+    "service_id": "SRV006",
+    "doctor_id": "DOC053",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00338",
+    "patient_id": "PAT0373",
+    "service_id": "SRV010",
+    "doctor_id": "DOC026",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-07"
+  },
+  {
+    "id": "USG00339",
+    "patient_id": "PAT0053",
+    "service_id": "SRV001",
+    "doctor_id": "DOC087",
+    "sessions_count": 1,
+    "last_used_date": "2025-10-09"
+  },
+  {
+    "id": "USG00340",
+    "patient_id": "PAT0437",
+    "service_id": "SRV012",
+    "doctor_id": "DOC065",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-05"
+  },
+  {
+    "id": "USG00341",
+    "patient_id": "PAT0201",
+    "service_id": "SRV006",
+    "doctor_id": "DOC107",
+    "sessions_count": 15,
+    "last_used_date": "2025-12-25"
+  },
+  {
+    "id": "USG00342",
+    "patient_id": "PAT0143",
+    "service_id": "SRV010",
+    "doctor_id": "DOC050",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-02"
+  },
+  {
+    "id": "USG00343",
+    "patient_id": "PAT0096",
+    "service_id": "SRV001",
+    "doctor_id": "DOC090",
+    "sessions_count": 19,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00344",
+    "patient_id": "PAT0534",
+    "service_id": "SRV003",
+    "doctor_id": "DOC003",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00345",
+    "patient_id": "PAT0535",
+    "service_id": "SRV002",
+    "doctor_id": "DOC020",
+    "sessions_count": 22,
+    "last_used_date": "2025-11-27"
+  },
+  {
+    "id": "USG00346",
+    "patient_id": "PAT0305",
+    "service_id": "SRV008",
+    "doctor_id": "DOC045",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-24"
+  },
+  {
+    "id": "USG00347",
+    "patient_id": "PAT0429",
+    "service_id": "SRV001",
+    "doctor_id": "DOC017",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00348",
+    "patient_id": "PAT0061",
+    "service_id": "SRV007",
+    "doctor_id": "DOC033",
+    "sessions_count": 12,
+    "last_used_date": "2025-08-08"
+  },
+  {
+    "id": "USG00349",
+    "patient_id": "PAT0174",
+    "service_id": "SRV006",
+    "doctor_id": "DOC086",
+    "sessions_count": 22,
+    "last_used_date": "2025-12-17"
+  },
+  {
+    "id": "USG00350",
+    "patient_id": "PAT0083",
+    "service_id": "SRV004",
+    "doctor_id": "DOC003",
+    "sessions_count": 15,
+    "last_used_date": "2025-12-22"
+  },
+  {
+    "id": "USG00351",
+    "patient_id": "PAT0432",
+    "service_id": "SRV003",
+    "doctor_id": "DOC018",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00352",
+    "patient_id": "PAT0355",
+    "service_id": "SRV005",
+    "doctor_id": "DOC029",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00353",
+    "patient_id": "PAT0033",
+    "service_id": "SRV002",
+    "doctor_id": "DOC074",
+    "sessions_count": 20,
+    "last_used_date": "2026-02-25"
+  },
+  {
+    "id": "USG00354",
+    "patient_id": "PAT0038",
+    "service_id": "SRV006",
+    "doctor_id": "DOC009",
+    "sessions_count": 18,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00355",
+    "patient_id": "PAT0169",
+    "service_id": "SRV009",
+    "doctor_id": "DOC070",
+    "sessions_count": 20,
+    "last_used_date": "2026-02-12"
+  },
+  {
+    "id": "USG00356",
+    "patient_id": "PAT0210",
+    "service_id": "SRV004",
+    "doctor_id": "DOC022",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00357",
+    "patient_id": "PAT0106",
+    "service_id": "SRV001",
+    "doctor_id": "DOC012",
+    "sessions_count": 19,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00358",
+    "patient_id": "PAT0434",
+    "service_id": "SRV011",
+    "doctor_id": "DOC094",
+    "sessions_count": 5,
+    "last_used_date": "2025-12-10"
+  },
+  {
+    "id": "USG00359",
+    "patient_id": "PAT0063",
+    "service_id": "SRV007",
+    "doctor_id": "DOC066",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00360",
+    "patient_id": "PAT0419",
+    "service_id": "SRV008",
+    "doctor_id": "DOC004",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-02"
+  },
+  {
+    "id": "USG00361",
+    "patient_id": "PAT0365",
+    "service_id": "SRV007",
+    "doctor_id": "DOC050",
+    "sessions_count": 2,
+    "last_used_date": "2026-02-08"
+  },
+  {
+    "id": "USG00362",
+    "patient_id": "PAT0569",
+    "service_id": "SRV005",
+    "doctor_id": "DOC095",
+    "sessions_count": 22,
+    "last_used_date": "2025-11-22"
+  },
+  {
+    "id": "USG00363",
+    "patient_id": "PAT0080",
+    "service_id": "SRV011",
+    "doctor_id": "DOC038",
+    "sessions_count": 19,
+    "last_used_date": "2026-01-05"
+  },
+  {
+    "id": "USG00364",
+    "patient_id": "PAT0595",
+    "service_id": "SRV010",
+    "doctor_id": "DOC111",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-18"
+  },
+  {
+    "id": "USG00365",
+    "patient_id": "PAT0595",
+    "service_id": "SRV010",
+    "doctor_id": "DOC111",
+    "sessions_count": 4,
+    "last_used_date": "2025-11-22"
+  },
+  {
+    "id": "USG00366",
+    "patient_id": "PAT0009",
+    "service_id": "SRV003",
+    "doctor_id": "DOC023",
+    "sessions_count": 11,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00367",
+    "patient_id": "PAT0110",
+    "service_id": "SRV005",
+    "doctor_id": "DOC031",
+    "sessions_count": 5,
+    "last_used_date": "2025-12-06"
+  },
+  {
+    "id": "USG00368",
+    "patient_id": "PAT0331",
+    "service_id": "SRV011",
+    "doctor_id": "DOC088",
+    "sessions_count": 8,
+    "last_used_date": "2026-02-15"
+  },
+  {
+    "id": "USG00369",
+    "patient_id": "PAT0191",
+    "service_id": "SRV011",
+    "doctor_id": "DOC045",
+    "sessions_count": 19,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00370",
+    "patient_id": "PAT0121",
+    "service_id": "SRV009",
+    "doctor_id": "DOC106",
+    "sessions_count": 17,
+    "last_used_date": "2025-10-07"
+  },
+  {
+    "id": "USG00371",
+    "patient_id": "PAT0037",
+    "service_id": "SRV006",
+    "doctor_id": "DOC110",
+    "sessions_count": 7,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00372",
+    "patient_id": "PAT0620",
+    "service_id": "SRV001",
+    "doctor_id": "DOC116",
+    "sessions_count": 14,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00373",
+    "patient_id": "PAT0501",
+    "service_id": "SRV004",
+    "doctor_id": "DOC099",
+    "sessions_count": 18,
+    "last_used_date": "2025-12-15"
+  },
+  {
+    "id": "USG00374",
+    "patient_id": "PAT0231",
+    "service_id": "SRV001",
+    "doctor_id": "DOC090",
+    "sessions_count": 17,
+    "last_used_date": "2026-03-05"
+  },
+  {
+    "id": "USG00375",
+    "patient_id": "PAT0297",
+    "service_id": "SRV001",
+    "doctor_id": "DOC105",
+    "sessions_count": 21,
+    "last_used_date": "2025-09-24"
+  },
+  {
+    "id": "USG00376",
+    "patient_id": "PAT0487",
+    "service_id": "SRV008",
+    "doctor_id": "DOC072",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-04"
+  },
+  {
+    "id": "USG00377",
+    "patient_id": "PAT0067",
+    "service_id": "SRV010",
+    "doctor_id": "DOC084",
+    "sessions_count": 1,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00378",
+    "patient_id": "PAT0337",
+    "service_id": "SRV001",
+    "doctor_id": "DOC113",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-03"
+  },
+  {
+    "id": "USG00379",
+    "patient_id": "PAT0036",
+    "service_id": "SRV010",
+    "doctor_id": "DOC020",
+    "sessions_count": 10,
+    "last_used_date": "2025-12-11"
+  },
+  {
+    "id": "USG00380",
+    "patient_id": "PAT0357",
+    "service_id": "SRV012",
+    "doctor_id": "DOC012",
+    "sessions_count": 14,
+    "last_used_date": "2025-11-06"
+  },
+  {
+    "id": "USG00381",
+    "patient_id": "PAT0606",
+    "service_id": "SRV002",
+    "doctor_id": "DOC115",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00382",
+    "patient_id": "PAT0466",
+    "service_id": "SRV007",
+    "doctor_id": "DOC012",
+    "sessions_count": 21,
+    "last_used_date": "2026-01-22"
+  },
+  {
+    "id": "USG00383",
+    "patient_id": "PAT0313",
+    "service_id": "SRV004",
+    "doctor_id": "DOC085",
+    "sessions_count": 21,
+    "last_used_date": "2025-12-23"
+  },
+  {
+    "id": "USG00384",
+    "patient_id": "PAT0326",
+    "service_id": "SRV012",
+    "doctor_id": "DOC106",
+    "sessions_count": 16,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00385",
+    "patient_id": "PAT0435",
+    "service_id": "SRV010",
+    "doctor_id": "DOC028",
+    "sessions_count": 15,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00386",
+    "patient_id": "PAT0168",
+    "service_id": "SRV010",
+    "doctor_id": "DOC112",
+    "sessions_count": 14,
+    "last_used_date": "2026-01-04"
+  },
+  {
+    "id": "USG00387",
+    "patient_id": "PAT0233",
+    "service_id": "SRV003",
+    "doctor_id": "DOC013",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-17"
+  },
+  {
+    "id": "USG00388",
+    "patient_id": "PAT0271",
+    "service_id": "SRV004",
+    "doctor_id": "DOC031",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00389",
+    "patient_id": "PAT0081",
+    "service_id": "SRV010",
+    "doctor_id": "DOC030",
+    "sessions_count": 14,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00390",
+    "patient_id": "PAT0416",
+    "service_id": "SRV006",
+    "doctor_id": "DOC058",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-06"
+  },
+  {
+    "id": "USG00391",
+    "patient_id": "PAT0065",
+    "service_id": "SRV011",
+    "doctor_id": "DOC116",
+    "sessions_count": 1,
+    "last_used_date": "2025-10-13"
+  },
+  {
+    "id": "USG00392",
+    "patient_id": "PAT0460",
+    "service_id": "SRV007",
+    "doctor_id": "DOC018",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00393",
+    "patient_id": "PAT0154",
+    "service_id": "SRV010",
+    "doctor_id": "DOC075",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00394",
+    "patient_id": "PAT0561",
+    "service_id": "SRV002",
+    "doctor_id": "DOC039",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-07"
+  },
+  {
+    "id": "USG00395",
+    "patient_id": "PAT0089",
+    "service_id": "SRV010",
+    "doctor_id": "DOC046",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-01"
+  },
+  {
+    "id": "USG00396",
+    "patient_id": "PAT0164",
+    "service_id": "SRV011",
+    "doctor_id": "DOC086",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00397",
+    "patient_id": "PAT0439",
+    "service_id": "SRV012",
+    "doctor_id": "DOC098",
+    "sessions_count": 24,
+    "last_used_date": "2026-02-09"
+  },
+  {
+    "id": "USG00398",
+    "patient_id": "PAT0221",
+    "service_id": "SRV008",
+    "doctor_id": "DOC053",
+    "sessions_count": 3,
+    "last_used_date": "2026-01-21"
+  },
+  {
+    "id": "USG00399",
+    "patient_id": "PAT0224",
+    "service_id": "SRV002",
+    "doctor_id": "DOC059",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-24"
+  },
+  {
+    "id": "USG00400",
+    "patient_id": "PAT0077",
+    "service_id": "SRV004",
+    "doctor_id": "DOC011",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-19"
+  },
+  {
+    "id": "USG00401",
+    "patient_id": "PAT0123",
+    "service_id": "SRV007",
+    "doctor_id": "DOC082",
+    "sessions_count": 4,
+    "last_used_date": "2026-03-17"
+  },
+  {
+    "id": "USG00402",
+    "patient_id": "PAT0067",
+    "service_id": "SRV002",
+    "doctor_id": "DOC084",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00403",
+    "patient_id": "PAT0026",
+    "service_id": "SRV008",
+    "doctor_id": "DOC097",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-11"
+  },
+  {
+    "id": "USG00404",
+    "patient_id": "PAT0494",
+    "service_id": "SRV004",
+    "doctor_id": "DOC071",
+    "sessions_count": 9,
+    "last_used_date": "2025-11-24"
+  },
+  {
+    "id": "USG00405",
+    "patient_id": "PAT0332",
+    "service_id": "SRV006",
+    "doctor_id": "DOC074",
+    "sessions_count": 7,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00406",
+    "patient_id": "PAT0066",
+    "service_id": "SRV011",
+    "doctor_id": "DOC049",
+    "sessions_count": 18,
+    "last_used_date": "2026-03-13"
+  },
+  {
+    "id": "USG00407",
+    "patient_id": "PAT0335",
+    "service_id": "SRV010",
+    "doctor_id": "DOC067",
+    "sessions_count": 8,
+    "last_used_date": "2026-02-08"
+  },
+  {
+    "id": "USG00408",
+    "patient_id": "PAT0485",
+    "service_id": "SRV011",
+    "doctor_id": "DOC101",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00409",
+    "patient_id": "PAT0536",
+    "service_id": "SRV010",
+    "doctor_id": "DOC073",
+    "sessions_count": 7,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00410",
+    "patient_id": "PAT0047",
+    "service_id": "SRV002",
+    "doctor_id": "DOC099",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-17"
+  },
+  {
+    "id": "USG00411",
+    "patient_id": "PAT0486",
+    "service_id": "SRV009",
+    "doctor_id": "DOC028",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00412",
+    "patient_id": "PAT0444",
+    "service_id": "SRV001",
+    "doctor_id": "DOC083",
+    "sessions_count": 22,
+    "last_used_date": "2026-02-04"
+  },
+  {
+    "id": "USG00413",
+    "patient_id": "PAT0271",
+    "service_id": "SRV002",
+    "doctor_id": "DOC031",
+    "sessions_count": 2,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00414",
+    "patient_id": "PAT0133",
+    "service_id": "SRV005",
+    "doctor_id": "DOC058",
+    "sessions_count": 23,
+    "last_used_date": "2026-02-04"
+  },
+  {
+    "id": "USG00415",
+    "patient_id": "PAT0190",
+    "service_id": "SRV009",
+    "doctor_id": "DOC036",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00416",
+    "patient_id": "PAT0479",
+    "service_id": "SRV004",
+    "doctor_id": "DOC051",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00417",
+    "patient_id": "PAT0559",
+    "service_id": "SRV008",
+    "doctor_id": "DOC091",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-24"
+  },
+  {
+    "id": "USG00418",
+    "patient_id": "PAT0081",
+    "service_id": "SRV005",
+    "doctor_id": "DOC030",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00419",
+    "patient_id": "PAT0529",
+    "service_id": "SRV002",
+    "doctor_id": "DOC099",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00420",
+    "patient_id": "PAT0156",
+    "service_id": "SRV010",
+    "doctor_id": "DOC089",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-29"
+  },
+  {
+    "id": "USG00421",
+    "patient_id": "PAT0313",
+    "service_id": "SRV006",
+    "doctor_id": "DOC085",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-25"
+  },
+  {
+    "id": "USG00422",
+    "patient_id": "PAT0538",
+    "service_id": "SRV012",
+    "doctor_id": "DOC118",
+    "sessions_count": 4,
+    "last_used_date": "2025-12-21"
+  },
+  {
+    "id": "USG00423",
+    "patient_id": "PAT0083",
+    "service_id": "SRV007",
+    "doctor_id": "DOC003",
+    "sessions_count": 9,
+    "last_used_date": "2025-12-30"
+  },
+  {
+    "id": "USG00424",
+    "patient_id": "PAT0595",
+    "service_id": "SRV003",
+    "doctor_id": "DOC111",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-13"
+  },
+  {
+    "id": "USG00425",
+    "patient_id": "PAT0417",
+    "service_id": "SRV009",
+    "doctor_id": "DOC069",
+    "sessions_count": 8,
+    "last_used_date": "2025-06-27"
+  },
+  {
+    "id": "USG00426",
+    "patient_id": "PAT0487",
+    "service_id": "SRV011",
+    "doctor_id": "DOC072",
+    "sessions_count": 21,
+    "last_used_date": "2025-10-17"
+  },
+  {
+    "id": "USG00427",
+    "patient_id": "PAT0500",
+    "service_id": "SRV012",
+    "doctor_id": "DOC105",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00428",
+    "patient_id": "PAT0373",
+    "service_id": "SRV006",
+    "doctor_id": "DOC026",
+    "sessions_count": 6,
+    "last_used_date": "2025-12-28"
+  },
+  {
+    "id": "USG00429",
+    "patient_id": "PAT0374",
+    "service_id": "SRV012",
+    "doctor_id": "DOC043",
+    "sessions_count": 2,
+    "last_used_date": "2026-01-08"
+  },
+  {
+    "id": "USG00430",
+    "patient_id": "PAT0180",
+    "service_id": "SRV002",
+    "doctor_id": "DOC073",
+    "sessions_count": 3,
+    "last_used_date": "2025-09-14"
+  },
+  {
+    "id": "USG00431",
+    "patient_id": "PAT0418",
+    "service_id": "SRV001",
+    "doctor_id": "DOC027",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00432",
+    "patient_id": "PAT0319",
+    "service_id": "SRV002",
+    "doctor_id": "DOC093",
+    "sessions_count": 13,
+    "last_used_date": "2026-01-02"
+  },
+  {
+    "id": "USG00433",
+    "patient_id": "PAT0014",
+    "service_id": "SRV003",
+    "doctor_id": "DOC055",
+    "sessions_count": 20,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00434",
+    "patient_id": "PAT0015",
+    "service_id": "SRV008",
+    "doctor_id": "DOC085",
+    "sessions_count": 23,
+    "last_used_date": "2025-09-04"
+  },
+  {
+    "id": "USG00435",
+    "patient_id": "PAT0257",
+    "service_id": "SRV009",
+    "doctor_id": "DOC082",
+    "sessions_count": 11,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00436",
+    "patient_id": "PAT0032",
+    "service_id": "SRV004",
+    "doctor_id": "DOC045",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00437",
+    "patient_id": "PAT0550",
+    "service_id": "SRV002",
+    "doctor_id": "DOC068",
+    "sessions_count": 22,
+    "last_used_date": "2025-08-24"
+  },
+  {
+    "id": "USG00438",
+    "patient_id": "PAT0250",
+    "service_id": "SRV008",
+    "doctor_id": "DOC098",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-11"
+  },
+  {
+    "id": "USG00439",
+    "patient_id": "PAT0337",
+    "service_id": "SRV011",
+    "doctor_id": "DOC113",
+    "sessions_count": 2,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00440",
+    "patient_id": "PAT0570",
+    "service_id": "SRV003",
+    "doctor_id": "DOC114",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00441",
+    "patient_id": "PAT0530",
+    "service_id": "SRV002",
+    "doctor_id": "DOC071",
+    "sessions_count": 12,
+    "last_used_date": "2026-02-05"
+  },
+  {
+    "id": "USG00442",
+    "patient_id": "PAT0256",
+    "service_id": "SRV010",
+    "doctor_id": "DOC098",
+    "sessions_count": 14,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00443",
+    "patient_id": "PAT0605",
+    "service_id": "SRV009",
+    "doctor_id": "DOC061",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00444",
+    "patient_id": "PAT0044",
+    "service_id": "SRV008",
+    "doctor_id": "DOC110",
+    "sessions_count": 17,
+    "last_used_date": "2026-01-28"
+  },
+  {
+    "id": "USG00445",
+    "patient_id": "PAT0425",
+    "service_id": "SRV002",
+    "doctor_id": "DOC019",
+    "sessions_count": 22,
+    "last_used_date": "2025-08-19"
+  },
+  {
+    "id": "USG00446",
+    "patient_id": "PAT0164",
+    "service_id": "SRV004",
+    "doctor_id": "DOC086",
+    "sessions_count": 16,
+    "last_used_date": "2026-02-07"
+  },
+  {
+    "id": "USG00447",
+    "patient_id": "PAT0566",
+    "service_id": "SRV001",
+    "doctor_id": "DOC063",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00448",
+    "patient_id": "PAT0395",
+    "service_id": "SRV008",
+    "doctor_id": "DOC120",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-22"
+  },
+  {
+    "id": "USG00449",
+    "patient_id": "PAT0080",
+    "service_id": "SRV003",
+    "doctor_id": "DOC038",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-11"
+  },
+  {
+    "id": "USG00450",
+    "patient_id": "PAT0449",
+    "service_id": "SRV002",
+    "doctor_id": "DOC077",
+    "sessions_count": 7,
+    "last_used_date": "2025-10-07"
+  },
+  {
+    "id": "USG00451",
+    "patient_id": "PAT0430",
+    "service_id": "SRV003",
+    "doctor_id": "DOC043",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-04"
+  },
+  {
+    "id": "USG00452",
+    "patient_id": "PAT0516",
+    "service_id": "SRV006",
+    "doctor_id": "DOC030",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-26"
+  },
+  {
+    "id": "USG00453",
+    "patient_id": "PAT0558",
+    "service_id": "SRV011",
+    "doctor_id": "DOC058",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00454",
+    "patient_id": "PAT0492",
+    "service_id": "SRV004",
+    "doctor_id": "DOC096",
+    "sessions_count": 14,
+    "last_used_date": "2026-03-18"
+  },
+  {
+    "id": "USG00455",
+    "patient_id": "PAT0026",
+    "service_id": "SRV012",
+    "doctor_id": "DOC097",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00456",
+    "patient_id": "PAT0340",
+    "service_id": "SRV011",
+    "doctor_id": "DOC110",
+    "sessions_count": 14,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00457",
+    "patient_id": "PAT0571",
+    "service_id": "SRV010",
+    "doctor_id": "DOC060",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-04"
+  },
+  {
+    "id": "USG00458",
+    "patient_id": "PAT0299",
+    "service_id": "SRV002",
+    "doctor_id": "DOC048",
+    "sessions_count": 18,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00459",
+    "patient_id": "PAT0258",
+    "service_id": "SRV011",
+    "doctor_id": "DOC112",
+    "sessions_count": 23,
+    "last_used_date": "2025-10-12"
+  },
+  {
+    "id": "USG00460",
+    "patient_id": "PAT0250",
+    "service_id": "SRV011",
+    "doctor_id": "DOC098",
+    "sessions_count": 12,
+    "last_used_date": "2026-02-18"
+  },
+  {
+    "id": "USG00461",
+    "patient_id": "PAT0427",
+    "service_id": "SRV002",
+    "doctor_id": "DOC107",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00462",
+    "patient_id": "PAT0227",
+    "service_id": "SRV006",
+    "doctor_id": "DOC105",
+    "sessions_count": 23,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00463",
+    "patient_id": "PAT0508",
+    "service_id": "SRV009",
+    "doctor_id": "DOC043",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-17"
+  },
+  {
+    "id": "USG00464",
+    "patient_id": "PAT0284",
+    "service_id": "SRV006",
+    "doctor_id": "DOC054",
+    "sessions_count": 3,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00465",
+    "patient_id": "PAT0549",
+    "service_id": "SRV011",
+    "doctor_id": "DOC067",
+    "sessions_count": 23,
+    "last_used_date": "2026-04-08"
+  },
+  {
+    "id": "USG00466",
+    "patient_id": "PAT0197",
+    "service_id": "SRV008",
+    "doctor_id": "DOC091",
+    "sessions_count": 19,
+    "last_used_date": "2026-01-14"
+  },
+  {
+    "id": "USG00467",
+    "patient_id": "PAT0171",
+    "service_id": "SRV004",
+    "doctor_id": "DOC097",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-20"
+  },
+  {
+    "id": "USG00468",
+    "patient_id": "PAT0276",
+    "service_id": "SRV005",
+    "doctor_id": "DOC098",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00469",
+    "patient_id": "PAT0400",
+    "service_id": "SRV008",
+    "doctor_id": "DOC082",
+    "sessions_count": 4,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00470",
+    "patient_id": "PAT0491",
+    "service_id": "SRV009",
+    "doctor_id": "DOC041",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-10"
+  },
+  {
+    "id": "USG00471",
+    "patient_id": "PAT0569",
+    "service_id": "SRV009",
+    "doctor_id": "DOC095",
+    "sessions_count": 4,
+    "last_used_date": "2025-07-01"
+  },
+  {
+    "id": "USG00472",
+    "patient_id": "PAT0004",
+    "service_id": "SRV004",
+    "doctor_id": "DOC031",
+    "sessions_count": 7,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00473",
+    "patient_id": "PAT0166",
+    "service_id": "SRV010",
+    "doctor_id": "DOC097",
+    "sessions_count": 17,
+    "last_used_date": "2025-12-13"
+  },
+  {
+    "id": "USG00474",
+    "patient_id": "PAT0032",
+    "service_id": "SRV005",
+    "doctor_id": "DOC045",
+    "sessions_count": 3,
+    "last_used_date": "2025-12-16"
+  },
+  {
+    "id": "USG00475",
+    "patient_id": "PAT0161",
+    "service_id": "SRV007",
+    "doctor_id": "DOC070",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00476",
+    "patient_id": "PAT0385",
+    "service_id": "SRV006",
+    "doctor_id": "DOC110",
+    "sessions_count": 17,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00477",
+    "patient_id": "PAT0424",
+    "service_id": "SRV002",
+    "doctor_id": "DOC019",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-11"
+  },
+  {
+    "id": "USG00478",
+    "patient_id": "PAT0508",
+    "service_id": "SRV012",
+    "doctor_id": "DOC043",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00479",
+    "patient_id": "PAT0082",
+    "service_id": "SRV004",
+    "doctor_id": "DOC118",
+    "sessions_count": 2,
+    "last_used_date": "2025-08-18"
+  },
+  {
+    "id": "USG00480",
+    "patient_id": "PAT0171",
+    "service_id": "SRV011",
+    "doctor_id": "DOC097",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00481",
+    "patient_id": "PAT0186",
+    "service_id": "SRV006",
+    "doctor_id": "DOC025",
+    "sessions_count": 13,
+    "last_used_date": "2025-07-22"
+  },
+  {
+    "id": "USG00482",
+    "patient_id": "PAT0383",
+    "service_id": "SRV008",
+    "doctor_id": "DOC067",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-15"
+  },
+  {
+    "id": "USG00483",
+    "patient_id": "PAT0309",
+    "service_id": "SRV009",
+    "doctor_id": "DOC090",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-06"
+  },
+  {
+    "id": "USG00484",
+    "patient_id": "PAT0569",
+    "service_id": "SRV002",
+    "doctor_id": "DOC095",
+    "sessions_count": 22,
+    "last_used_date": "2025-05-31"
+  },
+  {
+    "id": "USG00485",
+    "patient_id": "PAT0508",
+    "service_id": "SRV011",
+    "doctor_id": "DOC043",
+    "sessions_count": 2,
+    "last_used_date": "2025-06-16"
+  },
+  {
+    "id": "USG00486",
+    "patient_id": "PAT0346",
+    "service_id": "SRV006",
+    "doctor_id": "DOC108",
+    "sessions_count": 23,
+    "last_used_date": "2026-01-15"
+  },
+  {
+    "id": "USG00487",
+    "patient_id": "PAT0291",
+    "service_id": "SRV002",
+    "doctor_id": "DOC075",
+    "sessions_count": 1,
+    "last_used_date": "2025-07-19"
+  },
+  {
+    "id": "USG00488",
+    "patient_id": "PAT0030",
+    "service_id": "SRV012",
+    "doctor_id": "DOC066",
+    "sessions_count": 4,
+    "last_used_date": "2026-02-18"
+  },
+  {
+    "id": "USG00489",
+    "patient_id": "PAT0418",
+    "service_id": "SRV011",
+    "doctor_id": "DOC027",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-13"
+  },
+  {
+    "id": "USG00490",
+    "patient_id": "PAT0082",
+    "service_id": "SRV008",
+    "doctor_id": "DOC118",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-24"
+  },
+  {
+    "id": "USG00491",
+    "patient_id": "PAT0169",
+    "service_id": "SRV005",
+    "doctor_id": "DOC070",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00492",
+    "patient_id": "PAT0616",
+    "service_id": "SRV008",
+    "doctor_id": "DOC099",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00493",
+    "patient_id": "PAT0301",
+    "service_id": "SRV004",
+    "doctor_id": "DOC119",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-24"
+  },
+  {
+    "id": "USG00494",
+    "patient_id": "PAT0463",
+    "service_id": "SRV006",
+    "doctor_id": "DOC005",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-15"
+  },
+  {
+    "id": "USG00495",
+    "patient_id": "PAT0270",
+    "service_id": "SRV007",
+    "doctor_id": "DOC067",
+    "sessions_count": 18,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00496",
+    "patient_id": "PAT0196",
+    "service_id": "SRV005",
+    "doctor_id": "DOC039",
+    "sessions_count": 12,
+    "last_used_date": "2025-08-13"
+  },
+  {
+    "id": "USG00497",
+    "patient_id": "PAT0200",
+    "service_id": "SRV004",
+    "doctor_id": "DOC034",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-21"
+  },
+  {
+    "id": "USG00498",
+    "patient_id": "PAT0318",
+    "service_id": "SRV010",
+    "doctor_id": "DOC094",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-22"
+  },
+  {
+    "id": "USG00499",
+    "patient_id": "PAT0410",
+    "service_id": "SRV007",
+    "doctor_id": "DOC077",
+    "sessions_count": 24,
+    "last_used_date": "2025-06-26"
+  },
+  {
+    "id": "USG00500",
+    "patient_id": "PAT0119",
+    "service_id": "SRV009",
+    "doctor_id": "DOC016",
+    "sessions_count": 18,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00501",
+    "patient_id": "PAT0038",
+    "service_id": "SRV005",
+    "doctor_id": "DOC009",
+    "sessions_count": 1,
+    "last_used_date": "2025-09-30"
+  },
+  {
+    "id": "USG00502",
+    "patient_id": "PAT0198",
+    "service_id": "SRV007",
+    "doctor_id": "DOC084",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-01"
+  },
+  {
+    "id": "USG00503",
+    "patient_id": "PAT0267",
+    "service_id": "SRV006",
+    "doctor_id": "DOC057",
+    "sessions_count": 24,
+    "last_used_date": "2025-11-27"
+  },
+  {
+    "id": "USG00504",
+    "patient_id": "PAT0400",
+    "service_id": "SRV002",
+    "doctor_id": "DOC082",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-11"
+  },
+  {
+    "id": "USG00505",
+    "patient_id": "PAT0058",
+    "service_id": "SRV003",
+    "doctor_id": "DOC008",
+    "sessions_count": 20,
+    "last_used_date": "2026-01-04"
+  },
+  {
+    "id": "USG00506",
+    "patient_id": "PAT0214",
+    "service_id": "SRV001",
+    "doctor_id": "DOC093",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00507",
+    "patient_id": "PAT0302",
+    "service_id": "SRV004",
+    "doctor_id": "DOC117",
+    "sessions_count": 3,
+    "last_used_date": "2025-09-13"
+  },
+  {
+    "id": "USG00508",
+    "patient_id": "PAT0203",
+    "service_id": "SRV005",
+    "doctor_id": "DOC083",
+    "sessions_count": 15,
+    "last_used_date": "2025-11-17"
+  },
+  {
+    "id": "USG00509",
+    "patient_id": "PAT0611",
+    "service_id": "SRV001",
+    "doctor_id": "DOC066",
+    "sessions_count": 11,
+    "last_used_date": "2025-07-17"
+  },
+  {
+    "id": "USG00510",
+    "patient_id": "PAT0411",
+    "service_id": "SRV007",
+    "doctor_id": "DOC101",
+    "sessions_count": 8,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00511",
+    "patient_id": "PAT0059",
+    "service_id": "SRV007",
+    "doctor_id": "DOC003",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00512",
+    "patient_id": "PAT0458",
+    "service_id": "SRV009",
+    "doctor_id": "DOC055",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-16"
+  },
+  {
+    "id": "USG00513",
+    "patient_id": "PAT0380",
+    "service_id": "SRV002",
+    "doctor_id": "DOC117",
+    "sessions_count": 4,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00514",
+    "patient_id": "PAT0242",
+    "service_id": "SRV007",
+    "doctor_id": "DOC077",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-24"
+  },
+  {
+    "id": "USG00515",
+    "patient_id": "PAT0499",
+    "service_id": "SRV010",
+    "doctor_id": "DOC030",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-21"
+  },
+  {
+    "id": "USG00516",
+    "patient_id": "PAT0207",
+    "service_id": "SRV012",
+    "doctor_id": "DOC068",
+    "sessions_count": 9,
+    "last_used_date": "2025-09-24"
+  },
+  {
+    "id": "USG00517",
+    "patient_id": "PAT0616",
+    "service_id": "SRV007",
+    "doctor_id": "DOC099",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-18"
+  },
+  {
+    "id": "USG00518",
+    "patient_id": "PAT0604",
+    "service_id": "SRV007",
+    "doctor_id": "DOC074",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-05"
+  },
+  {
+    "id": "USG00519",
+    "patient_id": "PAT0597",
+    "service_id": "SRV002",
+    "doctor_id": "DOC117",
+    "sessions_count": 20,
+    "last_used_date": "2025-08-28"
+  },
+  {
+    "id": "USG00520",
+    "patient_id": "PAT0314",
+    "service_id": "SRV006",
+    "doctor_id": "DOC063",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00521",
+    "patient_id": "PAT0552",
+    "service_id": "SRV012",
+    "doctor_id": "DOC050",
+    "sessions_count": 10,
+    "last_used_date": "2026-02-07"
+  },
+  {
+    "id": "USG00522",
+    "patient_id": "PAT0209",
+    "service_id": "SRV009",
+    "doctor_id": "DOC098",
+    "sessions_count": 19,
+    "last_used_date": "2026-02-15"
+  },
+  {
+    "id": "USG00523",
+    "patient_id": "PAT0458",
+    "service_id": "SRV007",
+    "doctor_id": "DOC055",
+    "sessions_count": 8,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00524",
+    "patient_id": "PAT0398",
+    "service_id": "SRV007",
+    "doctor_id": "DOC090",
+    "sessions_count": 18,
+    "last_used_date": "2026-03-26"
+  },
+  {
+    "id": "USG00525",
+    "patient_id": "PAT0534",
+    "service_id": "SRV007",
+    "doctor_id": "DOC003",
+    "sessions_count": 13,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00526",
+    "patient_id": "PAT0617",
+    "service_id": "SRV001",
+    "doctor_id": "DOC104",
+    "sessions_count": 14,
+    "last_used_date": "2026-01-25"
+  },
+  {
+    "id": "USG00527",
+    "patient_id": "PAT0238",
+    "service_id": "SRV010",
+    "doctor_id": "DOC023",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-21"
+  },
+  {
+    "id": "USG00528",
+    "patient_id": "PAT0246",
+    "service_id": "SRV006",
+    "doctor_id": "DOC024",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-12"
+  },
+  {
+    "id": "USG00529",
+    "patient_id": "PAT0293",
+    "service_id": "SRV010",
+    "doctor_id": "DOC030",
+    "sessions_count": 10,
+    "last_used_date": "2025-07-09"
+  },
+  {
+    "id": "USG00530",
+    "patient_id": "PAT0267",
+    "service_id": "SRV008",
+    "doctor_id": "DOC057",
+    "sessions_count": 2,
+    "last_used_date": "2026-01-11"
+  },
+  {
+    "id": "USG00531",
+    "patient_id": "PAT0464",
+    "service_id": "SRV003",
+    "doctor_id": "DOC057",
+    "sessions_count": 11,
+    "last_used_date": "2025-11-12"
+  },
+  {
+    "id": "USG00532",
+    "patient_id": "PAT0155",
+    "service_id": "SRV008",
+    "doctor_id": "DOC032",
+    "sessions_count": 2,
+    "last_used_date": "2026-03-05"
+  },
+  {
+    "id": "USG00533",
+    "patient_id": "PAT0617",
+    "service_id": "SRV006",
+    "doctor_id": "DOC104",
+    "sessions_count": 21,
+    "last_used_date": "2025-09-11"
+  },
+  {
+    "id": "USG00534",
+    "patient_id": "PAT0168",
+    "service_id": "SRV009",
+    "doctor_id": "DOC112",
+    "sessions_count": 2,
+    "last_used_date": "2026-01-29"
+  },
+  {
+    "id": "USG00535",
+    "patient_id": "PAT0468",
+    "service_id": "SRV006",
+    "doctor_id": "DOC025",
+    "sessions_count": 20,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00536",
+    "patient_id": "PAT0127",
+    "service_id": "SRV005",
+    "doctor_id": "DOC117",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00537",
+    "patient_id": "PAT0560",
+    "service_id": "SRV003",
+    "doctor_id": "DOC072",
+    "sessions_count": 11,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00538",
+    "patient_id": "PAT0424",
+    "service_id": "SRV009",
+    "doctor_id": "DOC019",
+    "sessions_count": 4,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00539",
+    "patient_id": "PAT0020",
+    "service_id": "SRV009",
+    "doctor_id": "DOC077",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00540",
+    "patient_id": "PAT0507",
+    "service_id": "SRV008",
+    "doctor_id": "DOC002",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-11"
+  },
+  {
+    "id": "USG00541",
+    "patient_id": "PAT0481",
+    "service_id": "SRV006",
+    "doctor_id": "DOC031",
+    "sessions_count": 19,
+    "last_used_date": "2025-09-27"
+  },
+  {
+    "id": "USG00542",
+    "patient_id": "PAT0221",
+    "service_id": "SRV010",
+    "doctor_id": "DOC053",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00543",
+    "patient_id": "PAT0463",
+    "service_id": "SRV010",
+    "doctor_id": "DOC005",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00544",
+    "patient_id": "PAT0404",
+    "service_id": "SRV004",
+    "doctor_id": "DOC095",
+    "sessions_count": 16,
+    "last_used_date": "2026-02-28"
+  },
+  {
+    "id": "USG00545",
+    "patient_id": "PAT0069",
+    "service_id": "SRV009",
+    "doctor_id": "DOC119",
+    "sessions_count": 14,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00546",
+    "patient_id": "PAT0451",
+    "service_id": "SRV012",
+    "doctor_id": "DOC067",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00547",
+    "patient_id": "PAT0414",
+    "service_id": "SRV004",
+    "doctor_id": "DOC058",
+    "sessions_count": 18,
+    "last_used_date": "2026-03-28"
+  },
+  {
+    "id": "USG00548",
+    "patient_id": "PAT0402",
+    "service_id": "SRV004",
+    "doctor_id": "DOC086",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00549",
+    "patient_id": "PAT0203",
+    "service_id": "SRV003",
+    "doctor_id": "DOC083",
+    "sessions_count": 22,
+    "last_used_date": "2025-12-31"
+  },
+  {
+    "id": "USG00550",
+    "patient_id": "PAT0529",
+    "service_id": "SRV007",
+    "doctor_id": "DOC099",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00551",
+    "patient_id": "PAT0413",
+    "service_id": "SRV007",
+    "doctor_id": "DOC028",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-10"
+  },
+  {
+    "id": "USG00552",
+    "patient_id": "PAT0464",
+    "service_id": "SRV001",
+    "doctor_id": "DOC057",
+    "sessions_count": 10,
+    "last_used_date": "2025-10-18"
+  },
+  {
+    "id": "USG00553",
+    "patient_id": "PAT0276",
+    "service_id": "SRV004",
+    "doctor_id": "DOC098",
+    "sessions_count": 11,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00554",
+    "patient_id": "PAT0295",
+    "service_id": "SRV002",
+    "doctor_id": "DOC110",
+    "sessions_count": 15,
+    "last_used_date": "2025-09-10"
+  },
+  {
+    "id": "USG00555",
+    "patient_id": "PAT0390",
+    "service_id": "SRV003",
+    "doctor_id": "DOC092",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-08"
+  },
+  {
+    "id": "USG00556",
+    "patient_id": "PAT0079",
+    "service_id": "SRV012",
+    "doctor_id": "DOC006",
+    "sessions_count": 8,
+    "last_used_date": "2025-10-10"
+  },
+  {
+    "id": "USG00557",
+    "patient_id": "PAT0261",
+    "service_id": "SRV009",
+    "doctor_id": "DOC057",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-03"
+  },
+  {
+    "id": "USG00558",
+    "patient_id": "PAT0604",
+    "service_id": "SRV003",
+    "doctor_id": "DOC074",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00559",
+    "patient_id": "PAT0395",
+    "service_id": "SRV006",
+    "doctor_id": "DOC120",
+    "sessions_count": 12,
+    "last_used_date": "2025-12-19"
+  },
+  {
+    "id": "USG00560",
+    "patient_id": "PAT0409",
+    "service_id": "SRV009",
+    "doctor_id": "DOC017",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00561",
+    "patient_id": "PAT0041",
+    "service_id": "SRV001",
+    "doctor_id": "DOC079",
+    "sessions_count": 7,
+    "last_used_date": "2025-12-07"
+  },
+  {
+    "id": "USG00562",
+    "patient_id": "PAT0193",
+    "service_id": "SRV002",
+    "doctor_id": "DOC054",
+    "sessions_count": 10,
+    "last_used_date": "2026-03-27"
+  },
+  {
+    "id": "USG00563",
+    "patient_id": "PAT0015",
+    "service_id": "SRV005",
+    "doctor_id": "DOC085",
+    "sessions_count": 15,
+    "last_used_date": "2025-08-16"
+  },
+  {
+    "id": "USG00564",
+    "patient_id": "PAT0335",
+    "service_id": "SRV009",
+    "doctor_id": "DOC067",
+    "sessions_count": 5,
+    "last_used_date": "2026-03-03"
+  },
+  {
+    "id": "USG00565",
+    "patient_id": "PAT0474",
+    "service_id": "SRV007",
+    "doctor_id": "DOC028",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00566",
+    "patient_id": "PAT0179",
+    "service_id": "SRV008",
+    "doctor_id": "DOC027",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00567",
+    "patient_id": "PAT0203",
+    "service_id": "SRV004",
+    "doctor_id": "DOC083",
+    "sessions_count": 11,
+    "last_used_date": "2025-09-28"
+  },
+  {
+    "id": "USG00568",
+    "patient_id": "PAT0447",
+    "service_id": "SRV010",
+    "doctor_id": "DOC006",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-02"
+  },
+  {
+    "id": "USG00569",
+    "patient_id": "PAT0565",
+    "service_id": "SRV005",
+    "doctor_id": "DOC119",
+    "sessions_count": 13,
+    "last_used_date": "2025-11-25"
+  },
+  {
+    "id": "USG00570",
+    "patient_id": "PAT0388",
+    "service_id": "SRV002",
+    "doctor_id": "DOC001",
+    "sessions_count": 6,
+    "last_used_date": "2026-01-19"
+  },
+  {
+    "id": "USG00571",
+    "patient_id": "PAT0590",
+    "service_id": "SRV012",
+    "doctor_id": "DOC071",
+    "sessions_count": 24,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00572",
+    "patient_id": "PAT0425",
+    "service_id": "SRV005",
+    "doctor_id": "DOC019",
+    "sessions_count": 3,
+    "last_used_date": "2025-08-09"
+  },
+  {
+    "id": "USG00573",
+    "patient_id": "PAT0548",
+    "service_id": "SRV005",
+    "doctor_id": "DOC089",
+    "sessions_count": 16,
+    "last_used_date": "2025-08-02"
+  },
+  {
+    "id": "USG00574",
+    "patient_id": "PAT0252",
+    "service_id": "SRV011",
+    "doctor_id": "DOC076",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00575",
+    "patient_id": "PAT0144",
+    "service_id": "SRV004",
+    "doctor_id": "DOC025",
+    "sessions_count": 12,
+    "last_used_date": "2025-12-03"
+  },
+  {
+    "id": "USG00576",
+    "patient_id": "PAT0371",
+    "service_id": "SRV005",
+    "doctor_id": "DOC013",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00577",
+    "patient_id": "PAT0064",
+    "service_id": "SRV004",
+    "doctor_id": "DOC004",
+    "sessions_count": 14,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00578",
+    "patient_id": "PAT0466",
+    "service_id": "SRV011",
+    "doctor_id": "DOC012",
+    "sessions_count": 10,
+    "last_used_date": "2025-11-07"
+  },
+  {
+    "id": "USG00579",
+    "patient_id": "PAT0054",
+    "service_id": "SRV002",
+    "doctor_id": "DOC106",
+    "sessions_count": 20,
+    "last_used_date": "2026-02-11"
+  },
+  {
+    "id": "USG00580",
+    "patient_id": "PAT0118",
+    "service_id": "SRV005",
+    "doctor_id": "DOC061",
+    "sessions_count": 11,
+    "last_used_date": "2026-03-03"
+  },
+  {
+    "id": "USG00581",
+    "patient_id": "PAT0218",
+    "service_id": "SRV006",
+    "doctor_id": "DOC101",
+    "sessions_count": 6,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00582",
+    "patient_id": "PAT0352",
+    "service_id": "SRV011",
+    "doctor_id": "DOC082",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-20"
+  },
+  {
+    "id": "USG00583",
+    "patient_id": "PAT0433",
+    "service_id": "SRV012",
+    "doctor_id": "DOC023",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-01"
+  },
+  {
+    "id": "USG00584",
+    "patient_id": "PAT0087",
+    "service_id": "SRV004",
+    "doctor_id": "DOC099",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00585",
+    "patient_id": "PAT0342",
+    "service_id": "SRV002",
+    "doctor_id": "DOC112",
+    "sessions_count": 9,
+    "last_used_date": "2026-01-13"
+  },
+  {
+    "id": "USG00586",
+    "patient_id": "PAT0045",
+    "service_id": "SRV008",
+    "doctor_id": "DOC107",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00587",
+    "patient_id": "PAT0516",
+    "service_id": "SRV012",
+    "doctor_id": "DOC030",
+    "sessions_count": 23,
+    "last_used_date": "2026-01-04"
+  },
+  {
+    "id": "USG00588",
+    "patient_id": "PAT0549",
+    "service_id": "SRV003",
+    "doctor_id": "DOC067",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-05"
+  },
+  {
+    "id": "USG00589",
+    "patient_id": "PAT0323",
+    "service_id": "SRV005",
+    "doctor_id": "DOC084",
+    "sessions_count": 3,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00590",
+    "patient_id": "PAT0135",
+    "service_id": "SRV001",
+    "doctor_id": "DOC029",
+    "sessions_count": 22,
+    "last_used_date": "2026-02-09"
+  },
+  {
+    "id": "USG00591",
+    "patient_id": "PAT0442",
+    "service_id": "SRV002",
+    "doctor_id": "DOC115",
+    "sessions_count": 24,
+    "last_used_date": "2025-08-02"
+  },
+  {
+    "id": "USG00592",
+    "patient_id": "PAT0358",
+    "service_id": "SRV010",
+    "doctor_id": "DOC038",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-23"
+  },
+  {
+    "id": "USG00593",
+    "patient_id": "PAT0160",
+    "service_id": "SRV006",
+    "doctor_id": "DOC091",
+    "sessions_count": 4,
+    "last_used_date": "2026-02-10"
+  },
+  {
+    "id": "USG00594",
+    "patient_id": "PAT0324",
+    "service_id": "SRV009",
+    "doctor_id": "DOC090",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-19"
+  },
+  {
+    "id": "USG00595",
+    "patient_id": "PAT0611",
+    "service_id": "SRV005",
+    "doctor_id": "DOC066",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-12"
+  },
+  {
+    "id": "USG00596",
+    "patient_id": "PAT0329",
+    "service_id": "SRV005",
+    "doctor_id": "DOC034",
+    "sessions_count": 19,
+    "last_used_date": "2026-02-17"
+  },
+  {
+    "id": "USG00597",
+    "patient_id": "PAT0169",
+    "service_id": "SRV012",
+    "doctor_id": "DOC070",
+    "sessions_count": 19,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00598",
+    "patient_id": "PAT0364",
+    "service_id": "SRV001",
+    "doctor_id": "DOC025",
+    "sessions_count": 8,
+    "last_used_date": "2026-01-11"
+  },
+  {
+    "id": "USG00599",
+    "patient_id": "PAT0016",
+    "service_id": "SRV006",
+    "doctor_id": "DOC077",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-29"
+  },
+  {
+    "id": "USG00600",
+    "patient_id": "PAT0039",
+    "service_id": "SRV004",
+    "doctor_id": "DOC091",
+    "sessions_count": 21,
+    "last_used_date": "2025-11-12"
+  },
+  {
+    "id": "USG00601",
+    "patient_id": "PAT0215",
+    "service_id": "SRV003",
+    "doctor_id": "DOC044",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00602",
+    "patient_id": "PAT0146",
+    "service_id": "SRV001",
+    "doctor_id": "DOC087",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00603",
+    "patient_id": "PAT0377",
+    "service_id": "SRV012",
+    "doctor_id": "DOC002",
+    "sessions_count": 5,
+    "last_used_date": "2026-01-08"
+  },
+  {
+    "id": "USG00604",
+    "patient_id": "PAT0518",
+    "service_id": "SRV005",
+    "doctor_id": "DOC063",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-22"
+  },
+  {
+    "id": "USG00605",
+    "patient_id": "PAT0454",
+    "service_id": "SRV009",
+    "doctor_id": "DOC030",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00606",
+    "patient_id": "PAT0609",
+    "service_id": "SRV004",
+    "doctor_id": "DOC034",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-11"
+  },
+  {
+    "id": "USG00607",
+    "patient_id": "PAT0213",
+    "service_id": "SRV002",
+    "doctor_id": "DOC073",
+    "sessions_count": 12,
+    "last_used_date": "2025-09-13"
+  },
+  {
+    "id": "USG00608",
+    "patient_id": "PAT0082",
+    "service_id": "SRV009",
+    "doctor_id": "DOC118",
+    "sessions_count": 15,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00609",
+    "patient_id": "PAT0561",
+    "service_id": "SRV008",
+    "doctor_id": "DOC039",
+    "sessions_count": 17,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00610",
+    "patient_id": "PAT0016",
+    "service_id": "SRV011",
+    "doctor_id": "DOC077",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00611",
+    "patient_id": "PAT0185",
+    "service_id": "SRV012",
+    "doctor_id": "DOC093",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00612",
+    "patient_id": "PAT0531",
+    "service_id": "SRV004",
+    "doctor_id": "DOC109",
+    "sessions_count": 3,
+    "last_used_date": "2025-11-15"
+  },
+  {
+    "id": "USG00613",
+    "patient_id": "PAT0575",
+    "service_id": "SRV010",
+    "doctor_id": "DOC006",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00614",
+    "patient_id": "PAT0603",
+    "service_id": "SRV011",
+    "doctor_id": "DOC072",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00615",
+    "patient_id": "PAT0019",
+    "service_id": "SRV008",
+    "doctor_id": "DOC060",
+    "sessions_count": 14,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00616",
+    "patient_id": "PAT0162",
+    "service_id": "SRV011",
+    "doctor_id": "DOC092",
+    "sessions_count": 13,
+    "last_used_date": "2025-11-25"
+  },
+  {
+    "id": "USG00617",
+    "patient_id": "PAT0479",
+    "service_id": "SRV001",
+    "doctor_id": "DOC051",
+    "sessions_count": 6,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00618",
+    "patient_id": "PAT0459",
+    "service_id": "SRV002",
+    "doctor_id": "DOC062",
+    "sessions_count": 15,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00619",
+    "patient_id": "PAT0366",
+    "service_id": "SRV009",
+    "doctor_id": "DOC077",
+    "sessions_count": 19,
+    "last_used_date": "2026-03-27"
+  },
+  {
+    "id": "USG00620",
+    "patient_id": "PAT0566",
+    "service_id": "SRV001",
+    "doctor_id": "DOC063",
+    "sessions_count": 16,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00621",
+    "patient_id": "PAT0350",
+    "service_id": "SRV011",
+    "doctor_id": "DOC060",
+    "sessions_count": 13,
+    "last_used_date": "2025-11-08"
+  },
+  {
+    "id": "USG00622",
+    "patient_id": "PAT0600",
+    "service_id": "SRV001",
+    "doctor_id": "DOC120",
+    "sessions_count": 19,
+    "last_used_date": "2026-01-19"
+  },
+  {
+    "id": "USG00623",
+    "patient_id": "PAT0022",
+    "service_id": "SRV011",
+    "doctor_id": "DOC057",
+    "sessions_count": 18,
+    "last_used_date": "2026-01-04"
+  },
+  {
+    "id": "USG00624",
+    "patient_id": "PAT0258",
+    "service_id": "SRV008",
+    "doctor_id": "DOC112",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00625",
+    "patient_id": "PAT0043",
+    "service_id": "SRV003",
+    "doctor_id": "DOC045",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00626",
+    "patient_id": "PAT0276",
+    "service_id": "SRV001",
+    "doctor_id": "DOC098",
+    "sessions_count": 4,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00627",
+    "patient_id": "PAT0588",
+    "service_id": "SRV008",
+    "doctor_id": "DOC102",
+    "sessions_count": 20,
+    "last_used_date": "2025-08-15"
+  },
+  {
+    "id": "USG00628",
+    "patient_id": "PAT0001",
+    "service_id": "SRV002",
+    "doctor_id": "DOC076",
+    "sessions_count": 7,
+    "last_used_date": "2025-10-07"
+  },
+  {
+    "id": "USG00629",
+    "patient_id": "PAT0408",
+    "service_id": "SRV008",
+    "doctor_id": "DOC088",
+    "sessions_count": 21,
+    "last_used_date": "2025-09-12"
+  },
+  {
+    "id": "USG00630",
+    "patient_id": "PAT0074",
+    "service_id": "SRV012",
+    "doctor_id": "DOC090",
+    "sessions_count": 21,
+    "last_used_date": "2026-01-20"
+  },
+  {
+    "id": "USG00631",
+    "patient_id": "PAT0259",
+    "service_id": "SRV003",
+    "doctor_id": "DOC055",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-31"
+  },
+  {
+    "id": "USG00632",
+    "patient_id": "PAT0426",
+    "service_id": "SRV011",
+    "doctor_id": "DOC095",
+    "sessions_count": 3,
+    "last_used_date": "2026-02-12"
+  },
+  {
+    "id": "USG00633",
+    "patient_id": "PAT0030",
+    "service_id": "SRV008",
+    "doctor_id": "DOC066",
+    "sessions_count": 6,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00634",
+    "patient_id": "PAT0454",
+    "service_id": "SRV006",
+    "doctor_id": "DOC030",
+    "sessions_count": 23,
+    "last_used_date": "2026-03-01"
+  },
+  {
+    "id": "USG00635",
+    "patient_id": "PAT0026",
+    "service_id": "SRV009",
+    "doctor_id": "DOC097",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00636",
+    "patient_id": "PAT0012",
+    "service_id": "SRV011",
+    "doctor_id": "DOC020",
+    "sessions_count": 13,
+    "last_used_date": "2025-07-23"
+  },
+  {
+    "id": "USG00637",
+    "patient_id": "PAT0082",
+    "service_id": "SRV011",
+    "doctor_id": "DOC118",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00638",
+    "patient_id": "PAT0339",
+    "service_id": "SRV003",
+    "doctor_id": "DOC096",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-17"
+  },
+  {
+    "id": "USG00639",
+    "patient_id": "PAT0303",
+    "service_id": "SRV002",
+    "doctor_id": "DOC053",
+    "sessions_count": 23,
+    "last_used_date": "2026-04-01"
+  },
+  {
+    "id": "USG00640",
+    "patient_id": "PAT0275",
+    "service_id": "SRV004",
+    "doctor_id": "DOC011",
+    "sessions_count": 1,
+    "last_used_date": "2025-10-19"
+  },
+  {
+    "id": "USG00641",
+    "patient_id": "PAT0304",
+    "service_id": "SRV003",
+    "doctor_id": "DOC032",
+    "sessions_count": 4,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00642",
+    "patient_id": "PAT0408",
+    "service_id": "SRV008",
+    "doctor_id": "DOC088",
+    "sessions_count": 10,
+    "last_used_date": "2025-08-22"
+  },
+  {
+    "id": "USG00643",
+    "patient_id": "PAT0392",
+    "service_id": "SRV012",
+    "doctor_id": "DOC106",
+    "sessions_count": 4,
+    "last_used_date": "2026-02-02"
+  },
+  {
+    "id": "USG00644",
+    "patient_id": "PAT0040",
+    "service_id": "SRV007",
+    "doctor_id": "DOC056",
+    "sessions_count": 14,
+    "last_used_date": "2025-08-12"
+  },
+  {
+    "id": "USG00645",
+    "patient_id": "PAT0466",
+    "service_id": "SRV011",
+    "doctor_id": "DOC012",
+    "sessions_count": 15,
+    "last_used_date": "2025-11-23"
+  },
+  {
+    "id": "USG00646",
+    "patient_id": "PAT0542",
+    "service_id": "SRV009",
+    "doctor_id": "DOC074",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00647",
+    "patient_id": "PAT0126",
+    "service_id": "SRV009",
+    "doctor_id": "DOC068",
+    "sessions_count": 15,
+    "last_used_date": "2025-12-09"
+  },
+  {
+    "id": "USG00648",
+    "patient_id": "PAT0165",
+    "service_id": "SRV010",
+    "doctor_id": "DOC088",
+    "sessions_count": 9,
+    "last_used_date": "2025-07-27"
+  },
+  {
+    "id": "USG00649",
+    "patient_id": "PAT0483",
+    "service_id": "SRV010",
+    "doctor_id": "DOC030",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00650",
+    "patient_id": "PAT0108",
+    "service_id": "SRV011",
+    "doctor_id": "DOC102",
+    "sessions_count": 24,
+    "last_used_date": "2025-09-04"
+  },
+  {
+    "id": "USG00651",
+    "patient_id": "PAT0354",
+    "service_id": "SRV007",
+    "doctor_id": "DOC034",
+    "sessions_count": 22,
+    "last_used_date": "2026-02-13"
+  },
+  {
+    "id": "USG00652",
+    "patient_id": "PAT0439",
+    "service_id": "SRV012",
+    "doctor_id": "DOC098",
+    "sessions_count": 12,
+    "last_used_date": "2026-02-21"
+  },
+  {
+    "id": "USG00653",
+    "patient_id": "PAT0466",
+    "service_id": "SRV006",
+    "doctor_id": "DOC012",
+    "sessions_count": 8,
+    "last_used_date": "2026-01-17"
+  },
+  {
+    "id": "USG00654",
+    "patient_id": "PAT0231",
+    "service_id": "SRV007",
+    "doctor_id": "DOC090",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00655",
+    "patient_id": "PAT0328",
+    "service_id": "SRV011",
+    "doctor_id": "DOC050",
+    "sessions_count": 20,
+    "last_used_date": "2025-12-29"
+  },
+  {
+    "id": "USG00656",
+    "patient_id": "PAT0086",
+    "service_id": "SRV001",
+    "doctor_id": "DOC105",
+    "sessions_count": 16,
+    "last_used_date": "2025-11-08"
+  },
+  {
+    "id": "USG00657",
+    "patient_id": "PAT0542",
+    "service_id": "SRV005",
+    "doctor_id": "DOC074",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-03"
+  },
+  {
+    "id": "USG00658",
+    "patient_id": "PAT0323",
+    "service_id": "SRV003",
+    "doctor_id": "DOC084",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-17"
+  },
+  {
+    "id": "USG00659",
+    "patient_id": "PAT0296",
+    "service_id": "SRV006",
+    "doctor_id": "DOC019",
+    "sessions_count": 7,
+    "last_used_date": "2025-10-08"
+  },
+  {
+    "id": "USG00660",
+    "patient_id": "PAT0026",
+    "service_id": "SRV005",
+    "doctor_id": "DOC097",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-04"
+  },
+  {
+    "id": "USG00661",
+    "patient_id": "PAT0475",
+    "service_id": "SRV001",
+    "doctor_id": "DOC031",
+    "sessions_count": 13,
+    "last_used_date": "2025-09-06"
+  },
+  {
+    "id": "USG00662",
+    "patient_id": "PAT0480",
+    "service_id": "SRV006",
+    "doctor_id": "DOC002",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00663",
+    "patient_id": "PAT0208",
+    "service_id": "SRV012",
+    "doctor_id": "DOC059",
+    "sessions_count": 23,
+    "last_used_date": "2026-04-15"
+  },
+  {
+    "id": "USG00664",
+    "patient_id": "PAT0092",
+    "service_id": "SRV007",
+    "doctor_id": "DOC104",
+    "sessions_count": 11,
+    "last_used_date": "2025-12-20"
+  },
+  {
+    "id": "USG00665",
+    "patient_id": "PAT0083",
+    "service_id": "SRV002",
+    "doctor_id": "DOC003",
+    "sessions_count": 21,
+    "last_used_date": "2026-02-15"
+  },
+  {
+    "id": "USG00666",
+    "patient_id": "PAT0208",
+    "service_id": "SRV001",
+    "doctor_id": "DOC059",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-15"
+  },
+  {
+    "id": "USG00667",
+    "patient_id": "PAT0092",
+    "service_id": "SRV008",
+    "doctor_id": "DOC104",
+    "sessions_count": 22,
+    "last_used_date": "2025-12-11"
+  },
+  {
+    "id": "USG00668",
+    "patient_id": "PAT0255",
+    "service_id": "SRV001",
+    "doctor_id": "DOC118",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00669",
+    "patient_id": "PAT0265",
+    "service_id": "SRV009",
+    "doctor_id": "DOC062",
+    "sessions_count": 18,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00670",
+    "patient_id": "PAT0528",
+    "service_id": "SRV012",
+    "doctor_id": "DOC025",
+    "sessions_count": 4,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00671",
+    "patient_id": "PAT0171",
+    "service_id": "SRV006",
+    "doctor_id": "DOC097",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00672",
+    "patient_id": "PAT0238",
+    "service_id": "SRV001",
+    "doctor_id": "DOC023",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-02"
+  },
+  {
+    "id": "USG00673",
+    "patient_id": "PAT0496",
+    "service_id": "SRV003",
+    "doctor_id": "DOC068",
+    "sessions_count": 15,
+    "last_used_date": "2025-09-16"
+  },
+  {
+    "id": "USG00674",
+    "patient_id": "PAT0110",
+    "service_id": "SRV012",
+    "doctor_id": "DOC031",
+    "sessions_count": 1,
+    "last_used_date": "2026-01-17"
+  },
+  {
+    "id": "USG00675",
+    "patient_id": "PAT0579",
+    "service_id": "SRV009",
+    "doctor_id": "DOC080",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-29"
+  },
+  {
+    "id": "USG00676",
+    "patient_id": "PAT0426",
+    "service_id": "SRV007",
+    "doctor_id": "DOC095",
+    "sessions_count": 3,
+    "last_used_date": "2025-12-26"
+  },
+  {
+    "id": "USG00677",
+    "patient_id": "PAT0342",
+    "service_id": "SRV003",
+    "doctor_id": "DOC112",
+    "sessions_count": 21,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00678",
+    "patient_id": "PAT0463",
+    "service_id": "SRV002",
+    "doctor_id": "DOC005",
+    "sessions_count": 1,
+    "last_used_date": "2025-12-06"
+  },
+  {
+    "id": "USG00679",
+    "patient_id": "PAT0405",
+    "service_id": "SRV009",
+    "doctor_id": "DOC119",
+    "sessions_count": 14,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00680",
+    "patient_id": "PAT0281",
+    "service_id": "SRV007",
+    "doctor_id": "DOC008",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-20"
+  },
+  {
+    "id": "USG00681",
+    "patient_id": "PAT0485",
+    "service_id": "SRV004",
+    "doctor_id": "DOC101",
+    "sessions_count": 10,
+    "last_used_date": "2026-02-23"
+  },
+  {
+    "id": "USG00682",
+    "patient_id": "PAT0438",
+    "service_id": "SRV009",
+    "doctor_id": "DOC021",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-23"
+  },
+  {
+    "id": "USG00683",
+    "patient_id": "PAT0299",
+    "service_id": "SRV003",
+    "doctor_id": "DOC048",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00684",
+    "patient_id": "PAT0455",
+    "service_id": "SRV007",
+    "doctor_id": "DOC033",
+    "sessions_count": 19,
+    "last_used_date": "2026-03-14"
+  },
+  {
+    "id": "USG00685",
+    "patient_id": "PAT0504",
+    "service_id": "SRV012",
+    "doctor_id": "DOC104",
+    "sessions_count": 19,
+    "last_used_date": "2026-01-21"
+  },
+  {
+    "id": "USG00686",
+    "patient_id": "PAT0383",
+    "service_id": "SRV002",
+    "doctor_id": "DOC067",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-18"
+  },
+  {
+    "id": "USG00687",
+    "patient_id": "PAT0035",
+    "service_id": "SRV004",
+    "doctor_id": "DOC112",
+    "sessions_count": 8,
+    "last_used_date": "2026-01-26"
+  },
+  {
+    "id": "USG00688",
+    "patient_id": "PAT0492",
+    "service_id": "SRV012",
+    "doctor_id": "DOC096",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-05"
+  },
+  {
+    "id": "USG00689",
+    "patient_id": "PAT0018",
+    "service_id": "SRV010",
+    "doctor_id": "DOC117",
+    "sessions_count": 2,
+    "last_used_date": "2025-12-17"
+  },
+  {
+    "id": "USG00690",
+    "patient_id": "PAT0451",
+    "service_id": "SRV011",
+    "doctor_id": "DOC067",
+    "sessions_count": 21,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00691",
+    "patient_id": "PAT0100",
+    "service_id": "SRV010",
+    "doctor_id": "DOC085",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00692",
+    "patient_id": "PAT0228",
+    "service_id": "SRV003",
+    "doctor_id": "DOC004",
+    "sessions_count": 10,
+    "last_used_date": "2026-02-23"
+  },
+  {
+    "id": "USG00693",
+    "patient_id": "PAT0500",
+    "service_id": "SRV008",
+    "doctor_id": "DOC105",
+    "sessions_count": 19,
+    "last_used_date": "2025-09-29"
+  },
+  {
+    "id": "USG00694",
+    "patient_id": "PAT0429",
+    "service_id": "SRV002",
+    "doctor_id": "DOC017",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00695",
+    "patient_id": "PAT0353",
+    "service_id": "SRV011",
+    "doctor_id": "DOC116",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-22"
+  },
+  {
+    "id": "USG00696",
+    "patient_id": "PAT0299",
+    "service_id": "SRV002",
+    "doctor_id": "DOC048",
+    "sessions_count": 22,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00697",
+    "patient_id": "PAT0594",
+    "service_id": "SRV011",
+    "doctor_id": "DOC036",
+    "sessions_count": 18,
+    "last_used_date": "2025-05-29"
+  },
+  {
+    "id": "USG00698",
+    "patient_id": "PAT0522",
+    "service_id": "SRV002",
+    "doctor_id": "DOC037",
+    "sessions_count": 24,
+    "last_used_date": "2026-01-08"
+  },
+  {
+    "id": "USG00699",
+    "patient_id": "PAT0419",
+    "service_id": "SRV007",
+    "doctor_id": "DOC004",
+    "sessions_count": 7,
+    "last_used_date": "2026-01-09"
+  },
+  {
+    "id": "USG00700",
+    "patient_id": "PAT0028",
+    "service_id": "SRV010",
+    "doctor_id": "DOC053",
+    "sessions_count": 3,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00701",
+    "patient_id": "PAT0535",
+    "service_id": "SRV004",
+    "doctor_id": "DOC020",
+    "sessions_count": 19,
+    "last_used_date": "2025-11-26"
+  },
+  {
+    "id": "USG00702",
+    "patient_id": "PAT0210",
+    "service_id": "SRV007",
+    "doctor_id": "DOC022",
+    "sessions_count": 17,
+    "last_used_date": "2025-10-22"
+  },
+  {
+    "id": "USG00703",
+    "patient_id": "PAT0063",
+    "service_id": "SRV012",
+    "doctor_id": "DOC066",
+    "sessions_count": 15,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00704",
+    "patient_id": "PAT0255",
+    "service_id": "SRV005",
+    "doctor_id": "DOC118",
+    "sessions_count": 23,
+    "last_used_date": "2026-02-09"
+  },
+  {
+    "id": "USG00705",
+    "patient_id": "PAT0267",
+    "service_id": "SRV002",
+    "doctor_id": "DOC057",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00706",
+    "patient_id": "PAT0148",
+    "service_id": "SRV002",
+    "doctor_id": "DOC010",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00707",
+    "patient_id": "PAT0248",
+    "service_id": "SRV001",
+    "doctor_id": "DOC073",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-02"
+  },
+  {
+    "id": "USG00708",
+    "patient_id": "PAT0309",
+    "service_id": "SRV003",
+    "doctor_id": "DOC090",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00709",
+    "patient_id": "PAT0401",
+    "service_id": "SRV009",
+    "doctor_id": "DOC087",
+    "sessions_count": 17,
+    "last_used_date": "2026-03-05"
+  },
+  {
+    "id": "USG00710",
+    "patient_id": "PAT0495",
+    "service_id": "SRV001",
+    "doctor_id": "DOC011",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00711",
+    "patient_id": "PAT0598",
+    "service_id": "SRV006",
+    "doctor_id": "DOC119",
+    "sessions_count": 6,
+    "last_used_date": "2026-01-21"
+  },
+  {
+    "id": "USG00712",
+    "patient_id": "PAT0574",
+    "service_id": "SRV012",
+    "doctor_id": "DOC082",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00713",
+    "patient_id": "PAT0357",
+    "service_id": "SRV005",
+    "doctor_id": "DOC012",
+    "sessions_count": 5,
+    "last_used_date": "2026-01-08"
+  },
+  {
+    "id": "USG00714",
+    "patient_id": "PAT0449",
+    "service_id": "SRV008",
+    "doctor_id": "DOC077",
+    "sessions_count": 6,
+    "last_used_date": "2025-10-31"
+  },
+  {
+    "id": "USG00715",
+    "patient_id": "PAT0346",
+    "service_id": "SRV009",
+    "doctor_id": "DOC108",
+    "sessions_count": 18,
+    "last_used_date": "2025-10-09"
+  },
+  {
+    "id": "USG00716",
+    "patient_id": "PAT0477",
+    "service_id": "SRV007",
+    "doctor_id": "DOC048",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-13"
+  },
+  {
+    "id": "USG00717",
+    "patient_id": "PAT0263",
+    "service_id": "SRV002",
+    "doctor_id": "DOC040",
+    "sessions_count": 24,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00718",
+    "patient_id": "PAT0259",
+    "service_id": "SRV005",
+    "doctor_id": "DOC055",
+    "sessions_count": 23,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00719",
+    "patient_id": "PAT0187",
+    "service_id": "SRV003",
+    "doctor_id": "DOC013",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-24"
+  },
+  {
+    "id": "USG00720",
+    "patient_id": "PAT0411",
+    "service_id": "SRV009",
+    "doctor_id": "DOC101",
+    "sessions_count": 19,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00721",
+    "patient_id": "PAT0183",
+    "service_id": "SRV002",
+    "doctor_id": "DOC112",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-17"
+  },
+  {
+    "id": "USG00722",
+    "patient_id": "PAT0107",
+    "service_id": "SRV004",
+    "doctor_id": "DOC031",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-21"
+  },
+  {
+    "id": "USG00723",
+    "patient_id": "PAT0567",
+    "service_id": "SRV005",
+    "doctor_id": "DOC106",
+    "sessions_count": 15,
+    "last_used_date": "2026-02-07"
+  },
+  {
+    "id": "USG00724",
+    "patient_id": "PAT0030",
+    "service_id": "SRV012",
+    "doctor_id": "DOC066",
+    "sessions_count": 1,
+    "last_used_date": "2025-12-27"
+  },
+  {
+    "id": "USG00725",
+    "patient_id": "PAT0363",
+    "service_id": "SRV008",
+    "doctor_id": "DOC055",
+    "sessions_count": 23,
+    "last_used_date": "2026-02-07"
+  },
+  {
+    "id": "USG00726",
+    "patient_id": "PAT0540",
+    "service_id": "SRV001",
+    "doctor_id": "DOC020",
+    "sessions_count": 10,
+    "last_used_date": "2026-02-21"
+  },
+  {
+    "id": "USG00727",
+    "patient_id": "PAT0548",
+    "service_id": "SRV008",
+    "doctor_id": "DOC089",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00728",
+    "patient_id": "PAT0559",
+    "service_id": "SRV011",
+    "doctor_id": "DOC091",
+    "sessions_count": 15,
+    "last_used_date": "2026-02-28"
+  },
+  {
+    "id": "USG00729",
+    "patient_id": "PAT0447",
+    "service_id": "SRV001",
+    "doctor_id": "DOC006",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00730",
+    "patient_id": "PAT0202",
+    "service_id": "SRV006",
+    "doctor_id": "DOC063",
+    "sessions_count": 21,
+    "last_used_date": "2026-03-09"
+  },
+  {
+    "id": "USG00731",
+    "patient_id": "PAT0131",
+    "service_id": "SRV005",
+    "doctor_id": "DOC004",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-06"
+  },
+  {
+    "id": "USG00732",
+    "patient_id": "PAT0550",
+    "service_id": "SRV002",
+    "doctor_id": "DOC068",
+    "sessions_count": 7,
+    "last_used_date": "2025-12-12"
+  },
+  {
+    "id": "USG00733",
+    "patient_id": "PAT0374",
+    "service_id": "SRV004",
+    "doctor_id": "DOC043",
+    "sessions_count": 14,
+    "last_used_date": "2025-11-20"
+  },
+  {
+    "id": "USG00734",
+    "patient_id": "PAT0362",
+    "service_id": "SRV005",
+    "doctor_id": "DOC074",
+    "sessions_count": 9,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00735",
+    "patient_id": "PAT0102",
+    "service_id": "SRV002",
+    "doctor_id": "DOC030",
+    "sessions_count": 4,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00736",
+    "patient_id": "PAT0034",
+    "service_id": "SRV011",
+    "doctor_id": "DOC050",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-13"
+  },
+  {
+    "id": "USG00737",
+    "patient_id": "PAT0228",
+    "service_id": "SRV010",
+    "doctor_id": "DOC004",
+    "sessions_count": 19,
+    "last_used_date": "2026-01-17"
+  },
+  {
+    "id": "USG00738",
+    "patient_id": "PAT0519",
+    "service_id": "SRV011",
+    "doctor_id": "DOC118",
+    "sessions_count": 9,
+    "last_used_date": "2026-03-14"
+  },
+  {
+    "id": "USG00739",
+    "patient_id": "PAT0289",
+    "service_id": "SRV009",
+    "doctor_id": "DOC049",
+    "sessions_count": 4,
+    "last_used_date": "2026-04-08"
+  },
+  {
+    "id": "USG00740",
+    "patient_id": "PAT0138",
+    "service_id": "SRV008",
+    "doctor_id": "DOC011",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-27"
+  },
+  {
+    "id": "USG00741",
+    "patient_id": "PAT0502",
+    "service_id": "SRV012",
+    "doctor_id": "DOC056",
+    "sessions_count": 21,
+    "last_used_date": "2025-12-20"
+  },
+  {
+    "id": "USG00742",
+    "patient_id": "PAT0514",
+    "service_id": "SRV006",
+    "doctor_id": "DOC101",
+    "sessions_count": 19,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00743",
+    "patient_id": "PAT0099",
+    "service_id": "SRV011",
+    "doctor_id": "DOC018",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-10"
+  },
+  {
+    "id": "USG00744",
+    "patient_id": "PAT0584",
+    "service_id": "SRV005",
+    "doctor_id": "DOC068",
+    "sessions_count": 22,
+    "last_used_date": "2025-08-28"
+  },
+  {
+    "id": "USG00745",
+    "patient_id": "PAT0197",
+    "service_id": "SRV001",
+    "doctor_id": "DOC091",
+    "sessions_count": 21,
+    "last_used_date": "2025-11-07"
+  },
+  {
+    "id": "USG00746",
+    "patient_id": "PAT0046",
+    "service_id": "SRV007",
+    "doctor_id": "DOC107",
+    "sessions_count": 20,
+    "last_used_date": "2025-12-04"
+  },
+  {
+    "id": "USG00747",
+    "patient_id": "PAT0399",
+    "service_id": "SRV006",
+    "doctor_id": "DOC027",
+    "sessions_count": 2,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00748",
+    "patient_id": "PAT0159",
+    "service_id": "SRV012",
+    "doctor_id": "DOC032",
+    "sessions_count": 14,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00749",
+    "patient_id": "PAT0258",
+    "service_id": "SRV006",
+    "doctor_id": "DOC112",
+    "sessions_count": 11,
+    "last_used_date": "2025-08-25"
+  },
+  {
+    "id": "USG00750",
+    "patient_id": "PAT0569",
+    "service_id": "SRV008",
+    "doctor_id": "DOC095",
+    "sessions_count": 6,
+    "last_used_date": "2025-07-31"
+  },
+  {
+    "id": "USG00751",
+    "patient_id": "PAT0244",
+    "service_id": "SRV009",
+    "doctor_id": "DOC024",
+    "sessions_count": 6,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00752",
+    "patient_id": "PAT0424",
+    "service_id": "SRV001",
+    "doctor_id": "DOC019",
+    "sessions_count": 12,
+    "last_used_date": "2025-10-08"
+  },
+  {
+    "id": "USG00753",
+    "patient_id": "PAT0594",
+    "service_id": "SRV009",
+    "doctor_id": "DOC036",
+    "sessions_count": 4,
+    "last_used_date": "2025-06-03"
+  },
+  {
+    "id": "USG00754",
+    "patient_id": "PAT0539",
+    "service_id": "SRV009",
+    "doctor_id": "DOC119",
+    "sessions_count": 23,
+    "last_used_date": "2026-01-27"
+  },
+  {
+    "id": "USG00755",
+    "patient_id": "PAT0254",
+    "service_id": "SRV001",
+    "doctor_id": "DOC038",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-23"
+  },
+  {
+    "id": "USG00756",
+    "patient_id": "PAT0468",
+    "service_id": "SRV009",
+    "doctor_id": "DOC025",
+    "sessions_count": 17,
+    "last_used_date": "2026-02-01"
+  },
+  {
+    "id": "USG00757",
+    "patient_id": "PAT0491",
+    "service_id": "SRV011",
+    "doctor_id": "DOC041",
+    "sessions_count": 21,
+    "last_used_date": "2026-04-10"
+  },
+  {
+    "id": "USG00758",
+    "patient_id": "PAT0159",
+    "service_id": "SRV001",
+    "doctor_id": "DOC032",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-06"
+  },
+  {
+    "id": "USG00759",
+    "patient_id": "PAT0073",
+    "service_id": "SRV001",
+    "doctor_id": "DOC079",
+    "sessions_count": 14,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00760",
+    "patient_id": "PAT0585",
+    "service_id": "SRV012",
+    "doctor_id": "DOC089",
+    "sessions_count": 23,
+    "last_used_date": "2026-03-21"
+  },
+  {
+    "id": "USG00761",
+    "patient_id": "PAT0605",
+    "service_id": "SRV008",
+    "doctor_id": "DOC061",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00762",
+    "patient_id": "PAT0116",
+    "service_id": "SRV006",
+    "doctor_id": "DOC023",
+    "sessions_count": 23,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00763",
+    "patient_id": "PAT0070",
+    "service_id": "SRV010",
+    "doctor_id": "DOC076",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00764",
+    "patient_id": "PAT0130",
+    "service_id": "SRV008",
+    "doctor_id": "DOC119",
+    "sessions_count": 22,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00765",
+    "patient_id": "PAT0171",
+    "service_id": "SRV012",
+    "doctor_id": "DOC097",
+    "sessions_count": 18,
+    "last_used_date": "2026-01-15"
+  },
+  {
+    "id": "USG00766",
+    "patient_id": "PAT0419",
+    "service_id": "SRV004",
+    "doctor_id": "DOC004",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-22"
+  },
+  {
+    "id": "USG00767",
+    "patient_id": "PAT0314",
+    "service_id": "SRV010",
+    "doctor_id": "DOC063",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-13"
+  },
+  {
+    "id": "USG00768",
+    "patient_id": "PAT0206",
+    "service_id": "SRV009",
+    "doctor_id": "DOC068",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00769",
+    "patient_id": "PAT0500",
+    "service_id": "SRV011",
+    "doctor_id": "DOC105",
+    "sessions_count": 12,
+    "last_used_date": "2025-11-28"
+  },
+  {
+    "id": "USG00770",
+    "patient_id": "PAT0091",
+    "service_id": "SRV001",
+    "doctor_id": "DOC117",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-12"
+  },
+  {
+    "id": "USG00771",
+    "patient_id": "PAT0369",
+    "service_id": "SRV006",
+    "doctor_id": "DOC007",
+    "sessions_count": 12,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00772",
+    "patient_id": "PAT0467",
+    "service_id": "SRV003",
+    "doctor_id": "DOC009",
+    "sessions_count": 9,
+    "last_used_date": "2026-03-11"
+  },
+  {
+    "id": "USG00773",
+    "patient_id": "PAT0410",
+    "service_id": "SRV011",
+    "doctor_id": "DOC077",
+    "sessions_count": 20,
+    "last_used_date": "2025-09-19"
+  },
+  {
+    "id": "USG00774",
+    "patient_id": "PAT0100",
+    "service_id": "SRV007",
+    "doctor_id": "DOC085",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-14"
+  },
+  {
+    "id": "USG00775",
+    "patient_id": "PAT0359",
+    "service_id": "SRV006",
+    "doctor_id": "DOC114",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-19"
+  },
+  {
+    "id": "USG00776",
+    "patient_id": "PAT0154",
+    "service_id": "SRV010",
+    "doctor_id": "DOC075",
+    "sessions_count": 24,
+    "last_used_date": "2026-02-26"
+  },
+  {
+    "id": "USG00777",
+    "patient_id": "PAT0600",
+    "service_id": "SRV010",
+    "doctor_id": "DOC120",
+    "sessions_count": 22,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00778",
+    "patient_id": "PAT0305",
+    "service_id": "SRV002",
+    "doctor_id": "DOC045",
+    "sessions_count": 11,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00779",
+    "patient_id": "PAT0161",
+    "service_id": "SRV011",
+    "doctor_id": "DOC070",
+    "sessions_count": 20,
+    "last_used_date": "2025-11-26"
+  },
+  {
+    "id": "USG00780",
+    "patient_id": "PAT0521",
+    "service_id": "SRV010",
+    "doctor_id": "DOC093",
+    "sessions_count": 9,
+    "last_used_date": "2025-07-26"
+  },
+  {
+    "id": "USG00781",
+    "patient_id": "PAT0555",
+    "service_id": "SRV002",
+    "doctor_id": "DOC031",
+    "sessions_count": 20,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00782",
+    "patient_id": "PAT0124",
+    "service_id": "SRV008",
+    "doctor_id": "DOC087",
+    "sessions_count": 11,
+    "last_used_date": "2026-01-25"
+  },
+  {
+    "id": "USG00783",
+    "patient_id": "PAT0529",
+    "service_id": "SRV005",
+    "doctor_id": "DOC099",
+    "sessions_count": 9,
+    "last_used_date": "2026-05-01"
+  },
+  {
+    "id": "USG00784",
+    "patient_id": "PAT0601",
+    "service_id": "SRV005",
+    "doctor_id": "DOC096",
+    "sessions_count": 6,
+    "last_used_date": "2025-10-21"
+  },
+  {
+    "id": "USG00785",
+    "patient_id": "PAT0431",
+    "service_id": "SRV003",
+    "doctor_id": "DOC001",
+    "sessions_count": 12,
+    "last_used_date": "2026-03-03"
+  },
+  {
+    "id": "USG00786",
+    "patient_id": "PAT0554",
+    "service_id": "SRV001",
+    "doctor_id": "DOC040",
+    "sessions_count": 1,
+    "last_used_date": "2026-02-26"
+  },
+  {
+    "id": "USG00787",
+    "patient_id": "PAT0058",
+    "service_id": "SRV009",
+    "doctor_id": "DOC008",
+    "sessions_count": 1,
+    "last_used_date": "2025-11-30"
+  },
+  {
+    "id": "USG00788",
+    "patient_id": "PAT0083",
+    "service_id": "SRV010",
+    "doctor_id": "DOC003",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-22"
+  },
+  {
+    "id": "USG00789",
+    "patient_id": "PAT0330",
+    "service_id": "SRV008",
+    "doctor_id": "DOC104",
+    "sessions_count": 22,
+    "last_used_date": "2026-03-20"
+  },
+  {
+    "id": "USG00790",
+    "patient_id": "PAT0132",
+    "service_id": "SRV006",
+    "doctor_id": "DOC092",
+    "sessions_count": 12,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00791",
+    "patient_id": "PAT0432",
+    "service_id": "SRV009",
+    "doctor_id": "DOC018",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-18"
+  },
+  {
+    "id": "USG00792",
+    "patient_id": "PAT0275",
+    "service_id": "SRV007",
+    "doctor_id": "DOC011",
+    "sessions_count": 1,
+    "last_used_date": "2026-03-12"
+  },
+  {
+    "id": "USG00793",
+    "patient_id": "PAT0107",
+    "service_id": "SRV006",
+    "doctor_id": "DOC031",
+    "sessions_count": 5,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00794",
+    "patient_id": "PAT0217",
+    "service_id": "SRV007",
+    "doctor_id": "DOC099",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-27"
+  },
+  {
+    "id": "USG00795",
+    "patient_id": "PAT0301",
+    "service_id": "SRV010",
+    "doctor_id": "DOC119",
+    "sessions_count": 2,
+    "last_used_date": "2026-03-31"
+  },
+  {
+    "id": "USG00796",
+    "patient_id": "PAT0005",
+    "service_id": "SRV003",
+    "doctor_id": "DOC012",
+    "sessions_count": 23,
+    "last_used_date": "2025-12-30"
+  },
+  {
+    "id": "USG00797",
+    "patient_id": "PAT0041",
+    "service_id": "SRV007",
+    "doctor_id": "DOC079",
+    "sessions_count": 5,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00798",
+    "patient_id": "PAT0316",
+    "service_id": "SRV012",
+    "doctor_id": "DOC109",
+    "sessions_count": 20,
+    "last_used_date": "2026-03-25"
+  },
+  {
+    "id": "USG00799",
+    "patient_id": "PAT0369",
+    "service_id": "SRV008",
+    "doctor_id": "DOC007",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00800",
+    "patient_id": "PAT0295",
+    "service_id": "SRV009",
+    "doctor_id": "DOC110",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-07"
+  },
+  {
+    "id": "USG00801",
+    "patient_id": "PAT0396",
+    "service_id": "SRV004",
+    "doctor_id": "DOC094",
+    "sessions_count": 7,
+    "last_used_date": "2025-08-05"
+  },
+  {
+    "id": "USG00802",
+    "patient_id": "PAT0342",
+    "service_id": "SRV008",
+    "doctor_id": "DOC112",
+    "sessions_count": 20,
+    "last_used_date": "2025-12-15"
+  },
+  {
+    "id": "USG00803",
+    "patient_id": "PAT0031",
+    "service_id": "SRV010",
+    "doctor_id": "DOC037",
+    "sessions_count": 2,
+    "last_used_date": "2025-10-29"
+  },
+  {
+    "id": "USG00804",
+    "patient_id": "PAT0428",
+    "service_id": "SRV004",
+    "doctor_id": "DOC071",
+    "sessions_count": 10,
+    "last_used_date": "2025-10-26"
+  },
+  {
+    "id": "USG00805",
+    "patient_id": "PAT0083",
+    "service_id": "SRV009",
+    "doctor_id": "DOC003",
+    "sessions_count": 5,
+    "last_used_date": "2025-10-21"
+  },
+  {
+    "id": "USG00806",
+    "patient_id": "PAT0047",
+    "service_id": "SRV011",
+    "doctor_id": "DOC099",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-12"
+  },
+  {
+    "id": "USG00807",
+    "patient_id": "PAT0324",
+    "service_id": "SRV010",
+    "doctor_id": "DOC090",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-15"
+  },
+  {
+    "id": "USG00808",
+    "patient_id": "PAT0220",
+    "service_id": "SRV007",
+    "doctor_id": "DOC014",
+    "sessions_count": 6,
+    "last_used_date": "2026-02-26"
+  },
+  {
+    "id": "USG00809",
+    "patient_id": "PAT0514",
+    "service_id": "SRV008",
+    "doctor_id": "DOC101",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00810",
+    "patient_id": "PAT0366",
+    "service_id": "SRV006",
+    "doctor_id": "DOC077",
+    "sessions_count": 14,
+    "last_used_date": "2026-02-15"
+  },
+  {
+    "id": "USG00811",
+    "patient_id": "PAT0571",
+    "service_id": "SRV006",
+    "doctor_id": "DOC060",
+    "sessions_count": 1,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00812",
+    "patient_id": "PAT0437",
+    "service_id": "SRV007",
+    "doctor_id": "DOC065",
+    "sessions_count": 17,
+    "last_used_date": "2025-09-24"
+  },
+  {
+    "id": "USG00813",
+    "patient_id": "PAT0172",
+    "service_id": "SRV011",
+    "doctor_id": "DOC013",
+    "sessions_count": 17,
+    "last_used_date": "2026-02-28"
+  },
+  {
+    "id": "USG00814",
+    "patient_id": "PAT0485",
+    "service_id": "SRV002",
+    "doctor_id": "DOC101",
+    "sessions_count": 2,
+    "last_used_date": "2026-02-07"
+  },
+  {
+    "id": "USG00815",
+    "patient_id": "PAT0180",
+    "service_id": "SRV006",
+    "doctor_id": "DOC073",
+    "sessions_count": 21,
+    "last_used_date": "2025-12-01"
+  },
+  {
+    "id": "USG00816",
+    "patient_id": "PAT0272",
+    "service_id": "SRV006",
+    "doctor_id": "DOC054",
+    "sessions_count": 15,
+    "last_used_date": "2026-01-11"
+  },
+  {
+    "id": "USG00817",
+    "patient_id": "PAT0522",
+    "service_id": "SRV006",
+    "doctor_id": "DOC037",
+    "sessions_count": 21,
+    "last_used_date": "2025-11-21"
+  },
+  {
+    "id": "USG00818",
+    "patient_id": "PAT0521",
+    "service_id": "SRV005",
+    "doctor_id": "DOC093",
+    "sessions_count": 10,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00819",
+    "patient_id": "PAT0122",
+    "service_id": "SRV012",
+    "doctor_id": "DOC092",
+    "sessions_count": 11,
+    "last_used_date": "2026-02-26"
+  },
+  {
+    "id": "USG00820",
+    "patient_id": "PAT0395",
+    "service_id": "SRV004",
+    "doctor_id": "DOC120",
+    "sessions_count": 14,
+    "last_used_date": "2026-02-01"
+  },
+  {
+    "id": "USG00821",
+    "patient_id": "PAT0618",
+    "service_id": "SRV006",
+    "doctor_id": "DOC026",
+    "sessions_count": 4,
+    "last_used_date": "2025-10-12"
+  },
+  {
+    "id": "USG00822",
+    "patient_id": "PAT0605",
+    "service_id": "SRV007",
+    "doctor_id": "DOC061",
+    "sessions_count": 18,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00823",
+    "patient_id": "PAT0452",
+    "service_id": "SRV006",
+    "doctor_id": "DOC113",
+    "sessions_count": 11,
+    "last_used_date": "2026-04-26"
+  },
+  {
+    "id": "USG00824",
+    "patient_id": "PAT0578",
+    "service_id": "SRV005",
+    "doctor_id": "DOC028",
+    "sessions_count": 17,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00825",
+    "patient_id": "PAT0106",
+    "service_id": "SRV011",
+    "doctor_id": "DOC012",
+    "sessions_count": 21,
+    "last_used_date": "2025-10-14"
+  },
+  {
+    "id": "USG00826",
+    "patient_id": "PAT0156",
+    "service_id": "SRV005",
+    "doctor_id": "DOC089",
+    "sessions_count": 20,
+    "last_used_date": "2025-09-26"
+  },
+  {
+    "id": "USG00827",
+    "patient_id": "PAT0472",
+    "service_id": "SRV008",
+    "doctor_id": "DOC103",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00828",
+    "patient_id": "PAT0006",
+    "service_id": "SRV002",
+    "doctor_id": "DOC045",
+    "sessions_count": 15,
+    "last_used_date": "2026-03-15"
+  },
+  {
+    "id": "USG00829",
+    "patient_id": "PAT0302",
+    "service_id": "SRV004",
+    "doctor_id": "DOC117",
+    "sessions_count": 9,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00830",
+    "patient_id": "PAT0559",
+    "service_id": "SRV010",
+    "doctor_id": "DOC091",
+    "sessions_count": 11,
+    "last_used_date": "2026-01-28"
+  },
+  {
+    "id": "USG00831",
+    "patient_id": "PAT0619",
+    "service_id": "SRV003",
+    "doctor_id": "DOC012",
+    "sessions_count": 8,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00832",
+    "patient_id": "PAT0426",
+    "service_id": "SRV010",
+    "doctor_id": "DOC095",
+    "sessions_count": 20,
+    "last_used_date": "2026-01-05"
+  },
+  {
+    "id": "USG00833",
+    "patient_id": "PAT0211",
+    "service_id": "SRV011",
+    "doctor_id": "DOC028",
+    "sessions_count": 23,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00834",
+    "patient_id": "PAT0530",
+    "service_id": "SRV009",
+    "doctor_id": "DOC071",
+    "sessions_count": 17,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00835",
+    "patient_id": "PAT0428",
+    "service_id": "SRV002",
+    "doctor_id": "DOC071",
+    "sessions_count": 3,
+    "last_used_date": "2025-12-29"
+  },
+  {
+    "id": "USG00836",
+    "patient_id": "PAT0540",
+    "service_id": "SRV011",
+    "doctor_id": "DOC020",
+    "sessions_count": 10,
+    "last_used_date": "2026-02-20"
+  },
+  {
+    "id": "USG00837",
+    "patient_id": "PAT0324",
+    "service_id": "SRV009",
+    "doctor_id": "DOC090",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-20"
+  },
+  {
+    "id": "USG00838",
+    "patient_id": "PAT0084",
+    "service_id": "SRV010",
+    "doctor_id": "DOC032",
+    "sessions_count": 6,
+    "last_used_date": "2026-03-31"
+  },
+  {
+    "id": "USG00839",
+    "patient_id": "PAT0069",
+    "service_id": "SRV012",
+    "doctor_id": "DOC119",
+    "sessions_count": 2,
+    "last_used_date": "2026-02-28"
+  },
+  {
+    "id": "USG00840",
+    "patient_id": "PAT0029",
+    "service_id": "SRV006",
+    "doctor_id": "DOC066",
+    "sessions_count": 5,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00841",
+    "patient_id": "PAT0430",
+    "service_id": "SRV001",
+    "doctor_id": "DOC043",
+    "sessions_count": 16,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00842",
+    "patient_id": "PAT0307",
+    "service_id": "SRV001",
+    "doctor_id": "DOC032",
+    "sessions_count": 18,
+    "last_used_date": "2026-04-11"
+  },
+  {
+    "id": "USG00843",
+    "patient_id": "PAT0310",
+    "service_id": "SRV006",
+    "doctor_id": "DOC063",
+    "sessions_count": 15,
+    "last_used_date": "2026-04-07"
+  },
+  {
+    "id": "USG00844",
+    "patient_id": "PAT0434",
+    "service_id": "SRV010",
+    "doctor_id": "DOC094",
+    "sessions_count": 4,
+    "last_used_date": "2025-11-23"
+  },
+  {
+    "id": "USG00845",
+    "patient_id": "PAT0175",
+    "service_id": "SRV007",
+    "doctor_id": "DOC118",
+    "sessions_count": 2,
+    "last_used_date": "2026-02-13"
+  },
+  {
+    "id": "USG00846",
+    "patient_id": "PAT0508",
+    "service_id": "SRV009",
+    "doctor_id": "DOC043",
+    "sessions_count": 7,
+    "last_used_date": "2025-10-16"
+  },
+  {
+    "id": "USG00847",
+    "patient_id": "PAT0112",
+    "service_id": "SRV009",
+    "doctor_id": "DOC079",
+    "sessions_count": 12,
+    "last_used_date": "2026-04-28"
+  },
+  {
+    "id": "USG00848",
+    "patient_id": "PAT0596",
+    "service_id": "SRV005",
+    "doctor_id": "DOC048",
+    "sessions_count": 8,
+    "last_used_date": "2026-01-19"
+  },
+  {
+    "id": "USG00849",
+    "patient_id": "PAT0268",
+    "service_id": "SRV006",
+    "doctor_id": "DOC018",
+    "sessions_count": 7,
+    "last_used_date": "2026-05-02"
+  },
+  {
+    "id": "USG00850",
+    "patient_id": "PAT0181",
+    "service_id": "SRV006",
+    "doctor_id": "DOC096",
+    "sessions_count": 24,
+    "last_used_date": "2026-02-18"
+  },
+  {
+    "id": "USG00851",
+    "patient_id": "PAT0186",
+    "service_id": "SRV005",
+    "doctor_id": "DOC025",
+    "sessions_count": 16,
+    "last_used_date": "2025-12-25"
+  },
+  {
+    "id": "USG00852",
+    "patient_id": "PAT0080",
+    "service_id": "SRV002",
+    "doctor_id": "DOC038",
+    "sessions_count": 23,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00853",
+    "patient_id": "PAT0477",
+    "service_id": "SRV005",
+    "doctor_id": "DOC048",
+    "sessions_count": 10,
+    "last_used_date": "2026-04-01"
+  },
+  {
+    "id": "USG00854",
+    "patient_id": "PAT0612",
+    "service_id": "SRV003",
+    "doctor_id": "DOC052",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-05"
+  },
+  {
+    "id": "USG00855",
+    "patient_id": "PAT0508",
+    "service_id": "SRV012",
+    "doctor_id": "DOC043",
+    "sessions_count": 4,
+    "last_used_date": "2025-07-13"
+  },
+  {
+    "id": "USG00856",
+    "patient_id": "PAT0476",
+    "service_id": "SRV005",
+    "doctor_id": "DOC016",
+    "sessions_count": 17,
+    "last_used_date": "2026-05-05"
+  },
+  {
+    "id": "USG00857",
+    "patient_id": "PAT0077",
+    "service_id": "SRV001",
+    "doctor_id": "DOC011",
+    "sessions_count": 21,
+    "last_used_date": "2025-12-28"
+  },
+  {
+    "id": "USG00858",
+    "patient_id": "PAT0497",
+    "service_id": "SRV007",
+    "doctor_id": "DOC120",
+    "sessions_count": 7,
+    "last_used_date": "2025-11-20"
+  },
+  {
+    "id": "USG00859",
+    "patient_id": "PAT0213",
+    "service_id": "SRV005",
+    "doctor_id": "DOC073",
+    "sessions_count": 6,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00860",
+    "patient_id": "PAT0385",
+    "service_id": "SRV004",
+    "doctor_id": "DOC110",
+    "sessions_count": 13,
+    "last_used_date": "2026-02-13"
+  },
+  {
+    "id": "USG00861",
+    "patient_id": "PAT0285",
+    "service_id": "SRV002",
+    "doctor_id": "DOC029",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-24"
+  },
+  {
+    "id": "USG00862",
+    "patient_id": "PAT0607",
+    "service_id": "SRV009",
+    "doctor_id": "DOC104",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-27"
+  },
+  {
+    "id": "USG00863",
+    "patient_id": "PAT0339",
+    "service_id": "SRV003",
+    "doctor_id": "DOC096",
+    "sessions_count": 24,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00864",
+    "patient_id": "PAT0091",
+    "service_id": "SRV005",
+    "doctor_id": "DOC117",
+    "sessions_count": 4,
+    "last_used_date": "2026-03-23"
+  },
+  {
+    "id": "USG00865",
+    "patient_id": "PAT0487",
+    "service_id": "SRV003",
+    "doctor_id": "DOC072",
+    "sessions_count": 13,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00866",
+    "patient_id": "PAT0520",
+    "service_id": "SRV006",
+    "doctor_id": "DOC001",
+    "sessions_count": 24,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00867",
+    "patient_id": "PAT0320",
+    "service_id": "SRV009",
+    "doctor_id": "DOC070",
+    "sessions_count": 2,
+    "last_used_date": "2026-02-14"
+  },
+  {
+    "id": "USG00868",
+    "patient_id": "PAT0146",
+    "service_id": "SRV012",
+    "doctor_id": "DOC087",
+    "sessions_count": 21,
+    "last_used_date": "2026-02-01"
+  },
+  {
+    "id": "USG00869",
+    "patient_id": "PAT0482",
+    "service_id": "SRV003",
+    "doctor_id": "DOC097",
+    "sessions_count": 11,
+    "last_used_date": "2025-12-25"
+  },
+  {
+    "id": "USG00870",
+    "patient_id": "PAT0369",
+    "service_id": "SRV004",
+    "doctor_id": "DOC007",
+    "sessions_count": 3,
+    "last_used_date": "2026-04-09"
+  },
+  {
+    "id": "USG00871",
+    "patient_id": "PAT0119",
+    "service_id": "SRV004",
+    "doctor_id": "DOC016",
+    "sessions_count": 9,
+    "last_used_date": "2026-04-15"
+  },
+  {
+    "id": "USG00872",
+    "patient_id": "PAT0375",
+    "service_id": "SRV011",
+    "doctor_id": "DOC010",
+    "sessions_count": 16,
+    "last_used_date": "2026-03-24"
+  },
+  {
+    "id": "USG00873",
+    "patient_id": "PAT0373",
+    "service_id": "SRV011",
+    "doctor_id": "DOC026",
+    "sessions_count": 2,
+    "last_used_date": "2025-12-17"
+  },
+  {
+    "id": "USG00874",
+    "patient_id": "PAT0519",
+    "service_id": "SRV008",
+    "doctor_id": "DOC118",
+    "sessions_count": 18,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00875",
+    "patient_id": "PAT0231",
+    "service_id": "SRV004",
+    "doctor_id": "DOC090",
+    "sessions_count": 13,
+    "last_used_date": "2026-03-18"
+  },
+  {
+    "id": "USG00876",
+    "patient_id": "PAT0246",
+    "service_id": "SRV009",
+    "doctor_id": "DOC024",
+    "sessions_count": 3,
+    "last_used_date": "2026-01-16"
+  },
+  {
+    "id": "USG00877",
+    "patient_id": "PAT0539",
+    "service_id": "SRV003",
+    "doctor_id": "DOC119",
+    "sessions_count": 7,
+    "last_used_date": "2026-02-19"
+  },
+  {
+    "id": "USG00878",
+    "patient_id": "PAT0578",
+    "service_id": "SRV008",
+    "doctor_id": "DOC028",
+    "sessions_count": 13,
+    "last_used_date": "2026-04-10"
+  },
+  {
+    "id": "USG00879",
+    "patient_id": "PAT0594",
+    "service_id": "SRV009",
+    "doctor_id": "DOC036",
+    "sessions_count": 12,
+    "last_used_date": "2025-06-11"
+  },
+  {
+    "id": "USG00880",
+    "patient_id": "PAT0369",
+    "service_id": "SRV008",
+    "doctor_id": "DOC007",
+    "sessions_count": 7,
+    "last_used_date": "2026-04-30"
+  },
+  {
+    "id": "USG00881",
+    "patient_id": "PAT0538",
+    "service_id": "SRV001",
+    "doctor_id": "DOC118",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-18"
+  },
+  {
+    "id": "USG00882",
+    "patient_id": "PAT0416",
+    "service_id": "SRV011",
+    "doctor_id": "DOC058",
+    "sessions_count": 22,
+    "last_used_date": "2026-02-27"
+  },
+  {
+    "id": "USG00883",
+    "patient_id": "PAT0296",
+    "service_id": "SRV001",
+    "doctor_id": "DOC019",
+    "sessions_count": 12,
+    "last_used_date": "2025-11-23"
+  },
+  {
+    "id": "USG00884",
+    "patient_id": "PAT0027",
+    "service_id": "SRV002",
+    "doctor_id": "DOC063",
+    "sessions_count": 11,
+    "last_used_date": "2026-02-23"
+  },
+  {
+    "id": "USG00885",
+    "patient_id": "PAT0423",
+    "service_id": "SRV011",
+    "doctor_id": "DOC106",
+    "sessions_count": 11,
+    "last_used_date": "2026-05-04"
+  },
+  {
+    "id": "USG00886",
+    "patient_id": "PAT0529",
+    "service_id": "SRV010",
+    "doctor_id": "DOC099",
+    "sessions_count": 11,
+    "last_used_date": "2026-03-30"
+  },
+  {
+    "id": "USG00887",
+    "patient_id": "PAT0548",
+    "service_id": "SRV007",
+    "doctor_id": "DOC089",
+    "sessions_count": 24,
+    "last_used_date": "2026-04-29"
+  },
+  {
+    "id": "USG00888",
+    "patient_id": "PAT0137",
+    "service_id": "SRV003",
+    "doctor_id": "DOC022",
+    "sessions_count": 6,
+    "last_used_date": "2026-04-14"
+  },
+  {
+    "id": "USG00889",
+    "patient_id": "PAT0044",
+    "service_id": "SRV005",
+    "doctor_id": "DOC110",
+    "sessions_count": 13,
+    "last_used_date": "2026-02-06"
+  },
+  {
+    "id": "USG00890",
+    "patient_id": "PAT0245",
+    "service_id": "SRV012",
+    "doctor_id": "DOC024",
+    "sessions_count": 2,
+    "last_used_date": "2026-01-18"
+  },
+  {
+    "id": "USG00891",
+    "patient_id": "PAT0440",
+    "service_id": "SRV010",
+    "doctor_id": "DOC050",
+    "sessions_count": 8,
+    "last_used_date": "2026-03-02"
+  },
+  {
+    "id": "USG00892",
+    "patient_id": "PAT0391",
+    "service_id": "SRV004",
+    "doctor_id": "DOC107",
+    "sessions_count": 22,
+    "last_used_date": "2026-04-16"
+  },
+  {
+    "id": "USG00893",
+    "patient_id": "PAT0094",
+    "service_id": "SRV005",
+    "doctor_id": "DOC007",
+    "sessions_count": 5,
+    "last_used_date": "2026-04-03"
+  },
+  {
+    "id": "USG00894",
+    "patient_id": "PAT0561",
+    "service_id": "SRV007",
+    "doctor_id": "DOC039",
+    "sessions_count": 5,
+    "last_used_date": "2026-01-14"
+  },
+  {
+    "id": "USG00895",
+    "patient_id": "PAT0222",
+    "service_id": "SRV003",
+    "doctor_id": "DOC022",
+    "sessions_count": 4,
+    "last_used_date": "2026-04-25"
+  },
+  {
+    "id": "USG00896",
+    "patient_id": "PAT0277",
+    "service_id": "SRV001",
+    "doctor_id": "DOC119",
+    "sessions_count": 11,
+    "last_used_date": "2026-01-15"
+  },
+  {
+    "id": "USG00897",
+    "patient_id": "PAT0306",
+    "service_id": "SRV003",
+    "doctor_id": "DOC115",
+    "sessions_count": 20,
+    "last_used_date": "2025-11-01"
+  },
+  {
+    "id": "USG00898",
+    "patient_id": "PAT0160",
+    "service_id": "SRV003",
+    "doctor_id": "DOC091",
+    "sessions_count": 5,
+    "last_used_date": "2026-02-16"
+  },
+  {
+    "id": "USG00899",
+    "patient_id": "PAT0237",
+    "service_id": "SRV012",
+    "doctor_id": "DOC006",
+    "sessions_count": 1,
+    "last_used_date": "2026-05-03"
+  },
+  {
+    "id": "USG00900",
+    "patient_id": "PAT0028",
+    "service_id": "SRV002",
+    "doctor_id": "DOC053",
+    "sessions_count": 17,
+    "last_used_date": "2025-09-27"
+  }
+]

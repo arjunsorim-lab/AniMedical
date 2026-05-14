@@ -1,0 +1,165 @@
+{
+  "total_patients": 500000,
+  "active_patients": 200576,
+  "critical_patients": 50286,
+  "total_doctors": 50000,
+  "total_hospitals": 500,
+  "total_revenue": 4015289879.8700004,
+  "top_region": "North Carolina",
+  "top_doctor": "Dr. Robert Lopez",
+  "most_used_service": "Inpatient",
+  "revenue_by_service_2026": [
+    {
+      "service_name": "Inpatient",
+      "total_revenue": 404312236.38
+    },
+    {
+      "service_name": "Outpatient",
+      "total_revenue": 401335810.11
+    },
+    {
+      "service_name": "Emergency",
+      "total_revenue": 400492289.12
+    },
+    {
+      "service_name": "Telehealth",
+      "total_revenue": 399732920.94
+    },
+    {
+      "service_name": "Laboratory",
+      "total_revenue": 402227129.17
+    },
+    {
+      "service_name": "Pharmacy",
+      "total_revenue": 402010965.01
+    },
+    {
+      "service_name": "Surgery",
+      "total_revenue": 400792826.41999996
+    },
+    {
+      "service_name": "Diagnostics",
+      "total_revenue": 402455597.62
+    },
+    {
+      "service_name": "Rehabilitation",
+      "total_revenue": 399904206.38
+    },
+    {
+      "service_name": "Hospice",
+      "total_revenue": 402025898.72
+    }
+  ],
+  "revenue_by_region_2026": [
+    {
+      "region": "New York",
+      "total_revenue": 133883001.08000001
+    },
+    {
+      "region": "California",
+      "total_revenue": 131659986.25999999
+    },
+    {
+      "region": "Texas",
+      "total_revenue": 133431482.46
+    },
+    {
+      "region": "Florida",
+      "total_revenue": 134779563.35000002
+    },
+    {
+      "region": "Illinois",
+      "total_revenue": 130937180.06
+    },
+    {
+      "region": "Pennsylvania",
+      "total_revenue": 132479177.49000001
+    },
+    {
+      "region": "Ohio",
+      "total_revenue": 134611564.65
+    },
+    {
+      "region": "Georgia",
+      "total_revenue": 133756006.07
+    },
+    {
+      "region": "North Carolina",
+      "total_revenue": 136086578.62
+    },
+    {
+      "region": "Michigan",
+      "total_revenue": 134986475.56
+    }
+  ],
+  "monthly_revenue_2026": [
+    {
+      "month": "2026-01",
+      "total_revenue": 348473.417004135
+    },
+    {
+      "month": "2026-02",
+      "total_revenue": 364053.1776224992
+    },
+    {
+      "month": "2026-03",
+      "total_revenue": 539158.6416775513
+    },
+    {
+      "month": "2026-04",
+      "total_revenue": 593594.2018610584
+    },
+    {
+      "month": "2026-05",
+      "total_revenue": 475351.7166961159
+    },
+    {
+      "month": "2026-06",
+      "total_revenue": 347834.55137145455
+    },
+    {
+      "month": "2026-07",
+      "total_revenue": 534695.3324184427
+    },
+    {
+      "month": "2026-08",
+      "total_revenue": 437759.3038340753
+    },
+    {
+      "month": "2026-09",
+      "total_revenue": 590649.641636508
+    },
+    {
+      "month": "2026-10",
+      "total_revenue": 346329.93208884244
+    },
+    {
+      "month": "2026-11",
+      "total_revenue": 515874.4629413923
+    },
+    {
+      "month": "2026-12",
+      "total_revenue": 545598.9437141942
+    }
+  ],
+  "annual_revenue": [
+    {
+      "year": 2024,
+      "total_revenue": 3820553.856328102,
+      "paid_revenue": 4126614.8491018303,
+      "pending_revenue": 430351.0620211839
+    },
+    {
+      "year": 2025,
+      "total_revenue": 3657089.4892150713,
+      "paid_revenue": 3274104.9370093937,
+      "pending_revenue": 643937.2164828229
+    },
+    {
+      "year": 2026,
+      "total_revenue": 4046218.555102705,
+      "paid_revenue": 3020982.7351840246,
+      "pending_revenue": 524142.0859248429
+    }
+  ]
+}

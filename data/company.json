@@ -1,0 +1,21 @@
+{
+  "company_name": "Ani Healthcare Private Limited",
+  "established_year": 2007,
+  "industry": ["Pharmaceuticals", "Healthcare Manufacturing"],
+  "certification": "WHO-GMP Certified",
+  "location": {
+    "address": "Kuldeep Nagar, Ambala Cantt, Haryana, India",
+    "country": "India"
+  },
+  "contact": {
+    "phone": "+91-92156-15111",
+    "email": "leads.anihealthcare@gmail.com"
+  },
+  "mission": "Provide quality and affordable healthcare products",
+  "business_model": [
+    "Manufacturer",
+    "Supplier",
+    "Trader",
+    "PCD Franchise"
+  ]
+}

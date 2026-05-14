@@ -1,0 +1,143 @@
+{
+  "kpis": {
+    "recovery_rate_percent": 78.5,
+    "stability_index_percent": 85.2,
+    "readmission_rate_percent": 8.3
+  },
+  "monthly_outcome_ledger": [
+    {
+      "month": "2026-01",
+      "success": 9211,
+      "ongoing": 32757,
+      "failed": 701
+    },
+    {
+      "month": "2026-02",
+      "success": 12289,
+      "ongoing": 23632,
+      "failed": 1184
+    },
+    {
+      "month": "2026-03",
+      "success": 10220,
+      "ongoing": 23446,
+      "failed": 1301
+    },
+    {
+      "month": "2026-04",
+      "success": 12674,
+      "ongoing": 31221,
+      "failed": 799
+    },
+    {
+      "month": "2026-05",
+      "success": 14715,
+      "ongoing": 30942,
+      "failed": 1640
+    },
+    {
+      "month": "2026-06",
+      "success": 8474,
+      "ongoing": 21525,
+      "failed": 1022
+    },
+    {
+      "month": "2026-07",
+      "success": 9094,
+      "ongoing": 36632,
+      "failed": 1958
+    },
+    {
+      "month": "2026-08",
+      "success": 8164,
+      "ongoing": 35656,
+      "failed": 1757
+    },
+    {
+      "month": "2026-09",
+      "success": 8688,
+      "ongoing": 21940,
+      "failed": 781
+    },
+    {
+      "month": "2026-10",
+      "success": 8335,
+      "ongoing": 27091,
+      "failed": 1778
+    },
+    {
+      "month": "2026-11",
+      "success": 9808,
+      "ongoing": 27838,
+      "failed": 1977
+    },
+    {
+      "month": "2026-12",
+      "success": 8739,
+      "ongoing": 20180,
+      "failed": 1130
+    }
+  ],
+  "regional_outcomes": [
+    {
+      "region": "New York",
+      "active_cases": 6598
+    },
+    {
+      "region": "California",
+      "active_cases": 6696
+    },
+    {
+      "region": "Texas",
+      "active_cases": 6678
+    },
+    {
+      "region": "Florida",
+      "active_cases": 6856
+    },
+    {
+      "region": "Illinois",
+      "active_cases": 6568
+    },
+    {
+      "region": "Pennsylvania",
+      "active_cases": 6634
+    },
+    {
+      "region": "Ohio",
+      "active_cases": 6691
+    },
+    {
+      "region": "Georgia",
+      "active_cases": 6638
+    },
+    {
+      "region": "North Carolina",
+      "active_cases": 6725
+    },
+    {
+      "region": "Michigan",
+      "active_cases": 6578
+    },
+    {
+      "region": "New Jersey",
+      "active_cases": 6700
+    },
+    {
+      "region": "Virginia",
+      "active_cases": 6712
+    },
+    {
+      "region": "Washington",
+      "active_cases": 6691
+    },
+    {
+      "region": "Arizona",
+      "active_cases": 6683
+    },
+    {
+      "region": "Massachusetts",
+      "active_cases": 6663
+    }
+  ]
+}

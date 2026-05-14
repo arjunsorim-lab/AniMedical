@@ -1,0 +1,122 @@
+[
+  {
+    "id": "REG1",
+    "name": "New York"
+  },
+  {
+    "id": "REG2",
+    "name": "California"
+  },
+  {
+    "id": "REG3",
+    "name": "Texas"
+  },
+  {
+    "id": "REG4",
+    "name": "Florida"
+  },
+  {
+    "id": "REG5",
+    "name": "Illinois"
+  },
+  {
+    "id": "REG6",
+    "name": "Pennsylvania"
+  },
+  {
+    "id": "REG7",
+    "name": "Ohio"
+  },
+  {
+    "id": "REG8",
+    "name": "Georgia"
+  },
+  {
+    "id": "REG9",
+    "name": "North Carolina"
+  },
+  {
+    "id": "REG10",
+    "name": "Michigan"
+  },
+  {
+    "id": "REG11",
+    "name": "New Jersey"
+  },
+  {
+    "id": "REG12",
+    "name": "Virginia"
+  },
+  {
+    "id": "REG13",
+    "name": "Washington"
+  },
+  {
+    "id": "REG14",
+    "name": "Arizona"
+  },
+  {
+    "id": "REG15",
+    "name": "Massachusetts"
+  },
+  {
+    "id": "REG16",
+    "name": "Tennessee"
+  },
+  {
+    "id": "REG17",
+    "name": "Indiana"
+  },
+  {
+    "id": "REG18",
+    "name": "Missouri"
+  },
+  {
+    "id": "REG19",
+    "name": "Maryland"
+  },
+  {
+    "id": "REG20",
+    "name": "Colorado"
+  },
+  {
+    "id": "REG21",
+    "name": "Minnesota"
+  },
+  {
+    "id": "REG22",
+    "name": "Wisconsin"
+  },
+  {
+    "id": "REG23",
+    "name": "South Carolina"
+  },
+  {
+    "id": "REG24",
+    "name": "Alabama"
+  },
+  {
+    "id": "REG25",
+    "name": "Louisiana"
+  },
+  {
+    "id": "REG26",
+    "name": "Kentucky"
+  },
+  {
+    "id": "REG27",
+    "name": "Oregon"
+  },
+  {
+    "id": "REG28",
+    "name": "Oklahoma"
+  },
+  {
+    "id": "REG29",
+    "name": "Connecticut"
+  },
+  {
+    "id": "REG30",
+    "name": "Utah"
+  }
+]

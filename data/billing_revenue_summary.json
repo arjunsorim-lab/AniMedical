@@ -1,0 +1,86 @@
+{
+  "revenue_by_service_month_2026_04": [
+    {
+      "service_name": "Inpatient",
+      "category": "Healthcare",
+      "total_revenue": 33692686.365,
+      "billing_count": 12623
+    },
+    {
+      "service_name": "Outpatient",
+      "category": "Healthcare",
+      "total_revenue": 33444650.8425,
+      "billing_count": 12493
+    },
+    {
+      "service_name": "Emergency",
+      "category": "Healthcare",
+      "total_revenue": 33374357.426666666,
+      "billing_count": 12479
+    },
+    {
+      "service_name": "Telehealth",
+      "category": "Healthcare",
+      "total_revenue": 33311076.745,
+      "billing_count": 12473
+    },
+    {
+      "service_name": "Laboratory",
+      "category": "Healthcare",
+      "total_revenue": 33518927.430833336,
+      "billing_count": 12519
+    },
+    {
+      "service_name": "Pharmacy",
+      "category": "Healthcare",
+      "total_revenue": 33500913.750833333,
+      "billing_count": 12489
+    },
+    {
+      "service_name": "Surgery",
+      "category": "Healthcare",
+      "total_revenue": 33399402.201666664,
+      "billing_count": 12473
+    },
+    {
+      "service_name": "Diagnostics",
+      "category": "Healthcare",
+      "total_revenue": 33537966.468333334,
+      "billing_count": 12503
+    },
+    {
+      "service_name": "Rehabilitation",
+      "category": "Healthcare",
+      "total_revenue": 33325350.531666666,
+      "billing_count": 12428
+    },
+    {
+      "service_name": "Hospice",
+      "category": "Healthcare",
+      "total_revenue": 33502158.22666667,
+      "billing_count": 12517
+    }
+  ],
+  "pending_payment_segments": [
+    {
+      "segment": "0-30 days",
+      "cases": 2162,
+      "amount": 53559.35516052398
+    },
+    {
+      "segment": "31-60 days",
+      "cases": 1758,
+      "amount": 62501.4758097825
+    },
+    {
+      "segment": "61-90 days",
+      "cases": 2317,
+      "amount": 97154.79545126225
+    },
+    {
+      "segment": "90+ days",
+      "cases": 3758,
+      "amount": 171248.18834184093
+    }
+  ]
+}

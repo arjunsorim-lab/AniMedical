@@ -1,0 +1,29 @@
+VOXA AUTOMOTIVE ASSISTANT — SAMPLE QUERIES
+
+--- GLOBAL DASHBOARDS & REPORTS ---
+1. "Show me the weekly report"
+2. "Give me a dashboard overview for this month"
+3. "Show report for last week"
+4. "How are we doing overall? Show me a dashboard"
+5. "Global performance summary for the last 30 days"
+
+--- DYNAMIC FILTERED REPORTS ---
+6. "Report for Dearborn plant this week"
+7. "Show me a dashboard for the F-150 model in January 2026"
+8. "Summary for the Body Shop department last week"
+9. "How is the Paint Shop performing in Dearborn?"
+10. "Monthly report for SUV models"
+
+--- ANALYTICAL DATA QUERIES ---
+11. "Show me production units vs forecast for last week"
+12. "Trend analysis of revenue for the last 3 months"
+13. "Distribution of quality alerts by issue type"
+14. "Which plant had the most active alerts this week?"
+15. "Compare production units between Dearborn and Kansas City"
+
+--- DIAGNOSTIC & DRILL-DOWN ---
+16. "Why did production drop in the Assembly department?"
+17. "List all active quality alerts for the Mach-E"
+18. "Total revenue for the last 7 days vs previous 7 days"
+19. "Breakdown of affected units by department"
+20. "What is the current status of the Body Shop in Dearborn?"

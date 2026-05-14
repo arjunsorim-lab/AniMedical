@@ -1,0 +1,42 @@
+[
+  {
+    "id": "INS001",
+    "name": "UnitedHealth Group",
+    "coverage_percentage": 80
+  },
+  {
+    "id": "INS002",
+    "name": "Anthem Blue Cross",
+    "coverage_percentage": 75
+  },
+  {
+    "id": "INS003",
+    "name": "Aetna Health",
+    "coverage_percentage": 70
+  },
+  {
+    "id": "INS004",
+    "name": "Cigna Care",
+    "coverage_percentage": 78
+  },
+  {
+    "id": "INS005",
+    "name": "Humana Plus",
+    "coverage_percentage": 72
+  },
+  {
+    "id": "INS006",
+    "name": "Kaiser Permanente",
+    "coverage_percentage": 82
+  },
+  {
+    "id": "INS007",
+    "name": "Molina Healthcare",
+    "coverage_percentage": 68
+  },
+  {
+    "id": "INS008",
+    "name": "Centene Health",
+    "coverage_percentage": 74
+  }
+]
