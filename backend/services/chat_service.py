@@ -1,9 +1,13 @@
-import duckdb
 from pathlib import Path
 import logging
 import json
 from typing import Dict, Any, Optional
 from datetime import datetime
+
+try:
+    from backend.services.duckdb_utils import connect_duckdb_file
+except ImportError:
+    from services.duckdb_utils import connect_duckdb_file
 
 try:
     from pymongo import MongoClient
@@ -21,7 +25,7 @@ class ChatService:
 
     def _init_db(self):
         """Initialize the chats table if it doesn't exist."""
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS chats (
@@ -35,7 +39,7 @@ class ChatService:
             conn.close()
 
     def get_user_chats(self, user_id: str) -> Dict[str, Any]:
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             res = conn.execute("SELECT conversations FROM chats WHERE user_id = ?", [user_id]).fetchone()
             if res:
@@ -49,7 +53,7 @@ class ChatService:
             conn.close()
 
     def sync_user_chats(self, user_id: str, conversations: Dict[str, Any]):
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             # We use a full replace (UPSERT) for the user's conversation map
             # This allows clearing all chats if an empty dict is passed

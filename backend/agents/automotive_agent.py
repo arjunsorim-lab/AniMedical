@@ -30,6 +30,18 @@ except ImportError:
 
 logger = logging.getLogger("voxa.agent")
 
+
+def fmt(n):
+    """Format number with commas."""
+    try:
+        return f"{int(n):,}"
+    except (ValueError, TypeError):
+        try:
+            return f"{float(n):,.0f}"
+        except (ValueError, TypeError):
+            return str(n)
+
+
 PREDEFINED_RESPONSE_PATTERNS = (
     "give me healthcare dashboard report",
     "revenue by service this month",
@@ -1195,6 +1207,463 @@ def _to_markdown_table(rows: list[dict], columns: list[str]) -> str:
     return "\n".join([header, sep, *body])
 
 
+def _extract_first_markdown_table(text: str) -> tuple[list[str], list[dict[str, str]]]:
+    lines = str(text or "").splitlines()
+    for i in range(len(lines) - 1):
+        header = lines[i].strip()
+        sep = lines[i + 1].strip()
+        if not header.startswith("|") or "|" not in header[1:]:
+            continue
+        sep_core = sep.replace("|", "").replace(":", "").replace(" ", "")
+        if not sep_core or set(sep_core) != {"-"}:
+            continue
+
+        headers = [cell.strip() for cell in header.strip("|").split("|")]
+        rows: list[dict[str, str]] = []
+        j = i + 2
+        while j < len(lines) and lines[j].strip().startswith("|"):
+            cells = [cell.strip() for cell in lines[j].strip().strip("|").split("|")]
+            if any(cells):
+                while len(cells) < len(headers):
+                    cells.append("")
+                rows.append({headers[idx]: cells[idx] for idx in range(len(headers))})
+            j += 1
+        return headers, rows
+    return [], []
+
+
+def _coerce_number(value: Any) -> float:
+    cleaned = re.sub(r"[^\d.\-]", "", str(value or ""))
+    if cleaned in {"", "-", ".", "-."}:
+        return 0.0
+    try:
+        return float(cleaned)
+    except Exception:
+        return 0.0
+
+
+def _dashboard_topic(query: str) -> str:
+    q = _normalize_predefined_match_text(query or "")
+    if "doctor performance ranking" in q or q == "doc":
+        return "doctor_performance"
+    if "patients per doctor" in q or "patient per doctor" in q or q == "load":
+        return "doctor_load"
+    if "pending payment cases" in q or q == "pay":
+        return "pending_payments"
+    if "revenue by service this month" in q or q == "rev":
+        return "revenue"
+    if "region wise patient distribution" in q or "region-wise patient distribution" in q or q == "reg":
+        return "regions"
+    if "patient outcome trends" in q or q == "trnd":
+        return "outcomes"
+    if "active vs critical patient count" in q or q == "risk":
+        return "risk"
+    if "abnormal vitals alerts summary" in q or q == "alrt":
+        return "alerts"
+    if _is_kpi_dashboard_prompt(query):
+        return "kpi"
+    return "general"
+
+
+def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
+    topic = _dashboard_topic(query)
+    generated_at = datetime.now().isoformat(timespec="seconds")
+    headers, rows = _extract_first_markdown_table(response_text)
+
+    summary = _load_healthcare_json("summary_metrics.json") or {}
+    doctor_load = _load_healthcare_json("doctor_load_analytics.json") or {}
+    billing_summary = _load_healthcare_json("billing_revenue_summary.json") or {}
+    outcomes = _load_healthcare_json("patient_outcome_trends.json") or {}
+
+    title_map = {
+        "doctor_performance": "Doctor Performance Ranking",
+        "doctor_load": "Patients per Doctor",
+        "pending_payments": "Pending Payment Cases",
+        "revenue": "Revenue by Service",
+        "regions": "Region-wise Patient Distribution",
+        "outcomes": "Patient Outcome Trends",
+        "risk": "Active vs Critical Patient Count",
+        "alerts": "Abnormal Vitals Alerts Summary",
+        "kpi": "Healthcare Dashboard Report",
+        "general": "Healthcare Analytics Dashboard",
+    }
+
+    metrics = [
+        {
+            "label": "Total Patients",
+            "value": str(summary.get("total_patients") or summary.get("active_patients") or 0),
+            "change": "",
+            "status": "neutral",
+        },
+        {
+            "label": "Total Doctors",
+            "value": str((doctor_load.get("summary") or {}).get("total_doctors") or summary.get("total_doctors") or 0),
+            "change": "",
+            "status": "neutral",
+        },
+    ]
+
+    rankings: list[dict[str, Any]] = []
+    labels: list[str] = []
+    values: list[float] = []
+    donut_labels: list[str] = []
+    donut_values: list[float] = []
+    progress_items: list[dict[str, Any]] = []
+    alerts: list[dict[str, str]] = []
+    insights: list[str] = []
+    recommendations: list[str] = []
+    top_performer = {
+        "name": "",
+        "score": "",
+        "metrics": {"patients_served": 0, "efficiency": 0, "revenue": 0},
+    }
+
+    if topic in {"doctor_performance", "doctor_load"}:
+        source_rows = rows or [
+            {
+                "doctor_name": r.get("doctor_name", ""),
+                "patient_count": r.get("patient_count", 0),
+                "efficiency_percent": r.get("efficiency_percent", 0),
+                "status": r.get("status", ""),
+            }
+            for r in (doctor_load.get("distribution_top_primary_physicians") or [])[:6]
+            if isinstance(r, dict)
+        ]
+        ranked = sorted(source_rows, key=lambda r: _coerce_number(r.get("patient_count")), reverse=True)[:8]
+        for idx, row in enumerate(ranked, start=1):
+            name = row.get("doctor_name") or row.get("doctor name") or row.get("name") or f"Provider {idx}"
+            patients = int(_coerce_number(row.get("patient_count") or row.get("patients_served")))
+            efficiency = _coerce_number(row.get("efficiency_percent") or row.get("efficiency"))
+            score = round((patients / max(_coerce_number(ranked[0].get("patient_count") or ranked[0].get("patients_served")), 1)) * 100, 1)
+            rankings.append({
+                "rank": idx,
+                "name": name,
+                "score": score,
+                "additional_metrics": {
+                    "patients_served": patients,
+                    "efficiency": efficiency,
+                    "revenue": 0,
+                },
+            })
+            labels.append(name)
+            values.append(patients)
+            progress_items.append({"label": name, "value": efficiency, "status": row.get("status") or "neutral"})
+        if rankings:
+            leader = rankings[0]
+            top_performer = {
+                "name": leader["name"],
+                "score": str(leader["score"]),
+                "metrics": leader["additional_metrics"],
+            }
+        overloaded = (doctor_load.get("summary") or {}).get("overloaded_count") or sum(
+            1 for r in ranked if "over" in str(r.get("status", "")).lower()
+        )
+        metrics.append({"label": "Overloaded Providers", "value": str(overloaded), "change": "", "status": "negative"})
+        insights.append("Provider workload is concentrated among the highest-volume physicians.")
+        recommendations.append("Redistribute new patient assignments from overloaded providers to stable providers.")
+        if overloaded:
+            alerts.append({"severity": "high", "message": f"{overloaded} providers are flagged as overloaded."})
+
+    elif topic == "pending_payments":
+        source_rows = rows or [
+            {"segment": r.get("segment", ""), "cases": r.get("cases", 0), "amount": r.get("amount", 0)}
+            for r in (billing_summary.get("pending_payment_segments") or [])[:6]
+            if isinstance(r, dict)
+        ]
+        total_amount = sum(_coerce_number(r.get("amount") or r.get("total")) for r in source_rows)
+        total_cases = sum(_coerce_number(r.get("cases") or r.get("records")) for r in source_rows)
+        metrics.extend([
+            {"label": "Pending Amount", "value": str(round(total_amount, 2)), "change": "", "status": "negative"},
+            {"label": "Pending Cases", "value": str(int(total_cases)), "change": "", "status": "negative"},
+        ])
+        for idx, row in enumerate(source_rows, start=1):
+            name = row.get("segment") or row.get("payment_status") or f"Bucket {idx}"
+            amount = _coerce_number(row.get("amount") or row.get("total"))
+            cases = int(_coerce_number(row.get("cases") or row.get("records")))
+            rankings.append({
+                "rank": idx,
+                "name": name,
+                "score": amount,
+                "additional_metrics": {"patients_served": cases, "efficiency": 0, "revenue": amount},
+            })
+            labels.append(name)
+            values.append(amount)
+            donut_labels.append(name)
+            donut_values.append(cases)
+        insights.append("Pending payment exposure is concentrated in aging buckets requiring revenue-cycle follow-up.")
+        recommendations.append("Prioritize oldest and highest-value unpaid segments for collections review.")
+        if total_amount > 0:
+            alerts.append({"severity": "medium", "message": "Unresolved payment balances require follow-up."})
+
+    elif topic == "revenue":
+        source_rows = rows or [
+            r for r in (billing_summary.get("revenue_by_service_month_2026_04") or [])[:8]
+            if isinstance(r, dict)
+        ]
+        total_revenue = sum(_coerce_number(r.get("total_revenue") or r.get("revenue")) for r in source_rows)
+        metrics.append({"label": "Service Revenue", "value": str(round(total_revenue, 2)), "change": "", "status": "positive"})
+        for idx, row in enumerate(source_rows, start=1):
+            name = row.get("service_name") or row.get("service name") or f"Service {idx}"
+            revenue = _coerce_number(row.get("total_revenue") or row.get("revenue"))
+            rankings.append({
+                "rank": idx,
+                "name": name,
+                "score": revenue,
+                "additional_metrics": {"patients_served": int(_coerce_number(row.get("billing_count"))), "efficiency": 0, "revenue": revenue},
+            })
+            labels.append(name)
+            values.append(revenue)
+            donut_labels.append(name)
+            donut_values.append(revenue)
+        insights.append("Revenue distribution varies by service line.")
+        recommendations.append("Benchmark lower-revenue services against high-performing service lines.")
+
+    elif topic == "outcomes":
+        source_rows = rows or [
+            r for r in (outcomes.get("monthly_outcome_ledger") or [])[:8]
+            if isinstance(r, dict)
+        ]
+        kpis = outcomes.get("kpis") or {}
+        metrics.extend([
+            {"label": "Recovery Rate", "value": str(kpis.get("recovery_rate_percent", 0)), "change": "", "status": "positive"},
+            {"label": "Readmission Rate", "value": str(kpis.get("readmission_rate_percent", 0)), "change": "", "status": "negative"},
+        ])
+        labels = [str(r.get("month", "")) for r in source_rows]
+        values = [_coerce_number(r.get("success")) for r in source_rows]
+        outcome_ranked = sorted(source_rows, key=lambda r: _coerce_number(r.get("success")), reverse=True)[:8]
+        for idx, row in enumerate(outcome_ranked, start=1):
+            success = int(_coerce_number(row.get("success")))
+            ongoing = int(_coerce_number(row.get("ongoing")))
+            failed = int(_coerce_number(row.get("failed")))
+            total = success + ongoing + failed
+            efficiency = round((success / total) * 100, 1) if total else 0
+            rankings.append({
+                "rank": idx,
+                "name": str(row.get("month", "") or f"Outcome Period {idx}"),
+                "score": success,
+                "additional_metrics": {
+                    "patients_served": total,
+                    "efficiency": efficiency,
+                    "revenue": 0,
+                },
+            })
+        donut_labels = ["Success", "Ongoing", "Failed"]
+        donut_values = [
+            sum(_coerce_number(r.get("success")) for r in source_rows),
+            sum(_coerce_number(r.get("ongoing")) for r in source_rows),
+            sum(_coerce_number(r.get("failed")) for r in source_rows),
+        ]
+        insights.append("Outcome trends should be monitored for readmission pressure.")
+        recommendations.append("Target care coordination for cohorts with failed or readmitted outcomes.")
+
+    else:
+        for idx, row in enumerate(rows[:8], start=1):
+            name = next((str(v) for v in row.values() if not str(v).replace(".", "", 1).isdigit()), f"Item {idx}")
+            numeric = next((_coerce_number(v) for v in row.values() if _coerce_number(v) != 0), 0)
+            labels.append(name)
+            values.append(numeric)
+            rankings.append({
+                "rank": idx,
+                "name": name,
+                "score": numeric,
+                "additional_metrics": {"patients_served": 0, "efficiency": 0, "revenue": numeric},
+            })
+        insights.append("Dashboard metrics are generated from the available healthcare data context.")
+        recommendations.append("Review the ranked drivers and investigate outliers before operational action.")
+
+    if rankings and not top_performer["name"]:
+        top = rankings[0]
+        top_performer = {"name": top["name"], "score": str(top["score"]), "metrics": top["additional_metrics"]}
+
+    return {
+        "dashboard_title": title_map.get(topic, "Healthcare Analytics Dashboard"),
+        "generated_at": generated_at,
+        "summary_metrics": metrics,
+        "top_performer": top_performer,
+        "rankings": rankings,
+        "charts": [
+            {
+                "type": "bar",
+                "title": title_map.get(topic, "Healthcare Analytics"),
+                "x_axis": labels,
+                "y_axis": values,
+                "series": [{"name": "Primary Metric", "data": values}],
+            },
+            {
+                "type": "line",
+                "title": "Performance Trends",
+                "labels": labels,
+                "series": [{"name": "Trend", "data": values}],
+            },
+            {
+                "type": "donut",
+                "title": "Patient Distribution",
+                "labels": donut_labels or labels,
+                "series": donut_values or values,
+            },
+            {
+                "type": "progress",
+                "title": "Efficiency Benchmarks",
+                "items": progress_items,
+            },
+        ],
+        "insights": insights,
+        "recommendations": recommendations,
+        "alerts": alerts,
+    }
+
+
+def _extract_first_sentence(text: str, fallback: str) -> str:
+    cleaned = re.sub(r"```[\s\S]*?```", "", str(text or ""))
+    cleaned = re.sub(r"\|.*\|", "", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    if not cleaned:
+        return fallback
+    parts = re.split(r"(?<=[.!?])\s+", cleaned)
+    return parts[0][:240] if parts else fallback
+
+
+def _format_dual_healthcare_response(query: str, response_text: str) -> str:
+    if (
+        "SECTION 1" in response_text
+        and "TEXT SUMMARY RESPONSE" in response_text
+        and "SECTION 2" in response_text
+        and "VISUAL DASHBOARD RESPONSE" in response_text
+    ):
+        return response_text
+
+    dashboard = _build_dashboard_payload(query, response_text)
+    title = dashboard.get("dashboard_title") or "Healthcare Analytics Dashboard"
+    alerts = dashboard.get("alerts") or []
+    rankings = dashboard.get("rankings") or []
+    top = dashboard.get("top_performer") or {}
+    metrics = dashboard.get("summary_metrics") or []
+    insight = (dashboard.get("insights") or ["Healthcare metrics are generated from available operational data."])[0]
+    recommendation = (dashboard.get("recommendations") or ["Review the dashboard metrics and prioritize operational follow-up."])[0]
+    low_performer = rankings[-1]["name"] if rankings else "N/A"
+
+    summary_sentence = _extract_first_sentence(
+        response_text,
+        f"{title} generated from available healthcare analytics data.",
+    )
+    top_name = top.get("name") or (rankings[0]["name"] if rankings else "N/A")
+    top_score = top.get("score") or (rankings[0]["score"] if rankings else "N/A")
+    metric_count = len(metrics)
+    ranking_count = len(rankings)
+    alert_count = len(alerts)
+    query_focus = _dashboard_topic(query).replace("_", " ").title()
+
+    # Build detailed metrics section
+    metrics_section = "## Key Metrics\n"
+    if metrics:
+        for metric in metrics[:4]:
+            label = metric.get("label", "")
+            value = metric.get("value", "")
+            status = metric.get("status", "neutral")
+            status_emoji = "📈" if status == "positive" else "📉" if status == "negative" else "•"
+            status_label = {
+                "positive": "favorable",
+                "negative": "needs attention",
+                "neutral": "monitor",
+            }.get(status, "monitor")
+            metrics_section += f"- {status_emoji} **{label}**: {value} — {status_label}\n"
+    else:
+        metrics_section += "- • **Metrics**: No KPI rows were available from the dashboard payload.\n"
+    metrics_section += "\n"
+
+    # Build detailed rankings section
+    rankings_section = "## Detailed Rankings\n"
+    if rankings:
+        for rank_idx, rank_item in enumerate(rankings[:8], 1):
+            rank_name = rank_item.get("name", f"Item {rank_idx}")
+            rank_score = rank_item.get("score", 0)
+            add_metrics = rank_item.get("additional_metrics", {})
+            patients = add_metrics.get("patients_served", 0)
+            efficiency = add_metrics.get("efficiency", 0)
+
+            score_display = f"Score: **{rank_score}**"
+            details = []
+            if patients > 0:
+                details.append(f"{patients} patients")
+            if efficiency > 0:
+                details.append(f"{efficiency}% efficiency")
+
+            detail_str = f" ({', '.join(details)})" if details else ""
+            rankings_section += f"{rank_idx}. **{rank_name}** — {score_display}{detail_str}\n"
+    else:
+        rankings_section += "No ranked rows were available for this prompt. Use the dashboard JSON for raw KPI and chart context.\n"
+    rankings_section += "\n"
+
+    # Build alerts and issues section
+    alerts_section = "## Alerts & Critical Issues\n"
+    if alerts:
+        for alert in alerts:
+            severity = alert.get("severity", "medium")
+            message = alert.get("message", "")
+            severity_icon = "🔴" if severity == "high" else "🟡" if severity == "medium" else "🟢"
+            alerts_section += f"{severity_icon} **[{severity.upper()}]** {message}\n"
+    else:
+        alerts_section += "🟢 **[CLEAR]** No high-severity alert was generated from the available dashboard data.\n"
+    alerts_section += "\n"
+
+    # Build comprehensive analysis section
+    analysis_section = (
+        "## Analysis & Insights\n"
+        f"**Primary Focus**: {title} ({query_focus})\n\n"
+        f"**Executive Readout**: {metric_count} KPI cards, {ranking_count} ranking rows, and {alert_count} alert signals were prepared for the visual dashboard.\n\n"
+        f"**Key Finding**: {insight}\n\n"
+        f"**Top Performer / Leading Segment**: {top_name} with a dashboard score of **{top_score}**. "
+        f"The lowest ranked visible segment is **{low_performer}**, which should be reviewed for variance or follow-up opportunity.\n\n"
+    )
+
+    # Add trends if available in response_text
+    if "trend" in response_text.lower() or "growth" in response_text.lower():
+        analysis_section += "**Trend Summary**: Trend-ready data series are included in the visual dashboard for comprehensive time-series analysis and comparative charting.\n\n"
+
+    # Build recommendations section with more detail
+    recommendations_section = (
+        "## Strategic Recommendations\n"
+        f"1. **Primary Action**: {recommendation}\n"
+        f"2. **Risk Control**: Resolve any 🔴 or 🟡 alert items first, then confirm whether downstream staffing, billing, or care operations are affected.\n"
+        f"3. **Performance Improvement**: Compare **{top_name}** against lower-ranked segments to identify repeatable workflow, capacity, or revenue-cycle practices.\n"
+        f"4. **Dashboard Governance**: Refresh this report on a regular cadence and compare KPI deltas before committing operational changes.\n\n"
+    )
+
+    # Build next steps section
+    next_steps_section = (
+        "## Actionable Next Steps\n"
+        "1. Review the KPI cards and confirm whether each positive, negative, or neutral status matches source-system expectations.\n"
+        "2. Inspect the top 8 rankings to isolate the strongest driver, the weakest visible segment, and any operational imbalance.\n"
+        "3. Open the structured dashboard view and compare bar, line, donut, and progress widgets for the same metric story.\n"
+        "4. Assign follow-up ownership for every high or medium alert, including expected resolution date and validation method.\n"
+        "5. Re-run the same prompt after updates to measure whether the KPI values, rankings, and alert counts improved.\n"
+    )
+
+    text_section = (
+        "## Executive Summary\n"
+        f"{summary_sentence} The response includes both a narrative summary and a structured JSON dashboard so teams can move from quick readout to visual review without changing prompts.\n\n"
+        f"{metrics_section}"
+        f"{alerts_section}"
+        f"{analysis_section}"
+        f"{rankings_section}"
+        f"{recommendations_section}"
+        f"{next_steps_section}"
+    )
+
+    return (
+        "==================================================\n"
+        "SECTION 1 — TEXT SUMMARY RESPONSE\n"
+        "==================================================\n\n"
+        f"{text_section}\n"
+        "==================================================\n"
+        "SECTION 2 — VISUAL DASHBOARD RESPONSE\n"
+        "==================================================\n\n"
+        "```json\n"
+        f"{json.dumps(dashboard, ensure_ascii=True, indent=2)}\n"
+        "```"
+    )
+
+
 def _build_chart_response_from_json(query: str) -> str | None:
     if not _is_chart_request(query):
         return None
@@ -2229,10 +2698,6 @@ def execute_template_report(query: str) -> str:
     template_path = Path(__file__).parent.parent.parent / "template.html"
     with open(template_path, "r", encoding="utf-8") as f:
         html = f.read()
-
-    # Helper to format numbers with commas
-    def fmt(n):
-        return f"{n:,}"
 
     # ── HEADER ──
     html = html.replace("Overview : This Week", f"Overview : {full_period_label}")
@@ -5127,20 +5592,20 @@ async def process_query(
     query = _normalize_legacy_query_to_healthcare(query)
     predefined_deterministic = _execute_predefined_healthcare_report(query)
     if predefined_deterministic:
-        return predefined_deterministic
+        return _format_dual_healthcare_response(query, predefined_deterministic)
     try:
         healthcare_analytics_response = _execute_healthcare_analytics(query)
     except Exception as e:
         logger.warning(f"Deterministic healthcare analytics failed, falling back to LLM: {e}")
         healthcare_analytics_response = None
     if healthcare_analytics_response:
-        return healthcare_analytics_response
+        return _format_dual_healthcare_response(query, healthcare_analytics_response)
 
     if _is_predefined_request_response(query):
         logger.info("Routing predefined chat query through JSON-grounded LLM path.")
-        return _generate_healthcare_response(query, conversation_history)
+        return _format_dual_healthcare_response(query, _generate_healthcare_response(query, conversation_history))
     logger.info("Routing non-predefined chat query through JSON-grounded LLM path.")
-    return _generate_healthcare_response(query, conversation_history)
+    return _format_dual_healthcare_response(query, _generate_healthcare_response(query, conversation_history))
 
     if query.lower() != original_query.lower():
         logger.info(f"Fixed typo: '{original_query}' → '{query}'")
@@ -5288,7 +5753,7 @@ async def stream_query(
     query = _normalize_legacy_query_to_healthcare(query)
     predefined_deterministic = _execute_predefined_healthcare_report(query)
     if predefined_deterministic:
-        yield predefined_deterministic
+        yield _format_dual_healthcare_response(query, predefined_deterministic)
         return
     try:
         healthcare_analytics_response = _execute_healthcare_analytics(query)
@@ -5296,17 +5761,21 @@ async def stream_query(
         logger.warning(f"Deterministic healthcare analytics failed in stream, falling back to LLM: {e}")
         healthcare_analytics_response = None
     if healthcare_analytics_response:
-        yield healthcare_analytics_response
+        yield _format_dual_healthcare_response(query, healthcare_analytics_response)
         return
 
     if _is_predefined_request_response(query):
         logger.info("Routing predefined stream query through JSON-grounded LLM path.")
+        chunks = []
         async for token in _stream_healthcare_response(query, conversation_history):
-            yield token
+            chunks.append(token)
+        yield _format_dual_healthcare_response(query, "".join(chunks))
         return
     logger.info("Routing non-predefined stream query through JSON-grounded LLM path.")
+    chunks = []
     async for token in _stream_healthcare_response(query, conversation_history):
-        yield token
+        chunks.append(token)
+    yield _format_dual_healthcare_response(query, "".join(chunks))
     return
 
     if query.lower() != original_query.lower():
@@ -5432,4 +5901,3 @@ async def stream_query(
         conversation_history=conversation_history,
     ):
         yield token
-

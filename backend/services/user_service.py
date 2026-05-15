@@ -1,9 +1,13 @@
-import duckdb
 from pathlib import Path
 import logging
 from typing import Optional, Dict, Any
 from datetime import datetime
 import uuid
+
+try:
+    from backend.services.duckdb_utils import connect_duckdb_file
+except ImportError:
+    from services.duckdb_utils import connect_duckdb_file
 
 try:
     from pymongo import MongoClient
@@ -22,7 +26,7 @@ class UserService:
 
     def _init_db(self):
         """Initialize the users table if it doesn't exist."""
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS users (
@@ -49,7 +53,7 @@ class UserService:
             conn.close()
 
     def get_user_by_email_or_username(self, identifier: str) -> Optional[Dict[str, Any]]:
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             res = conn.execute("""
                 SELECT id, name, username, email, password, role, profile_pic 
@@ -72,7 +76,7 @@ class UserService:
             conn.close()
 
     def create_user(self, name: str, username: str, email: str, password: str) -> Dict[str, Any]:
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             new_id = str(conn.execute("SELECT COUNT(*) + 1 FROM users").fetchone()[0])
             conn.execute("""
@@ -92,7 +96,7 @@ class UserService:
             conn.close()
 
     def update_password(self, username: str, new_password: str):
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             conn.execute("""
                 UPDATE users SET password = ? WHERE username = ? OR email = ?
@@ -101,7 +105,7 @@ class UserService:
             conn.close()
 
     def update_profile_pic(self, user_id: str, profile_pic_url: str):
-        conn = duckdb.connect(str(self.db_path))
+        conn = connect_duckdb_file(self.db_path, logger)
         try:
             conn.execute("""
                 UPDATE users SET profile_pic = ? WHERE id = ?

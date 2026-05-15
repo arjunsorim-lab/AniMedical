@@ -11,6 +11,7 @@ import UserAvatar from './UserAvatar';
 import PredefinedResponseTemplate from './PredefinedResponseTemplate';
 import DynamicResponseTemplate from './DynamicResponseTemplate';
 import DualModeResponse from './DualModeResponse';
+import SplitResponseView from './SplitResponseView';
 import { getPredefinedTemplateKey } from './predefinedTemplateUtils';
 
 import useUIStore from '../store/useUIStore';
@@ -135,21 +136,26 @@ export default function MessageBubble({ message, onRetry, onRegenerate, onEdit, 
       hour: 'numeric', minute: '2-digit', hour12: true,
     });
   }, [createdAt]);
-  const predefinedTemplateKey = useMemo(() => {
-    if (isUser || isError || !triggerQuery || isStreaming) return null;
-    return getPredefinedTemplateKey(triggerQuery);
-  }, [isUser, isError, triggerQuery, isStreaming]);
-  const hasPredefinedTemplate = Boolean(predefinedTemplateKey);
-  const isDualMode = useMemo(() => {
+  const hasDualSectionResponse = useMemo(() => {
     if (isUser || isError || isStreaming) return false;
-    // Always show dual mode for assistant responses — toggle between summary report & visual dashboard
-    return true;
-  }, [isUser, isError, isStreaming]);
+    const c = String(content || '');
+    return c.includes('SECTION 1') && c.includes('SECTION 2') && c.includes('```json');
+  }, [content, isUser, isError, isStreaming]);
+  const predefinedTemplateKey = useMemo(() => {
+    if (isUser || isError || !triggerQuery || isStreaming || hasDualSectionResponse) return null;
+    return getPredefinedTemplateKey(triggerQuery);
+  }, [isUser, isError, triggerQuery, isStreaming, hasDualSectionResponse]);
+  const hasPredefinedTemplate = Boolean(predefinedTemplateKey);
   const hasChartIntent = useMemo(() => {
     if (isUser || isError || !triggerQuery || isStreaming) return false;
     const q = String(triggerQuery || '').toLowerCase();
     return ['chart', 'graph', 'pie', 'bar', 'column', 'line', 'area', 'donut', 'doughnut'].some((k) => q.includes(k));
   }, [isUser, isError, triggerQuery, isStreaming]);
+  const isDualMode = useMemo(() => {
+    if (isUser || isError || isStreaming || hasPredefinedTemplate || hasChartIntent) return false;
+    const q = String(triggerQuery || '').toLowerCase();
+    return q.includes('compare dashboard') || q.includes('dashboard view') || q.includes('dual mode');
+  }, [isUser, isError, isStreaming, hasPredefinedTemplate, hasChartIntent, triggerQuery]);
 
   const isWide = useMemo(() => {
     // All assistant responses should now fit the screen width for a consistent executive dashboard feel
@@ -198,7 +204,7 @@ export default function MessageBubble({ message, onRetry, onRegenerate, onEdit, 
               ? 'ci-user-bubble'
               : `ci-assistant-bubble ${isError ? '!bg-red-500/10 !border-red-500/40' : ''}`}
             ${isEditing ? 'w-full !p-0' : ''}
-            ${hasPredefinedTemplate ? '!p-0 !bg-transparent !border-transparent !shadow-none overflow-hidden' : ''}
+            ${hasPredefinedTemplate || hasDualSectionResponse ? '!p-0 !bg-transparent !border-transparent !shadow-none overflow-visible' : ''}
             ${isWide ? 'w-full' : ''}
           `}
         >
@@ -240,13 +246,15 @@ export default function MessageBubble({ message, onRetry, onRegenerate, onEdit, 
             </div>
           ) : isUser ? (
             <p>{content}</p>
-          ) : isDualMode ? (
-            <div className="w-full flex flex-col gap-3">
-              <DualModeResponse content={content} />
-            </div>
+          ) : hasDualSectionResponse ? (
+            <SplitResponseView content={content} />
           ) : hasPredefinedTemplate ? (
             <div className="w-full flex flex-col gap-3">
               <PredefinedResponseTemplate templateKey={predefinedTemplateKey} content={content} />
+            </div>
+          ) : isDualMode ? (
+            <div className="w-full flex flex-col gap-3">
+              <DualModeResponse content={content} />
             </div>
           ) : hasChartIntent ? (
             <div className="w-full flex flex-col gap-3">

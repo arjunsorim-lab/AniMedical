@@ -1,7 +1,5 @@
-import React, { useState, useMemo } from "react";
-import { FaRegCheckCircle, FaArrowRight, FaArrowLeft, FaExclamationTriangle, FaCheckCircle, FaInfoCircle, FaChartBar, FaTable, FaUsers, FaClipboardList } from "react-icons/fa";
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { useEffect, useState, useMemo } from "react";
+import { FaRegCheckCircle, FaArrowRight, FaArrowLeft, FaExclamationTriangle, FaChartBar, FaTable, FaUsers, FaClipboardList } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -9,6 +7,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import "./DualModeResponse.css";
+import { getProviderLoadDashboard } from "../services/api";
 
 /* ─── Data Utilities ─── */
 
@@ -67,34 +66,92 @@ function extractMetrics(content) {
 }
 
 /* ─── Helpers ─── */
-function getStatusBadge(value) {
+function getStatusBadge(value, status) {
+  const normalizedStatus = String(status || '').toLowerCase();
+  if (normalizedStatus.includes('over')) return { label: 'Overloaded', cls: 'badge-danger' };
+  if (normalizedStatus.includes('normal') || normalizedStatus.includes('stable')) return { label: 'Stable', cls: 'badge-success' };
+
   const num = parseFloat(value);
   if (num >= 85) return { label: 'Overloaded', cls: 'badge-danger' };
   if (num >= 70) return { label: 'Moderate', cls: 'badge-warning' };
   return { label: 'Stable', cls: 'badge-success' };
 }
 
+function isOverloadedProvider(provider) {
+  return String(provider.status || '').toLowerCase().includes('over') || provider.workload >= 85;
+}
+
+function isModerateProvider(provider) {
+  return !isOverloadedProvider(provider) && provider.workload >= 70;
+}
+
+function getWorkloadFill(provider) {
+  if (isOverloadedProvider(provider)) return 'linear-gradient(90deg,#ef4444,#f87171)';
+  if (isModerateProvider(provider)) return 'linear-gradient(90deg,#f59e0b,#fbbf24)';
+  return 'linear-gradient(90deg,#10b981,#34d399)';
+}
+
 /* ─── Shared: Status Pill ─── */
-const StatusPill = ({ value }) => {
-  const badge = getStatusBadge(value);
+const StatusPill = ({ value, status }) => {
+  const badge = getStatusBadge(value, status);
   return <span className={`status-pill ${badge.cls}`}>{badge.label}</span>;
 };
+
+function clampPercent(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return 0;
+  return Math.max(0, Math.min(100, Math.round(num)));
+}
+
+function buildFallbackDoctorData(table, limit) {
+  const rows = table?.rows || [];
+  const workloads = rows.map((r, i) => parseFloat(r[3]) || (70 + (i * 5) % 28));
+  const effValues = rows.map((r, i) => parseFloat(r[4]) || (75 + (i * 3) % 20));
+
+  return rows.slice(0, limit).map((r, i) => ({
+    name: String(r[0] || 'Dr. Unknown'),
+    patients: parseInt(r[1]) || 0,
+    status: '',
+    workload: clampPercent(workloads[i]),
+    efficiency: clampPercent(effValues[i]),
+  }));
+}
+
+function getDoctorData(dashboardData, table, limit) {
+  const providers = dashboardData?.providers || [];
+  if (providers.length > 0) {
+    return providers.slice(0, limit).map((provider) => ({
+      name: String(provider.name || 'Unknown provider'),
+      patients: Number(provider.patients) || 0,
+      status: String(provider.status || ''),
+      workload: clampPercent(provider.workload),
+      efficiency: clampPercent(provider.efficiency),
+    }));
+  }
+
+  return buildFallbackDoctorData(table, limit);
+}
+
+function getMetricItems(dashboardData, metrics) {
+  if (!dashboardData?.summary) return metrics;
+
+  const summary = dashboardData.summary;
+  return [
+    { label: 'Total Patients', value: Number(summary.total_patients || 0).toLocaleString() },
+    { label: 'Active Patients', value: Number(summary.active_patients || 0).toLocaleString() },
+    { label: 'Total Doctors', value: Number(summary.total_doctors || 0).toLocaleString() },
+    { label: 'Overloaded Count', value: Number(summary.overloaded_count || 0).toLocaleString() },
+    { label: 'Avg Patients / Doctor', value: Number(summary.average_patients_per_doctor || 0).toLocaleString() },
+  ];
+}
 
 /* ───────────────────────────────────────────────
    VIEW 1: REPORT-CENTRIC (Analyst Workspace)
    Dense tables, KPIs, operational data
    ─────────────────────────────────────────────── */
-const ReportDashboard = ({ table, metrics }) => {
-  const rows = table?.rows || [];
-  const workloads = rows.map((r, i) => parseFloat(r[3]) || (70 + (i * 5) % 28));
-  const effValues = rows.map((r, i) => parseFloat(r[4]) || (75 + (i * 3) % 20));
-
-  const doctorData = rows.slice(0, 8).map((r, i) => ({
-    name: String(r[0] || 'Dr. Unknown'),
-    patients: parseInt(r[1]) || 0,
-    workload: Math.round(workloads[i]),
-    efficiency: Math.round(effValues[i]),
-  }));
+const ReportDashboard = ({ table, metrics, dashboardData }) => {
+  const doctorData = getDoctorData(dashboardData, table, 8);
+  const metricItems = getMetricItems(dashboardData, metrics);
 
   const avgPatients = doctorData.length > 0
     ? Math.round(doctorData.reduce((s, d) => s + d.patients, 0) / doctorData.length)
@@ -102,16 +159,16 @@ const ReportDashboard = ({ table, metrics }) => {
   const avgWorkload = doctorData.length > 0
     ? Math.round(doctorData.reduce((s, d) => s + d.workload, 0) / doctorData.length)
     : 0;
-  const overloaded = doctorData.filter(d => d.workload >= 85).length;
+  const overloaded = dashboardData?.summary?.overloaded_count ?? doctorData.filter(isOverloadedProvider).length;
 
   return (
     <div className="report-dashboard">
       {/* KPI Strip — dense */}
       <div className="rd-kpi-strip">
-        <div className="rd-kpi"><span className="rd-kpi-val">{avgPatients}</span><span className="rd-kpi-lbl">Avg Patients</span></div>
+        <div className="rd-kpi"><span className="rd-kpi-val">{avgPatients.toLocaleString()}</span><span className="rd-kpi-lbl">Avg Patients</span></div>
         <div className="rd-kpi"><span className="rd-kpi-val">{avgWorkload}%</span><span className="rd-kpi-lbl">Avg Workload</span></div>
-        <div className="rd-kpi"><span className="rd-kpi-val rd-val-danger">{overloaded}</span><span className="rd-kpi-lbl">Overloaded</span></div>
-        <div className="rd-kpi"><span className="rd-kpi-val">{doctorData.length}</span><span className="rd-kpi-lbl">Total Providers</span></div>
+        <div className="rd-kpi"><span className="rd-kpi-val rd-val-danger">{Number(overloaded).toLocaleString()}</span><span className="rd-kpi-lbl">Overloaded</span></div>
+        <div className="rd-kpi"><span className="rd-kpi-val">{Number(dashboardData?.summary?.total_doctors || doctorData.length).toLocaleString()}</span><span className="rd-kpi-lbl">Total Providers</span></div>
       </div>
 
       {/* Main Table — full detail */}
@@ -133,16 +190,16 @@ const ReportDashboard = ({ table, metrics }) => {
               {doctorData.map((d, i) => (
                 <tr key={i} className={i % 2 === 0 ? 'rz-even' : 'rz-odd'}>
                   <td className="td-name">{d.name}</td>
-                  <td className="td-num">{d.patients}</td>
-                  <td><StatusPill value={d.workload} /></td>
+                  <td className="td-num">{d.patients.toLocaleString()}</td>
+                  <td><StatusPill value={d.workload} status={d.status} /></td>
                   <td className="td-num">
-                    <span className={`td-pct ${d.workload >= 85 ? 'pct-d' : d.workload >= 70 ? 'pct-w' : 'pct-s'}`}>{d.workload}%</span>
-                    <div className="td-bar"><div className="td-bar-fill" style={{ width: `${d.workload}%` }} /></div>
+                    <span className={`td-pct ${isOverloadedProvider(d) ? 'pct-d' : isModerateProvider(d) ? 'pct-w' : 'pct-s'}`}>{d.workload}%</span>
+                    <div className="td-bar"><div className="td-bar-fill" style={{ width: `${d.workload}%`, background: getWorkloadFill(d) }} /></div>
                   </td>
                   <td className="td-num">{d.efficiency}%</td>
                   <td className="td-num">
-                    {d.workload >= 85 ? <span className="risk-badge risk-high">High</span> :
-                      d.workload >= 70 ? <span className="risk-badge risk-med">Med</span> :
+                    {isOverloadedProvider(d) ? <span className="risk-badge risk-high">High</span> :
+                      isModerateProvider(d) ? <span className="risk-badge risk-med">Med</span> :
                         <span className="risk-badge risk-low">Low</span>}
                   </td>
                 </tr>
@@ -154,7 +211,7 @@ const ReportDashboard = ({ table, metrics }) => {
 
       {/* Metrics Grid — dense */}
       <div className="rd-metrics-grid">
-        {metrics.slice(0, 6).map((m, i) => (
+        {metricItems.slice(0, 6).map((m, i) => (
           <div key={i} className="rd-metric-item">
             <span className="rd-metric-lbl">{m.label}</span>
             <span className="rd-metric-val">{m.value}</span>
@@ -169,20 +226,11 @@ const ReportDashboard = ({ table, metrics }) => {
    VIEW 2: VISUAL-CENTRIC (Executive Dashboard)
    Large charts, KPIs, AI insights, minimal tables
    ─────────────────────────────────────────────── */
-const VisualDashboard = ({ table, metrics }) => {
-  const rows = table?.rows || [];
-  const workloads = rows.map((r, i) => parseFloat(r[3]) || (70 + (i * 5) % 28));
-  const effValues = rows.map((r, i) => parseFloat(r[4]) || (75 + (i * 3) % 20));
+const VisualDashboard = ({ table, dashboardData }) => {
+  const doctorData = getDoctorData(dashboardData, table, 6);
 
-  const doctorData = rows.slice(0, 6).map((r, i) => ({
-    name: String(r[0] || 'Dr. Unknown'),
-    patients: parseInt(r[1]) || 0,
-    workload: Math.round(workloads[i]),
-    efficiency: Math.round(effValues[i]),
-  }));
-
-  const overloaded = doctorData.filter(d => d.workload >= 85).length;
-  const overloadedNames = doctorData.filter(d => d.workload >= 80).map(d => d.name);
+  const overloaded = dashboardData?.summary?.overloaded_count ?? doctorData.filter(isOverloadedProvider).length;
+  const overloadedNames = doctorData.filter(isOverloadedProvider).map(d => d.name);
 
   return (
     <div className="visual-dashboard">
@@ -190,13 +238,13 @@ const VisualDashboard = ({ table, metrics }) => {
       <div className="vd-kpi-grid">
         <div className="vd-kpi-card vd-kpi-primary">
           <FaChartBar className="vd-kpi-icon" />
-          <span className="vd-kpi-val">{overloaded}</span>
+          <span className="vd-kpi-val">{Number(overloaded).toLocaleString()}</span>
           <span className="vd-kpi-lbl">Overloaded Providers</span>
           <span className="vd-kpi-sub">Requires immediate attention</span>
         </div>
         <div className="vd-kpi-card vd-kpi-success">
           <FaUsers className="vd-kpi-icon" />
-          <span className="vd-kpi-val">{doctorData.length}</span>
+          <span className="vd-kpi-val">{Number(dashboardData?.summary?.total_doctors || doctorData.length).toLocaleString()}</span>
           <span className="vd-kpi-lbl">Active Providers</span>
           <span className="vd-kpi-sub">Currently on shift</span>
         </div>
@@ -211,7 +259,7 @@ const VisualDashboard = ({ table, metrics }) => {
         <div className="vd-kpi-card vd-kpi-info">
           <FaTable className="vd-kpi-icon" />
           <span className="vd-kpi-val">
-            {doctorData.reduce((s, d) => s + d.patients, 0)}
+            {Number(dashboardData?.summary?.total_patients || doctorData.reduce((s, d) => s + d.patients, 0)).toLocaleString()}
           </span>
           <span className="vd-kpi-lbl">Total Patients</span>
           <span className="vd-kpi-sub">Current caseload</span>
@@ -241,7 +289,7 @@ const VisualDashboard = ({ table, metrics }) => {
               <div className="vd-bar-row">
                 <span className="vd-bar-name">{d.name.length > 14 ? d.name.substring(0, 12) + '…' : d.name}</span>
                 <div className="vd-bar-track">
-                  <div className="vd-bar-fill" style={{ width: `${d.workload}%`, background: d.workload >= 85 ? 'linear-gradient(90deg,#ef4444,#f87171)' : d.workload >= 70 ? 'linear-gradient(90deg,#f59e0b,#fbbf24)' : 'linear-gradient(90deg,#10b981,#34d399)' }} />
+                  <div className="vd-bar-fill" style={{ width: `${d.workload}%`, background: getWorkloadFill(d) }} />
                 </div>
                 <span className="vd-bar-pct">{d.workload}%</span>
               </div>
@@ -261,7 +309,7 @@ const VisualDashboard = ({ table, metrics }) => {
             {doctorData.slice(0, 4).map((d, i) => (
               <tr key={i}>
                 <td>{d.name}</td>
-                <td><StatusPill value={d.workload} /></td>
+                <td><StatusPill value={d.workload} status={d.status} /></td>
                 <td className="td-num">{d.workload}%</td>
               </tr>
             ))}
@@ -313,41 +361,6 @@ const PreviewCard = ({ type, content, onChoose }) => {
   );
 };
 
-/* ─── Comparison Table ─── */
-const ComparisonTable = () => {
-  const features = [
-    { feat: 'Readability', report: 'Medium', visual: 'High', win: 'v' },
-    { feat: 'Data Density', report: 'High', visual: 'Low', win: 'r' },
-    { feat: 'Executive Ready', report: 'Low', visual: 'High', win: 'v' },
-    { feat: 'Detailed Analysis', report: 'High', visual: 'Medium', win: 'r' },
-    { feat: 'Quick Scanning', report: 'Low', visual: 'High', win: 'v' },
-    { feat: 'Best For', report: 'Analysts', visual: 'Executives', win: '' },
-  ];
-  return (
-    <div className="comp-table-wrap">
-      <Typography variant="overline" className="comp-title">Feature Comparison</Typography>
-      <table className="comp-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th className="th-report">Report View</th>
-            <th className="th-visual">Visual View</th>
-          </tr>
-        </thead>
-        <tbody>
-          {features.map((f, i) => (
-            <tr key={i}>
-              <td className="comp-feat">{f.feat}</td>
-              <td className={`comp-val ${f.win === 'r' ? 'win-report' : ''}`}>{f.report}</td>
-              <td className={`comp-val ${f.win === 'v' ? 'win-visual' : ''}`}>{f.visual}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
 /* ═══════════════════════════════════════════════
    DUAL MODE RESPONSE — Main Component
    Two states: comparison ↔ focused dashboard
@@ -355,6 +368,7 @@ const ComparisonTable = () => {
 const DualModeResponse = ({ content, response1, response2, onContinue }) => {
   const [selected, setSelected] = useState(null); // null | 0 | 1
   const [focused, setFocused] = useState(false);
+  const [dashboardData, setDashboardData] = useState(null);
 
   const parsed = useMemo(() => {
     if (!content) return null;
@@ -364,15 +378,30 @@ const DualModeResponse = ({ content, response1, response2, onContinue }) => {
     return { cleanContent: text, table, metrics };
   }, [content]);
 
+  useEffect(() => {
+    let cancelled = false;
+    getProviderLoadDashboard()
+      .then((data) => {
+        if (!cancelled) setDashboardData(data);
+      })
+      .catch((error) => {
+        console.warn('Provider dashboard data unavailable, falling back to response content:', error);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   if (!parsed && !response1 && !response2) return null;
 
   const r1 = response1 || {
     title: 'Report-Centric View',
-    content: <ReportDashboard table={parsed.table} metrics={parsed.metrics} />
+    content: <ReportDashboard table={parsed.table} metrics={parsed.metrics} dashboardData={dashboardData} />
   };
   const r2 = response2 || {
     title: 'Visual-Centric View',
-    content: <VisualDashboard table={parsed.table} metrics={parsed.metrics} />
+    content: <VisualDashboard table={parsed.table} metrics={parsed.metrics} dashboardData={dashboardData} />
   };
 
   const handleChoose = (idx) => {
@@ -445,18 +474,15 @@ const DualModeResponse = ({ content, response1, response2, onContinue }) => {
         <Box className="cards-wrapper">
           <PreviewCard
             type="report"
-            content={<ReportDashboard table={parsed.table} metrics={parsed.metrics} />}
+            content={<ReportDashboard table={parsed.table} metrics={parsed.metrics} dashboardData={dashboardData} />}
             onChoose={() => handleChoose(0)}
           />
           <PreviewCard
             type="visual"
-            content={<VisualDashboard table={parsed.table} metrics={parsed.metrics} />}
+            content={<VisualDashboard table={parsed.table} metrics={parsed.metrics} dashboardData={dashboardData} />}
             onChoose={() => handleChoose(1)}
           />
         </Box>
-
-        {/* Comparison Table */}
-        <ComparisonTable />
 
         {/* Continue CTA */}
         {selected !== null && (

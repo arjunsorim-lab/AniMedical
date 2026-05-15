@@ -10,6 +10,11 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import logging
 
+try:
+    from backend.services.duckdb_utils import connect_duckdb_file
+except ImportError:
+    from services.duckdb_utils import connect_duckdb_file
+
 logger = logging.getLogger("voxa.data")
 
 class DataService:
@@ -26,7 +31,7 @@ class DataService:
         
         if self.db_path.exists():
             logger.info(f"Using persistent DuckDB at {self.db_path}")
-            self.conn = duckdb.connect(str(self.db_path))
+            self.conn = connect_duckdb_file(self.db_path, logger)
         else:
             logger.info("Using in-memory DuckDB")
             self.conn = duckdb.connect(":memory:")

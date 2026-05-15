@@ -741,7 +741,7 @@ function RegionTemplate({ parsed }) {
 
 function PayTemplate({ parsed }) {
   const statuses = parsed.table.rowObjects.map((row) => ({
-    status: pickValue(row, ['payment_status', 'payment status']) || 'Unknown',
+    status: pickValue(row, ['payment_status', 'payment status', 'segment', 'aging_bucket', 'aging bucket']) || 'Unknown',
     records: toNumber(pickValue(row, ['records', 'cases'])),
     amount: toNumber(pickValue(row, ['amount', 'total'])),
   })).filter((item) => item.status);

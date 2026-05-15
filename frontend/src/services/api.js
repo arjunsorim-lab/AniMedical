@@ -248,6 +248,22 @@ export async function executeQuery(query, conversationId) {
 }
 
 /**
+ * Provider load dashboard data — GET /dashboard/provider-load
+ */
+export async function getProviderLoadDashboard() {
+  const res = await fetch(`${API_BASE}/dashboard/provider-load`, {
+    headers: { ...getAuthHeaders() },
+  });
+
+  if (!res.ok) {
+    const error = await res.json().catch(() => ({}));
+    throw new Error(error.detail || 'Failed to fetch provider dashboard data');
+  }
+
+  return res.json();
+}
+
+/**
  * Fetch conversation history — GET /history
  */
 export async function getHistory() {
