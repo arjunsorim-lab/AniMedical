@@ -1,5 +1,11 @@
 import { useMemo } from 'react';
 import './PredefinedResponseTemplates.css';
+import {
+  generateSparkline,
+  generatePatientSparkline,
+  generateRevenueSparkline,
+  generateAlertSparkline,
+} from './sparklineUtils';
 
 const nfInt = new Intl.NumberFormat('en-US');
 const nfMoney = new Intl.NumberFormat('en-US', {
@@ -308,10 +314,10 @@ function KpiTemplate({ parsed }) {
       subtitle={parsed.summary || 'System-wide operational pulse across patient care, staffing, alerts, and finance.'}
     >
       <div className="predef-grid four">
-        <MetricCard label="Total Patients" value={nfInt.format(totalPatients)} tone="cyan" sparkValues={[18, 20, 19, 23, 21, 25, 24]} />
-        <MetricCard label="Monthly Revenue" value={nfMoney.format(revenue)} tone="green" sparkValues={[12, 16, 15, 18, 19, 21, 22]} />
-        <MetricCard label="Critical Patients" value={nfInt.format(critical)} tone="rose" sparkValues={[14, 12, 13, 11, 10, 12, 11]} />
-        <MetricCard label="Active Doctors" value={nfInt.format(doctors)} tone="slate" sparkValues={[14, 14, 15, 13, 14, 14, 14]} />
+        <MetricCard label="Total Patients" value={nfInt.format(totalPatients)} tone="cyan" sparkValues={totalPatients > 0 ? generatePatientSparkline(totalPatients) : undefined} />
+        <MetricCard label="Monthly Revenue" value={nfMoney.format(revenue)} tone="green" sparkValues={revenue > 0 ? generateRevenueSparkline(revenue) : undefined} />
+        <MetricCard label="Critical Patients" value={nfInt.format(critical)} tone="rose" sparkValues={critical > 0 ? generateAlertSparkline(critical) : undefined} />
+        <MetricCard label="Active Doctors" value={nfInt.format(doctors)} tone="slate" sparkValues={doctors > 0 ? generateSparkline(doctors, 7, { volatility: 0.04, growth: 0 }) : undefined} />
       </div>
       <div className="predef-card insight wide">
         <div className="predef-card-label">AI Insight Panel</div>
@@ -490,8 +496,8 @@ function RiskTemplate({ parsed }) {
       subtitle={parsed.summary || 'Real-time risk split for patient monitoring and escalation planning.'}
     >
       <div className="predef-grid two">
-        <MetricCard label="Active Patients" value={nfInt.format(active)} tone="cyan" sparkValues={[290, 305, 300, 318, 324, 330, active || 333]} />
-        <MetricCard label="Critical Patients" value={nfInt.format(critical)} tone="rose" sparkValues={[48, 50, 53, 52, 54, 55, critical || 55]} />
+        <MetricCard label="Active Patients" value={nfInt.format(active)} tone="cyan" sparkValues={active > 0 ? generatePatientSparkline(active) : undefined} />
+        <MetricCard label="Critical Patients" value={nfInt.format(critical)} tone="rose" sparkValues={critical > 0 ? generateAlertSparkline(critical) : undefined} />
       </div>
       <div className="predef-card insight wide">
         <div className="predef-card-label">Risk Interpretation</div>
@@ -515,8 +521,8 @@ function AlertTemplate({ parsed }) {
       subtitle={parsed.summary || 'Live triage summary for abnormal vitals signals across monitored beds.'}
     >
       <div className="predef-grid two">
-        <MetricCard label="Critical Alerts" value={nfInt.format(critical)} tone="rose" sparkValues={[8, 9, 8, 10, 9, 11, critical]} />
-        <MetricCard label="Warning Alerts" value={nfInt.format(warning)} tone="amber" sparkValues={[16, 17, 19, 18, 20, 21, warning]} />
+        <MetricCard label="Critical Alerts" value={nfInt.format(critical)} tone="rose" sparkValues={critical > 0 ? generateAlertSparkline(critical) : undefined} />
+        <MetricCard label="Warning Alerts" value={nfInt.format(warning)} tone="amber" sparkValues={warning > 0 ? generateSparkline(warning, 7, { volatility: 0.1, growth: 0 }) : undefined} />
       </div>
       <div className="predef-card center-stat">
         <div className="predef-center-label">Total Abnormal Alerts</div>
@@ -584,87 +590,86 @@ function LoadTemplate({ parsed }) {
       subtitle={'Real-time distribution of patient volume across primary care units. Analysis triggered by query: "Patients per doctor".'}
     >
       {!hasDoctorRows ? <EmptyState /> : <>
-      <div className="predef-load-layout">
-        <div className="predef-card predef-load-distribution">
-          <div className="predef-load-head">
-            <div>
-              <div className="predef-card-label">Patient Load Distribution</div>
-              <p>Metric: Active Cases / Primary Physician</p>
-            </div>
-            <span className="predef-load-live">Live stream</span>
-          </div>
-          <div className="predef-load-bars">
-            {distribution.map((doctor) => (
-              <div className="predef-load-bar-item" key={doctor.name}>
-                <div className="predef-load-bar-value">{nfInt.format(doctor.load)}</div>
-                <div className="predef-load-bar-track">
-                  <span style={{ width: `${Math.max((doctor.load / maxLoad) * 100, 14)}%` }} />
-                </div>
-                <div className="predef-load-bar-name">{doctor.name}</div>
+        <div className="predef-load-layout">
+          <div className="predef-card predef-load-distribution">
+            <div className="predef-load-head">
+              <div>
+                <div className="predef-card-label">Patient Load Distribution</div>
+                <p>Metric: Active Cases / Primary Physician</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="predef-card predef-load-logic">
-          <h4>AI Reassignment Logic</h4>
-          <div className="predef-load-alert tone-rose">
-            <strong>Critical Alert</strong>
-            <p>
-              Highest assigned provider load is <strong>{nfInt.format(maxLoad)}</strong>, which is {nfInt.format(spread)}
-              {' '}above the lowest assignment.
-            </p>
-          </div>
-          <div className="predef-load-alert tone-green">
-            <strong>Reassignment Strategy</strong>
-            <p>{parsed.insight || 'Rebalance overflow cases toward stable providers to reduce response latency.'}</p>
-          </div>
-          <button type="button" className="predef-load-btn">Authorize Reassignment</button>
-        </div>
-      </div>
-
-      <div className="predef-card predef-load-ledger">
-        <div className="predef-load-ledger-head">
-          <h4>Unit Performance Ledger</h4>
-          <div className="predef-load-ledger-tags">
-            <span className="tag tone-rose">{overloadedCount} Overloaded</span>
-            <span className="tag tone-cyan">{stableCount} Stable</span>
-          </div>
-        </div>
-
-        <table className="predef-table">
-          <thead>
-            <tr>
-              <th>Provider</th>
-              <th>Active Load</th>
-              <th>Status</th>
-              <th>Shift Progress</th>
-              <th>Efficiency</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ledgerRows.map((row) => (
-              <tr key={row.name}>
-                <td>{row.name}</td>
-                <td>{nfInt.format(row.load)}/{nfInt.format(row.capacity)}</td>
-                <td>
-                  <span className={`predef-status-pill ${
-                    row.status === 'Overloaded' ? 'rose' : row.status === 'High Load' ? 'amber' : 'green'
-                  }`}>
-                    {row.status}
-                  </span>
-                </td>
-                <td>
-                  <div className="predef-track predef-progress-track">
-                    <span style={{ width: `${row.progress}%` }} />
+              <span className="predef-load-live">Live stream</span>
+            </div>
+            <div className="predef-load-bars">
+              {distribution.map((doctor) => (
+                <div className="predef-load-bar-item" key={doctor.name}>
+                  <div className="predef-load-bar-value">{nfInt.format(doctor.load)}</div>
+                  <div className="predef-load-bar-track">
+                    <span style={{ width: `${Math.max((doctor.load / maxLoad) * 100, 14)}%` }} />
                   </div>
-                </td>
-                <td>{row.efficiency}%</td>
+                  <div className="predef-load-bar-name">{doctor.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="predef-card predef-load-logic">
+            <h4>AI Reassignment Logic</h4>
+            <div className="predef-load-alert tone-rose">
+              <strong>Critical Alert</strong>
+              <p>
+                Highest assigned provider load is <strong>{nfInt.format(maxLoad)}</strong>, which is {nfInt.format(spread)}
+                {' '}above the lowest assignment.
+              </p>
+            </div>
+            <div className="predef-load-alert tone-green">
+              <strong>Reassignment Strategy</strong>
+              <p>{parsed.insight || 'Rebalance overflow cases toward stable providers to reduce response latency.'}</p>
+            </div>
+            <button type="button" className="predef-load-btn">Authorize Reassignment</button>
+          </div>
+        </div>
+
+        <div className="predef-card predef-load-ledger">
+          <div className="predef-load-ledger-head">
+            <h4>Unit Performance Ledger</h4>
+            <div className="predef-load-ledger-tags">
+              <span className="tag tone-rose">{overloadedCount} Overloaded</span>
+              <span className="tag tone-cyan">{stableCount} Stable</span>
+            </div>
+          </div>
+
+          <table className="predef-table">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Active Load</th>
+                <th>Status</th>
+                <th>Shift Progress</th>
+                <th>Efficiency</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {ledgerRows.map((row) => (
+                <tr key={row.name}>
+                  <td>{row.name}</td>
+                  <td>{nfInt.format(row.load)}/{nfInt.format(row.capacity)}</td>
+                  <td>
+                    <span className={`predef-status-pill ${row.status === 'Overloaded' ? 'rose' : row.status === 'High Load' ? 'amber' : 'green'
+                      }`}>
+                      {row.status}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="predef-track predef-progress-track">
+                      <span style={{ width: `${row.progress}%` }} />
+                    </div>
+                  </td>
+                  <td>{row.efficiency}%</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </>}
     </TemplateShell>
   );

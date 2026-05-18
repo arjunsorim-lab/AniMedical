@@ -68,6 +68,7 @@ CHART_REQUEST_KEYWORDS = (
 )
 
 _JSON_CONTEXT_CACHE: dict[str, Any] = {"signature": None, "contexts": {}}
+_HEALTHCARE_JSON_CACHE: dict[str, Any] = {}
 QUERY_TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
     "billing": ("payment", "billing", "invoice", "revenue", "due", "pending"),
     "patients": ("patient", "admission", "discharge", "critical", "active", "outcome"),
@@ -118,8 +119,25 @@ def _load_healthcare_json(filename: str) -> dict | list | None:
     if not path.exists():
         return None
     try:
+        stat = path.stat()
+        cache_key = str(path.resolve())
+        cache_entry = _HEALTHCARE_JSON_CACHE.get(cache_key)
+        signature = (stat.st_mtime_ns, stat.st_size)
+        if cache_entry and cache_entry.get("signature") == signature:
+            return cache_entry.get("data")
+    except Exception:
+        cache_key = ""
+        signature = None
+
+    try:
         with path.open("r", encoding="utf-8-sig") as f:
-            return json.load(f)
+            data = json.load(f)
+        if cache_key and signature:
+            _HEALTHCARE_JSON_CACHE[cache_key] = {
+                "signature": signature,
+                "data": data,
+            }
+        return data
     except Exception:
         return None
 
@@ -1359,8 +1377,40 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             1 for r in ranked if "over" in str(r.get("status", "")).lower()
         )
         metrics.append({"label": "Overloaded Providers", "value": str(overloaded), "change": "", "status": "negative"})
-        insights.append("Provider workload is concentrated among the highest-volume physicians.")
-        recommendations.append("Redistribute new patient assignments from overloaded providers to stable providers.")
+        
+        # Dynamic, high-quality, data-driven insights and recommendations
+        if ranked:
+            leader_name = ranked[0].get("doctor_name") or ranked[0].get("name") or "Top Provider"
+            leader_patients = int(_coerce_number(ranked[0].get("patient_count")))
+            avg_patients = int(sum(_coerce_number(r.get("patient_count")) for r in ranked) / len(ranked))
+            
+            # Find least loaded doctor who is stable
+            stable_docs = [r for r in ranked if "over" not in str(r.get("status", "")).lower()]
+            if stable_docs:
+                stable_docs_sorted = sorted(stable_docs, key=lambda r: _coerce_number(r.get("patient_count")))
+                least_loaded_name = stable_docs_sorted[0].get("doctor_name") or stable_docs_sorted[0].get("name")
+                least_loaded_patients = int(_coerce_number(stable_docs_sorted[0].get("patient_count")))
+            else:
+                least_loaded_name = ranked[-1].get("doctor_name") or ranked[-1].get("name")
+                least_loaded_patients = int(_coerce_number(ranked[-1].get("patient_count")))
+            
+            # Find most efficient doctor
+            efficient_docs = sorted(ranked, key=lambda r: _coerce_number(r.get("efficiency_percent")), reverse=True)
+            top_efficient_name = efficient_docs[0].get("doctor_name") or efficient_docs[0].get("name")
+            top_efficiency = _coerce_number(efficient_docs[0].get("efficiency_percent"))
+            
+            insights.append(f"Caseload imbalance identified: {leader_name} is operating at peak volume with {leader_patients} patient assignments, which stands at {round(leader_patients/max(avg_patients, 1), 1)}x the regional doctor average ({avg_patients} patients).")
+            if overloaded > 0:
+                insights.append(f"Operational Risk: {overloaded} providers are flagged as overloaded, directly escalating doctor burnout risk and increasing patient wait-times.")
+            else:
+                insights.append("Distribution analysis shows patient workloads are currently sustained within standard thresholds without active overloading.")
+            
+            recommendations.append(f"Transition new intake caseloads away from overloaded physicians to under-utilized stable providers, starting with {least_loaded_name} (currently at {least_loaded_patients} patients).")
+            recommendations.append(f"Audit and replicate clinical scheduling workflows from {top_efficient_name} (maintaining {top_efficiency}% efficiency) to improve cohort outcomes.")
+        else:
+            insights.append("Provider workload is concentrated among the highest-volume physicians.")
+            recommendations.append("Redistribute new patient assignments from overloaded providers to stable providers.")
+            
         if overloaded:
             alerts.append({"severity": "high", "message": f"{overloaded} providers are flagged as overloaded."})
 
@@ -1390,8 +1440,21 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             values.append(amount)
             donut_labels.append(name)
             donut_values.append(cases)
-        insights.append("Pending payment exposure is concentrated in aging buckets requiring revenue-cycle follow-up.")
-        recommendations.append("Prioritize oldest and highest-value unpaid segments for collections review.")
+            
+        if source_rows:
+            highest_pending = sorted(source_rows, key=lambda r: _coerce_number(r.get("amount")), reverse=True)[0]
+            max_seg_name = highest_pending.get("segment") or highest_pending.get("payment_status") or "Main Segment"
+            max_seg_amount = _coerce_number(highest_pending.get("amount"))
+            
+            insights.append(f"Accounts Receivable risk is highly concentrated in the '{max_seg_name}' ledger bucket, with a total pending balance of ${max_seg_amount:,.2f} across {int(_coerce_number(highest_pending.get('cases')))} cases.")
+            insights.append(f"Aged unpaid claims analysis shows a cumulative system-wide outstanding balance of ${total_amount:,.2f} over {int(total_cases)} patients.")
+            
+            recommendations.append(f"Deploy specialized billing collection efforts focusing entirely on the high-exposure '{max_seg_name}' cohort to recover critical capital.")
+            recommendations.append("Establish automated text and digital outreach programs to clear smaller outstanding balances before they reach aging limit thresholds.")
+        else:
+            insights.append("Pending payment exposure is concentrated in aging buckets requiring revenue-cycle follow-up.")
+            recommendations.append("Prioritize oldest and highest-value unpaid segments for collections review.")
+            
         if total_amount > 0:
             alerts.append({"severity": "medium", "message": "Unresolved payment balances require follow-up."})
 
@@ -1415,8 +1478,21 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             values.append(revenue)
             donut_labels.append(name)
             donut_values.append(revenue)
-        insights.append("Revenue distribution varies by service line.")
-        recommendations.append("Benchmark lower-revenue services against high-performing service lines.")
+            
+        if source_rows:
+            highest_rev = sorted(source_rows, key=lambda r: _coerce_number(r.get("total_revenue") or r.get("revenue")), reverse=True)[0]
+            top_service = highest_rev.get("service_name") or highest_rev.get("service name") or "Primary Service"
+            top_service_rev = _coerce_number(highest_rev.get("total_revenue") or highest_rev.get("revenue"))
+            avg_service_rev = total_revenue / len(source_rows)
+            
+            insights.append(f"Top revenue driver is '{top_service}', contributing ${top_service_rev:,.2f}—which accounts for {round((top_service_rev / max(total_revenue, 1)) * 100, 1)}% of total service billing (${total_revenue:,.2f}).")
+            insights.append(f"Average service line yields ${avg_service_rev:,.2f}, indicating clear disparity between specialized clinical offerings and baseline hospital visits.")
+            
+            recommendations.append(f"Analyze staffing allocations and capacity restrictions in '{top_service}' to maximize outpatient flow and increase operational margins.")
+            recommendations.append(f"Benchmark auxiliary service lines currently generating below the ${avg_service_rev:,.2f} average threshold to optimize pricing or marketing.")
+        else:
+            insights.append("Revenue distribution varies by service line.")
+            recommendations.append("Benchmark lower-revenue services against high-performing service lines.")
 
     elif topic == "outcomes":
         source_rows = rows or [
@@ -1453,8 +1529,23 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             sum(_coerce_number(r.get("ongoing")) for r in source_rows),
             sum(_coerce_number(r.get("failed")) for r in source_rows),
         ]
-        insights.append("Outcome trends should be monitored for readmission pressure.")
-        recommendations.append("Target care coordination for cohorts with failed or readmitted outcomes.")
+        
+        if source_rows:
+            tot_success = sum(_coerce_number(r.get("success")) for r in source_rows)
+            tot_ongoing = sum(_coerce_number(r.get("ongoing")) for r in source_rows)
+            tot_failed = sum(_coerce_number(r.get("failed")) for r in source_rows)
+            tot_total = tot_success + tot_ongoing + tot_failed
+            overall_success_pct = round((tot_success / max(tot_total, 1)) * 100, 1)
+            
+            insights.append(f"Aggregated clinical outcome ledger confirms an overall patient recovery rate of {overall_success_pct}% ({int(tot_success)} success instances out of {int(tot_total)} cases).")
+            if tot_failed > 0:
+                insights.append(f"Clinical Alert: {int(tot_failed)} case terminations ({round((tot_failed/max(tot_total,1))*100,1)}% of total) resulted in treatment failure or readmission status, requiring intervention.")
+            
+            recommendations.append("Launch a clinical audit of patient charts within the readmitted/failed cohort to diagnose common underlying risk factors.")
+            recommendations.append("Enhance transitional care support (post-discharge checking calls at 24h, 48h, and 72h) to reduce emergency readmissions.")
+        else:
+            insights.append("Outcome trends should be monitored for readmission pressure.")
+            recommendations.append("Target care coordination for cohorts with failed or readmitted outcomes.")
 
     else:
         for idx, row in enumerate(rows[:8], start=1):
@@ -1871,6 +1962,205 @@ def _build_chart_llm_instruction(query: str) -> str:
     )
 
 
+def _get_dynamic_doctor_performance_data() -> list[dict]:
+    """Query DuckDB for doctor performance data dynamically."""
+    data_svc = get_data_service()
+    try:
+        # Query doctors ranked by patient count and efficiency
+        sql = """
+        SELECT 
+            d.name as doctor_name,
+            COUNT(DISTINCT CASE WHEN p.status = 'active' THEN p.id END) as patient_count,
+            d.rating::FLOAT as rating,
+            d.experience_years as experience_years,
+            d.performance_score::FLOAT as efficiency_percent,
+            d.specialization,
+            d.region
+        FROM doctors d
+        LEFT JOIN patients p ON p.doctor_id = d.id
+        GROUP BY d.id, d.name, d.rating, d.experience_years, d.performance_score, d.specialization, d.region
+        ORDER BY patient_count DESC, d.performance_score DESC
+        LIMIT 8
+        """
+        df = data_svc.execute_query(sql)
+        return df.to_dict('records') if df is not None else []
+    except Exception as e:
+        logger.warning(f"DuckDB doctor performance query failed ({e}), falling back to JSON")
+        doctor_load = _load_healthcare_json("doctor_load_analytics.json") or {}
+        return (doctor_load.get("distribution_top_primary_physicians") or [])[:8]
+
+
+def _get_dynamic_revenue_data() -> list[dict]:
+    """Query DuckDB for revenue by service dynamically."""
+    data_svc = get_data_service()
+    try:
+        sql = """
+        SELECT 
+            COALESCE(s.name, 'Unknown Service') as service_name,
+            COALESCE(s.service_type, 'General') as category,
+            SUM(b.amount)::FLOAT as total_revenue,
+            COUNT(DISTINCT b.id) as billing_count
+        FROM billing b
+        LEFT JOIN services s ON b.service_id = s.service_id OR b.service_id = s.id
+        WHERE b.billing_date >= CURRENT_DATE - INTERVAL '30 days'
+        GROUP BY s.name, s.service_type
+        ORDER BY total_revenue DESC
+        LIMIT 8
+        """
+        df = data_svc.execute_query(sql)
+        return df.to_dict('records') if df is not None else []
+    except Exception as e:
+        logger.warning(f"DuckDB revenue query failed ({e}), falling back to JSON")
+        billing_summary = _load_healthcare_json("billing_revenue_summary.json") or {}
+        return (billing_summary.get("revenue_by_service_month_2026_04") or [])[:8]
+
+
+def _get_dynamic_patient_data() -> dict:
+    """Query DuckDB for patient statistics dynamically."""
+    data_svc = get_data_service()
+    try:
+        # Get latest admission date and count
+        sql = """
+        SELECT 
+            MAX(admission_date) as latest_date,
+            COUNT(*) as patients_served
+        FROM patients
+        WHERE admission_date = (SELECT MAX(admission_date) FROM patients)
+        """
+        df = data_svc.execute_query(sql)
+        if df is not None and len(df) > 0:
+            row = df.iloc[0]
+            return {
+                "date": str(row['latest_date']) if row['latest_date'] else "N/A",
+                "patients_served": int(row['patients_served']) if row['patients_served'] else 0
+            }
+    except Exception as e:
+        logger.warning(f"DuckDB patient query failed ({e}), falling back to JSON")
+    
+    # Fallback to JSON
+    patients = _load_healthcare_json("patients.json") or []
+    if isinstance(patients, list):
+        latest_date = max((str(p.get("admission_date") or "") for p in patients if isinstance(p, dict)), default="")
+        count = sum(1 for p in patients if isinstance(p, dict) and str(p.get("admission_date") or "") == latest_date)
+        return {"date": latest_date or "N/A", "patients_served": count}
+    return {"date": "N/A", "patients_served": 0}
+
+
+def _get_dynamic_risk_data() -> dict:
+    """Query DuckDB for active vs critical patient count."""
+    data_svc = get_data_service()
+    try:
+        sql = """
+        SELECT 
+            COUNT(CASE WHEN p.status = 'active' THEN 1 END) as active_patients,
+            COUNT(DISTINCT CASE WHEN v.alert_flag = true THEN v.patient_id END) as critical_patients
+        FROM patients p
+        LEFT JOIN vitals v ON p.id = v.patient_id OR p.patient_id = v.patient_id
+        """
+        df = data_svc.execute_query(sql)
+        if df is not None and len(df) > 0:
+            row = df.iloc[0]
+            return {
+                "active_patients": int(row['active_patients']) if row['active_patients'] else 0,
+                "critical_patients": int(row['critical_patients']) if row['critical_patients'] else 0
+            }
+    except Exception as e:
+        logger.warning(f"DuckDB risk query failed ({e}), falling back to JSON")
+    
+    # Fallback to JSON
+    patients = _load_healthcare_json("patients.json") or []
+    vitals = _load_healthcare_json("vitals.json") or []
+    active = sum(1 for p in patients if isinstance(p, dict) and str(p.get("status", "")).lower() == "active")
+    critical = len({str(v.get("patient_id") or "").strip() for v in vitals if isinstance(v, dict) and v.get("alert_flag")})
+    return {"active_patients": active, "critical_patients": critical}
+
+
+def _get_dynamic_alerts_data() -> dict:
+    """Query DuckDB for abnormal vitals alerts."""
+    data_svc = get_data_service()
+    try:
+        sql = """
+        SELECT 
+            COUNT(*) as total_alert_records,
+            COUNT(DISTINCT patient_id) as unique_patients_flagged
+        FROM vitals
+        WHERE alert_flag = true
+        """
+        df = data_svc.execute_query(sql)
+        if df is not None and len(df) > 0:
+            row = df.iloc[0]
+            return {
+                "total_alert_records": int(row['total_alert_records']) if row['total_alert_records'] else 0,
+                "unique_patients_flagged": int(row['unique_patients_flagged']) if row['unique_patients_flagged'] else 0
+            }
+    except Exception as e:
+        logger.warning(f"DuckDB alerts query failed ({e}), falling back to JSON")
+    
+    # Fallback to JSON
+    vitals = _load_healthcare_json("vitals.json") or []
+    alerts = [v for v in vitals if isinstance(v, dict) and bool(v.get("alert_flag"))]
+    total = len(alerts)
+    unique_patients = len({str(v.get("patient_id") or "").strip() for v in alerts if str(v.get("patient_id") or "").strip()})
+    return {"total_alert_records": total, "unique_patients_flagged": unique_patients}
+
+
+def _get_dynamic_doctor_load_data() -> list[dict]:
+    """Query DuckDB for doctor load data dynamically."""
+    data_svc = get_data_service()
+    try:
+        # Query doctors ranked by patient count
+        sql = """
+        SELECT 
+            d.name as doctor_name,
+            COUNT(DISTINCT CASE WHEN p.status = 'active' THEN p.id END) as patient_count,
+            COUNT(DISTINCT p.id) as total_patients,
+            d.rating::FLOAT as rating,
+            d.performance_score::FLOAT as efficiency_percent,
+            CASE 
+                WHEN COUNT(DISTINCT p.id) > 5000 THEN 'Overloaded'
+                WHEN COUNT(DISTINCT p.id) > 3000 THEN 'High'
+                ELSE 'Normal'
+            END as status,
+            ROUND(100.0 * COUNT(DISTINCT CASE WHEN p.status = 'active' THEN p.id END) / 
+                NULLIF(COUNT(DISTINCT p.id), 0), 1) as shift_progress_percent
+        FROM doctors d
+        LEFT JOIN patients p ON p.doctor_id = d.id
+        GROUP BY d.id, d.name, d.rating, d.performance_score
+        ORDER BY patient_count DESC
+        LIMIT 8
+        """
+        df = data_svc.execute_query(sql)
+        return df.to_dict('records') if df is not None else []
+    except Exception as e:
+        logger.warning(f"DuckDB doctor load query failed ({e}), falling back to JSON")
+        doctor_load = _load_healthcare_json("doctor_load_analytics.json") or {}
+        return (doctor_load.get("distribution_top_primary_physicians") or [])[:8]
+
+
+def _get_dynamic_region_data() -> list[dict]:
+    """Query DuckDB for region-wise patient distribution."""
+    data_svc = get_data_service()
+    try:
+        sql = """
+        SELECT 
+            p.region,
+            COUNT(DISTINCT p.id) as total_patients,
+            COALESCE(SUM(b.amount), 0)::FLOAT as total_revenue,
+            ROUND(AVG(p.age), 1) as avg_patient_age
+        FROM patients p
+        LEFT JOIN billing b ON p.id = b.patient_id OR p.patient_id = b.patient_id
+        WHERE p.region IS NOT NULL AND p.region != ''
+        GROUP BY p.region
+        ORDER BY total_patients DESC
+        LIMIT 10
+        """
+        df = data_svc.execute_query(sql)
+        return df.to_dict('records') if df is not None else []
+    except Exception as e:
+        logger.warning(f"DuckDB region query failed ({e}), falling back to JSON context")
+        return []
+
+
 def _execute_predefined_healthcare_report(query: str) -> str | None:
     q = _normalize_predefined_match_text(query or "")
     if not _is_predefined_request_response(q):
@@ -1908,136 +2198,135 @@ def _execute_predefined_healthcare_report(query: str) -> str | None:
         return _append_kpi_metrics_json_if_needed(query, report)
 
     if "revenue by service this month" in q or q == "rev":
-        rows = (billing_summary.get("revenue_by_service_month_2026_04") or [])[:8]
+        # Use dynamic DuckDB query instead of static JSON
+        rows = _get_dynamic_revenue_data()
         table_rows = [
             {
                 "service_name": r.get("service_name", ""),
                 "category": r.get("category", ""),
-                "total_revenue": r.get("total_revenue", 0),
-                "billing_count": r.get("billing_count", 0),
+                "total_revenue": round(float(r.get("total_revenue", 0)), 2),
+                "billing_count": int(r.get("billing_count", 0)),
             }
             for r in rows if isinstance(r, dict)
         ]
         return (
             "REVENUE BY SERVICE THIS MONTH SUMMARY\n"
-            "April 2026 service revenue from billing_revenue_summary.json.\n"
+            "Service revenue dynamically queried from DuckDB (last 30 days).\n"
             "DATA TABLE\n"
             + _to_markdown_table(table_rows, ["service_name", "category", "total_revenue", "billing_count"])
         )
 
     if "total patients served today" in q or q == "pt":
-        latest_date = ""
-        count = 0
-        if isinstance(patients, list):
-            latest_date = max((str(p.get("admission_date") or "") for p in patients if isinstance(p, dict)), default="")
-            count = sum(1 for p in patients if isinstance(p, dict) and str(p.get("admission_date") or "") == latest_date)
+        # Use dynamic DuckDB query instead of static JSON
+        patient_data = _get_dynamic_patient_data()
         return (
             "TOTAL PATIENTS SERVED TODAY SUMMARY\n"
-            f"Latest available service date in dataset: {latest_date or 'N/A'}.\n"
+            f"Latest available service date in dataset: {patient_data.get('date', 'N/A')}.\n"
             "DATA TABLE\n"
-            + _to_markdown_table([{"date": latest_date or "N/A", "patients_served": count}], ["date", "patients_served"])
+            + _to_markdown_table([{"date": patient_data.get('date', 'N/A'), "patients_served": patient_data.get('patients_served', 0)}], ["date", "patients_served"])
         )
 
     if "doctor performance ranking" in q or q == "doc":
-        top = (doctor_load.get("distribution_top_primary_physicians") or [])[:6]
-        rows = [
+        # Use dynamic DuckDB query instead of static JSON
+        rows = _get_dynamic_doctor_performance_data()
+        table_rows = [
             {
                 "doctor_name": r.get("doctor_name", ""),
-                "patient_count": r.get("patient_count", 0),
-                "status": r.get("status", ""),
-                "efficiency_percent": r.get("efficiency_percent", 0),
+                "patient_count": int(r.get("patient_count", 0)),
+                "rating": round(float(r.get("rating", 0)), 1),
+                "experience_years": int(r.get("experience_years", 0)),
+                "efficiency_percent": round(float(r.get("efficiency_percent", 0)), 1),
             }
-            for r in top if isinstance(r, dict)
+            for r in rows if isinstance(r, dict)
         ]
         return (
             "Doctor Performance Ranking\n"
-            "SUMMARY Ranked by managed patient volume and efficiency.\n"
+            "SUMMARY Ranked by managed patient volume and efficiency (dynamically queried from DuckDB).\n"
             "DATA TABLE\n"
-            + _to_markdown_table(rows, ["doctor_name", "patient_count", "status", "efficiency_percent"])
-            + "\nAI Insight: Overloaded providers should be rebalanced to stable providers."
+            + _to_markdown_table(table_rows, ["doctor_name", "patient_count", "rating", "experience_years", "efficiency_percent"])
+            + "\nAI Insight: Providers with highest patient loads and efficiency ratings are highlighted.The lowest-ranked visible provider should be reviewed for capacity optimization."
         )
 
     if "active vs critical patient count" in q or q == "risk":
-        active = sum(1 for p in patients if isinstance(p, dict) and str(p.get("status", "")).lower() == "active")
-        critical = len({str(v.get("patient_id") or "").strip() for v in vitals if isinstance(v, dict) and v.get("alert_flag") and str(v.get("patient_id") or "").strip()})
+        # Use dynamic DuckDB query instead of static JSON
+        risk_data = _get_dynamic_risk_data()
         return (
             "ACTIVE VS CRITICAL PATIENT COUNT SUMMARY\n"
-            "Live risk split from patients.json and vitals.json.\n"
+            "Live risk split dynamically queried from DuckDB.\n"
             "DATA TABLE\n"
-            + _to_markdown_table([{"active_patients": active, "critical_patients": critical}], ["active_patients", "critical_patients"])
+            + _to_markdown_table([{"active_patients": risk_data.get('active_patients', 0), "critical_patients": risk_data.get('critical_patients', 0)}], ["active_patients", "critical_patients"])
         )
 
     if "abnormal vitals alerts summary" in q or q == "alrt":
-        alerts = [v for v in vitals if isinstance(v, dict) and bool(v.get("alert_flag"))]
-        total = len(alerts)
-        unique_patients = len({str(v.get("patient_id") or "").strip() for v in alerts if str(v.get("patient_id") or "").strip()})
+        # Use dynamic DuckDB query instead of static JSON
+        alerts_data = _get_dynamic_alerts_data()
         return (
             "ABNORMAL VITALS ALERTS SUMMARY\n"
-            "Alert volume from vitals.json.\n"
+            "Alert volume dynamically queried from DuckDB.\n"
             "DATA TABLE\n"
-            + _to_markdown_table([{"total_alert_records": total, "unique_patients_flagged": unique_patients}], ["total_alert_records", "unique_patients_flagged"])
+            + _to_markdown_table([{"total_alert_records": alerts_data.get('total_alert_records', 0), "unique_patients_flagged": alerts_data.get('unique_patients_flagged', 0)}], ["total_alert_records", "unique_patients_flagged"])
         )
 
     if "patients per doctor" in q or "patient per doctor" in q or q == "load":
-        top = (doctor_load.get("distribution_top_primary_physicians") or [])[:6]
-        rows = [
+        # Use dynamic DuckDB query instead of static JSON
+        rows = _get_dynamic_doctor_load_data()
+        table_rows = [
             {
                 "doctor_name": r.get("doctor_name", ""),
-                "patient_count": r.get("patient_count", 0),
-                "status": r.get("status", ""),
-                "active_load": f"{r.get('patient_count', 0)}/{r.get('capacity', 0)}",
-                "shift_progress_percent": r.get("efficiency_percent", 0),
-                "efficiency_percent": r.get("efficiency_percent", 0),
+                "patient_count": int(r.get("patient_count", 0)),
+                "status": r.get("status", "Normal"),
+                "active_load": f"{int(r.get('patient_count', 0))}/{int(r.get('total_patients', 0))}",
+                "shift_progress_percent": round(float(r.get("shift_progress_percent", 0)), 1),
+                "efficiency_percent": round(float(r.get("efficiency_percent", 0)), 1),
             }
-            for r in top if isinstance(r, dict)
+            for r in rows if isinstance(r, dict)
         ]
-        avg = (doctor_load.get("summary") or {}).get("average_patients_per_doctor", 0)
+        avg_patients = round(sum(int(r.get('patient_count', 0)) for r in rows) / max(len(rows), 1), 1) if rows else 0
         return (
             "LOAD Patients per Doctor SUMMARY\n"
-            f"Average patients per doctor is {avg}.\n"
+            f"Average patients per doctor is {avg_patients} (dynamically queried from DuckDB).\\n"
             "DATA TABLE\n"
-            + _to_markdown_table(rows, ["doctor_name", "patient_count", "status", "active_load", "shift_progress_percent", "efficiency_percent"])
+            + _to_markdown_table(table_rows, ["doctor_name", "patient_count", "status", "active_load", "shift_progress_percent", "efficiency_percent"])
             + "\nAI Insight: Reassign overflow from overloaded to stable providers."
         )
 
     if "region wise patient distribution" in q or "region-wise patient distribution" in q or q == "reg":
-        # Build complete region metrics from patients + billing so UI can render revenue/age profile.
-        region_ctx = _build_region_analytics_context(top_n=10)
-        derived_rows = []
-        if region_ctx:
-            try:
-                parsed = json.loads(region_ctx)
-                derived_rows = parsed.get("regional_distribution_metrics", []) if isinstance(parsed, dict) else []
-            except Exception:
-                derived_rows = []
-
-        rows = [
+        # Use dynamic DuckDB query instead of static JSON
+        rows_data = _get_dynamic_region_data()
+        table_rows = [
             {
                 "region": r.get("region", ""),
-                "total_patients": r.get("patient_count", 0),
-                "total_revenue": r.get("total_revenue", 0),
-                "avg_patient_age": r.get("avg_patient_age", 0),
+                "total_patients": int(r.get("total_patients", 0)),
+                "total_revenue": round(float(r.get("total_revenue", 0)), 2),
+                "avg_patient_age": round(float(r.get("avg_patient_age", 0)), 1),
             }
-            for r in derived_rows if isinstance(r, dict)
+            for r in rows_data if isinstance(r, dict)
         ]
-
-        # Fallback only if derived analytics not available.
-        if not rows:
-            reg = (doctor_load.get("regional_load_distribution") or [])[:8]
-            rows = [
-                {
-                    "region": r.get("region", ""),
-                    "total_patients": int(round((r.get("avg_patients_per_doctor", 0) or 0) * (r.get("active_doctors", 0) or 0))),
-                    "total_revenue": 0,
-                    "avg_patient_age": 0,
-                }
-                for r in reg if isinstance(r, dict)
-            ]
+        
+        # Fallback if DuckDB query returned empty
+        if not table_rows:
+            region_ctx = _build_region_analytics_context(top_n=10)
+            if region_ctx:
+                try:
+                    parsed = json.loads(region_ctx)
+                    derived_rows = parsed.get("regional_distribution_metrics", []) if isinstance(parsed, dict) else []
+                    table_rows = [
+                        {
+                            "region": r.get("region", ""),
+                            "total_patients": r.get("patient_count", 0),
+                            "total_revenue": r.get("total_revenue", 0),
+                            "avg_patient_age": r.get("avg_patient_age", 0),
+                        }
+                        for r in derived_rows if isinstance(r, dict)
+                    ]
+                except Exception:
+                    pass
+        
         return (
             "Region-wise Patient Distribution\n"
-            "Summary Regional patient, revenue, and age distribution derived from healthcare JSON data.\n"
+            "Summary Regional patient, revenue, and age distribution (dynamically queried from DuckDB).\\n"
             "Data Table\n"
-            + _to_markdown_table(rows, ["region", "total_patients", "total_revenue", "avg_patient_age"])
+            + _to_markdown_table(table_rows, ["region", "total_patients", "total_revenue", "avg_patient_age"])
         )
 
     if "pending payment cases" in q or q == "pay":

@@ -1,4 +1,4 @@
-﻿import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { 
@@ -139,7 +139,11 @@ export default function MessageBubble({ message, onRetry, onRegenerate, onEdit, 
   const hasDualSectionResponse = useMemo(() => {
     if (isUser || isError || isStreaming) return false;
     const c = String(content || '');
-    return c.includes('SECTION 1') && c.includes('SECTION 2') && c.includes('```json');
+    return (
+      /SECTION 1\s*[—-]\s*TEXT SUMMARY RESPONSE/i.test(c)
+      && /SECTION 2\s*[—-]\s*VISUAL DASHBOARD RESPONSE/i.test(c)
+      && (c.includes('```') || /"dashboard_title"\s*:/.test(c))
+    );
   }, [content, isUser, isError, isStreaming]);
   const predefinedTemplateKey = useMemo(() => {
     if (isUser || isError || !triggerQuery || isStreaming || hasDualSectionResponse) return null;
@@ -247,7 +251,7 @@ export default function MessageBubble({ message, onRetry, onRegenerate, onEdit, 
           ) : isUser ? (
             <p>{content}</p>
           ) : hasDualSectionResponse ? (
-            <SplitResponseView content={content} />
+            <SplitResponseView content={content} triggerQuery={triggerQuery} messageId={message.id} />
           ) : hasPredefinedTemplate ? (
             <div className="w-full flex flex-col gap-3">
               <PredefinedResponseTemplate templateKey={predefinedTemplateKey} content={content} />

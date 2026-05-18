@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { toast } from 'react-hot-toast';
@@ -7,14 +7,30 @@ import {
   HiOutlineRefresh,
   HiOutlineSwitchHorizontal,
   HiOutlineCheckCircle,
+  HiOutlineChartBar,
+  HiOutlineCollection,
+  HiOutlineDocumentText,
+  HiOutlineChevronLeft,
+  HiOutlineChevronRight,
 } from 'react-icons/hi';
 import './SplitResponseView.css';
 
+/* ─── Extraction Utilities ─── */
 function extractJsonBlock(content) {
-  const match = String(content || '').match(/```json\s*([\s\S]*?)```/i);
-  if (!match?.[1]) return null;
+  const raw = String(content || '');
+  const fencedMatch = raw.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const sectionTwoStart = raw.search(/SECTION 2\s*[—-]\s*VISUAL DASHBOARD RESPONSE/i);
+  const sectionText = sectionTwoStart >= 0 ? raw.slice(sectionTwoStart) : raw;
+  const firstBrace = sectionText.indexOf('{');
+  const lastBrace = sectionText.lastIndexOf('}');
+  const jsonText = fencedMatch?.[1] || (
+    firstBrace >= 0 && lastBrace > firstBrace
+      ? sectionText.slice(firstBrace, lastBrace + 1)
+      : null
+  );
+  if (!jsonText) return null;
   try {
-    return JSON.parse(match[1]);
+    return JSON.parse(jsonText);
   } catch {
     return null;
   }
@@ -36,8 +52,8 @@ function extractTextSection(content) {
 
 function metricIcon(status) {
   const normalized = String(status || '').toLowerCase();
-  if (normalized === 'positive') return '📈';
-  if (normalized === 'negative') return '📉';
+  if (normalized === 'positive' || normalized === 'low') return '📈';
+  if (normalized === 'negative' || normalized === 'high') return '📉';
   return '•';
 }
 
@@ -48,8 +64,30 @@ function alertIcon(severity) {
   return '🟢';
 }
 
+function statusClass(status) {
+  const normalized = String(status || '').toLowerCase();
+  if (normalized === 'positive' || normalized === 'low') return 'positive';
+  if (normalized === 'negative' || normalized === 'high') return 'negative';
+  if (normalized === 'medium') return 'warning';
+  return 'neutral';
+}
+
+function formatValue(value) {
+  if (value === null || value === undefined || value === '') return '—';
+  return String(value);
+}
+
 function buildDashboardNarrative(dashboard, fallbackText) {
-  if (!dashboard) return fallbackText;
+  const backendText = String(fallbackText || '').trim();
+  if (
+    backendText &&
+    /Executive Summary/i.test(backendText) &&
+    /Actionable Next Steps/i.test(backendText)
+  ) {
+    return backendText;
+  }
+
+  if (!dashboard) return backendText;
 
   const title = dashboard.dashboard_title || 'Healthcare Analytics Dashboard';
   const metrics = dashboard.summary_metrics || [];
@@ -130,70 +168,7 @@ function buildDashboardNarrative(dashboard, fallbackText) {
   ].join('\n');
 }
 
-function formatValue(value) {
-  if (value === null || value === undefined || value === '') return '-';
-  return String(value);
-}
-
-function statusClass(status) {
-  const normalized = String(status || '').toLowerCase();
-  if (normalized === 'positive' || normalized === 'low') return 'positive';
-  if (normalized === 'negative' || normalized === 'high') return 'negative';
-  if (normalized === 'medium') return 'warning';
-  return 'neutral';
-}
-
-function ActionBar({ selectedView, compareMode, onSwitch, onRestore }) {
-  return (
-    <div className="srv-action-bar">
-      <div>
-        <span className="srv-eyebrow">Response Versions</span>
-        <strong>{compareMode ? 'Compare both responses' : `${selectedView === 'text' ? 'Text Summary' : 'Structured Dashboard'} selected`}</strong>
-      </div>
-      <div className="srv-action-buttons">
-        <button type="button" onClick={onSwitch} disabled={!selectedView}>
-          <HiOutlineSwitchHorizontal />
-          Switch Response Version
-        </button>
-        <button type="button" onClick={onRestore}>
-          <HiOutlineRefresh />
-          Restore Both Views
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function SelectablePanel({ id, title, selectedView, compareMode, onSelect, children, preview }) {
-  const isSelected = selectedView === id;
-  const isMinimized = !compareMode && selectedView && !isSelected;
-
-  return (
-    <section
-      className={[
-        'srv-panel',
-        isSelected ? 'selected' : '',
-        isMinimized ? 'minimized' : '',
-      ].filter(Boolean).join(' ')}
-    >
-      <header className="srv-panel-header">
-        <div>
-          <span className="srv-panel-label">{id === 'text' ? 'Narrative' : 'Structured'}</span>
-          <h3>{title}</h3>
-        </div>
-        {isSelected && <span className="srv-selected-pill"><HiOutlineCheckCircle /> Active</span>}
-      </header>
-
-      <div className="srv-panel-body">
-        {isMinimized ? preview : children}
-      </div>
-
-      <button type="button" className="srv-use-button" onClick={() => onSelect(id)}>
-        Use This Version
-      </button>
-    </section>
-  );
-}
+/* ─── Shared Sub-components ─── */
 
 function KpiCards({ metrics = [] }) {
   if (!metrics.length) return null;
@@ -210,34 +185,13 @@ function KpiCards({ metrics = [] }) {
   );
 }
 
-function RankingList({ rankings = [] }) {
-  if (!rankings.length) return null;
-  return (
-    <div className="srv-ranked-list">
-      {rankings.slice(0, 8).map((item) => (
-        <div className="srv-ranked-row" key={`${item.rank}-${item.name}`}>
-          <div className="srv-rank-number">{item.rank}</div>
-          <div className="srv-rank-main">
-            <strong>{item.name}</strong>
-            <span>Score {formatValue(item.score)}</span>
-          </div>
-          <div className="srv-rank-meta">
-            <span>{formatValue(item.additional_metrics?.patients_served)} patients</span>
-            <span>{formatValue(item.additional_metrics?.efficiency)}% eff.</span>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function RiskIndicators({ alerts = [] }) {
   if (!alerts.length) return null;
   return (
     <div className="srv-risk-list">
       {alerts.map((alert, index) => (
         <div className={`srv-risk-item ${statusClass(alert.severity)}`} key={`${alert.severity}-${index}`}>
-          <span>{alert.severity || 'neutral'}</span>
+          <span className="srv-alert-badge">{alert.severity || 'neutral'}</span>
           <p>{alert.message}</p>
         </div>
       ))}
@@ -268,69 +222,180 @@ function ExpandableSection({ title, children, defaultOpen = false }) {
   );
 }
 
-function StructuredDashboard({ dashboard }) {
-  if (!dashboard) {
-    return (
-      <div className="srv-empty">
-        <strong>Structured dashboard unavailable</strong>
-        <p>The response did not include valid dashboard JSON.</p>
-      </div>
-    );
-  }
+/* ─── 1. Dashboard View (Visual Progress/Interactive Layout) ─── */
+function VisualRankings({ rankings = [] }) {
+  if (!rankings.length) return null;
+  const maxScore = Math.max(...rankings.map(r => parseFloat(r.score) || 1));
+  return (
+    <div className="srv-visual-rankings">
+      {rankings.slice(0, 6).map((item, idx) => {
+        const pct = Math.max(10, Math.min(100, Math.round((parseFloat(item.score) / maxScore) * 100)));
+        return (
+          <div className="srv-visual-rank-row" key={`${item.name}-${idx}`}>
+            <div className="srv-rank-info">
+              <span className="srv-rank-badge">#{idx + 1}</span>
+              <span className="srv-rank-name">{item.name}</span>
+              <span className="srv-rank-score">{formatValue(item.score)}</span>
+            </div>
+            <div className="srv-rank-progress-track">
+              <div className="srv-rank-progress-fill" style={{ width: `${pct}%` }} />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function DashboardResponseView({ dashboard }) {
+  if (!dashboard) return <EmptyState />;
 
   return (
-    <div className="srv-structured">
+    <div className="srv-structured srv-dashboard-mode">
       <div className="srv-dashboard-head">
         <div>
-          <span className="srv-eyebrow">Dashboard</span>
-          <h4>{dashboard.dashboard_title || 'Structured Dashboard Response'}</h4>
+          <span className="srv-eyebrow">Interactive Panel</span>
+          <h4>{dashboard.dashboard_title || 'Visual Dashboard'}</h4>
         </div>
-        <time>{dashboard.generated_at || 'Live'}</time>
+        <time>{dashboard.generated_at || 'Real-time'}</time>
       </div>
 
       <KpiCards metrics={dashboard.summary_metrics || []} />
 
       {dashboard.top_performer?.name ? (
-        <div className="srv-top-performer">
-          <span>Top Performer</span>
+        <div className="srv-top-performer animate-fade-in">
+          <span>👑 Leading Segment</span>
           <strong>{dashboard.top_performer.name}</strong>
-          <p>Score {formatValue(dashboard.top_performer.score)}</p>
+          <p>Dashboard Score: <strong>{formatValue(dashboard.top_performer.score)}</strong></p>
         </div>
       ) : null}
 
-      <ExpandableSection title="Ranked Provider List" defaultOpen>
-        <RankingList rankings={dashboard.rankings || []} />
-      </ExpandableSection>
+      <div className="srv-dashboard-visuals">
+        <ExpandableSection title="Metric Performance Spectrum" defaultOpen>
+          <VisualRankings rankings={dashboard.rankings || []} />
+        </ExpandableSection>
 
-      <ExpandableSection title="Risk Indicators" defaultOpen>
-        <RiskIndicators alerts={dashboard.alerts || []} />
-      </ExpandableSection>
+        <ExpandableSection title="Risk Indicators" defaultOpen>
+          <RiskIndicators alerts={dashboard.alerts || []} />
+        </ExpandableSection>
 
-      <ExpandableSection title="Recommendations" defaultOpen>
-        <RecommendationList recommendations={dashboard.recommendations || []} />
-      </ExpandableSection>
-
-      <ExpandableSection title="Insights">
-        <RecommendationList recommendations={dashboard.insights || []} />
-      </ExpandableSection>
-
-      <ExpandableSection title="Structured Data Summary">
-        <div className="srv-json-summary">
-          <div><span>KPI cards</span><strong>{dashboard.summary_metrics?.length || 0}</strong></div>
-          <div><span>Rankings</span><strong>{dashboard.rankings?.length || 0}</strong></div>
-          <div><span>Alerts</span><strong>{dashboard.alerts?.length || 0}</strong></div>
-          <div><span>Recommendations</span><strong>{dashboard.recommendations?.length || 0}</strong></div>
-        </div>
-      </ExpandableSection>
+        <ExpandableSection title="AI Insights Analysis">
+          <RecommendationList recommendations={dashboard.insights || []} />
+        </ExpandableSection>
+      </div>
     </div>
   );
 }
 
-export default function SplitResponseView({ content }) {
-  const containerRef = useRef(null);
-  const [selectedView, setSelectedView] = useState(null);
-  const [compareMode, setCompareMode] = useState(true);
+/* ─── 2. Report View (Tabular Ledger & Strategic Actions) ─── */
+function TabularLedger({ rankings = [] }) {
+  if (!rankings.length) return null;
+  return (
+    <div className="srv-table-wrapper">
+      <table className="srv-report-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Provider/Segment</th>
+            <th style={{ textAlign: 'right' }}>Score</th>
+            <th style={{ textAlign: 'right' }}>Patients Served</th>
+            <th style={{ textAlign: 'right' }}>Efficiency</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rankings.map((item, idx) => {
+            const pct = parseFloat(item.additional_metrics?.efficiency) || 0;
+            const status = pct >= 85 ? 'Overloaded' : pct >= 70 ? 'Moderate' : 'Stable';
+            return (
+              <tr key={`${item.name}-${idx}`}>
+                <td><strong>#{idx + 1}</strong></td>
+                <td className="td-name">{item.name}</td>
+                <td style={{ textAlign: 'right', fontWeight: 600 }}>{formatValue(item.score)}</td>
+                <td style={{ textAlign: 'right' }}>{formatValue(item.additional_metrics?.patients_served)}</td>
+                <td style={{ textAlign: 'right' }}>
+                  {item.additional_metrics?.efficiency ? `${item.additional_metrics.efficiency}%` : '—'}
+                </td>
+                <td>
+                  <span className={`predef-status-pill ${
+                    status === 'Overloaded' ? 'rose' : status === 'Moderate' ? 'amber' : 'green'
+                  }`}>
+                    {status}
+                  </span>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
+function ReportResponseView({ dashboard }) {
+  if (!dashboard) return <EmptyState />;
+
+  return (
+    <div className="srv-structured srv-report-mode">
+      <div className="srv-dashboard-head">
+        <div>
+          <span className="srv-eyebrow">Analyst Workspace</span>
+          <h4>{dashboard.dashboard_title ? `${dashboard.dashboard_title} — Performance Report` : 'Operational Ledger'}</h4>
+        </div>
+        <time>{dashboard.generated_at || 'Analytical Ledger'}</time>
+      </div>
+
+      <div className="srv-report-dense-kpi">
+        {dashboard.summary_metrics?.slice(0, 4).map((m, idx) => (
+          <div key={idx} className="dense-kpi-row">
+            <span className="dense-kpi-label">{m.label}</span>
+            <span className="dense-kpi-val">{formatValue(m.value)}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="srv-report-ledger">
+        <TypographyOverline text="Unit Performance Ledger" />
+        <TabularLedger rankings={dashboard.rankings || []} />
+      </div>
+
+      <div className="srv-report-strategy">
+        <TypographyOverline text="Strategic Action Recommendations" />
+        <RecommendationList recommendations={dashboard.recommendations || []} />
+      </div>
+    </div>
+  );
+}
+
+function TypographyOverline({ text }) {
+  return <span className="srv-overline-header">{text}</span>;
+}
+
+function EmptyState() {
+  return (
+    <div className="srv-empty">
+      <strong>Data Structure Empty</strong>
+      <p>Unable to retrieve matching metrics for this view.</p>
+    </div>
+  );
+}
+
+/* ─── 3. Text View (Markdown Summary) ─── */
+function TextResponseView({ text }) {
+  return (
+    <div className="srv-markdown">
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MAIN CONTAINER: SplitResponseView (ChatGPT Switcher Style)
+   ───────────────────────────────────────────────────────────── */
+export default function SplitResponseView({ content, triggerQuery, messageId }) {
+  const containerRef = useRef(null);
+
+  // 1. Parsing text and structured json data
   const parsed = useMemo(() => {
     const dashboard = extractJsonBlock(content);
     const fallbackText = extractTextSection(content);
@@ -340,66 +405,204 @@ export default function SplitResponseView({ content }) {
     };
   }, [content]);
 
+  // 2. Setup the three response versions
+  const views = [
+    { id: 'dashboard', label: 'Dashboard', icon: HiOutlineChartBar, num: 1 },
+    { id: 'report', label: 'Report', icon: HiOutlineCollection, num: 2 },
+    { id: 'text', label: 'Text', icon: HiOutlineDocumentText, num: 3 }
+  ];
+
+  // 3. Determine best response automatically from user's prompt
+  const bestViewId = useMemo(() => {
+    const q = String(triggerQuery || '').toLowerCase();
+    if (q.includes('chart') || q.includes('graph') || q.includes('visual') || q.includes('dashboard') || q.includes('kpi')) {
+      return 'dashboard';
+    }
+    if (q.includes('report') || q.includes('table') || q.includes('ranking') || q.includes('ledger') || q.includes('list') || q.includes('performance')) {
+      return 'report';
+    }
+    return 'text';
+  }, [triggerQuery]);
+
+  // 4. Deterministic 10% check (exactly 1 out of 10 requests shows the split view)
+  const isSplitTrigger = useMemo(() => {
+    if (!messageId) return false;
+    let hash = 0;
+    for (let i = 0; i < messageId.length; i++) {
+      hash = messageId.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash) % 10 === 0;
+  }, [messageId]);
+
+  const [activeView, setActiveView] = useState(bestViewId);
+  const [compareMode, setCompareMode] = useState(isSplitTrigger);
+
+  // Sync activeView with bestViewId when the prompt updates
+  useEffect(() => {
+    setActiveView(bestViewId);
+    setCompareMode(isSplitTrigger);
+  }, [bestViewId, isSplitTrigger]);
+
+  const activeIdx = views.findIndex((v) => v.id === activeView);
+
   const preserveScroll = (fn) => {
     const scrollTop = window.scrollY;
     fn();
     requestAnimationFrame(() => window.scrollTo({ top: scrollTop }));
   };
 
-  const selectView = (view) => {
+  const handleSelectView = (viewId) => {
     preserveScroll(() => {
-      setSelectedView(view);
+      setActiveView(viewId);
       setCompareMode(false);
     });
-    toast.success(view === 'text' ? 'Text Summary Selected' : 'Structured Dashboard Selected');
+    toast.success(`${viewId.charAt(0).toUpperCase() + viewId.slice(1)} view activated`);
   };
 
-  const switchView = () => {
-    if (!selectedView) return;
-    selectView(selectedView === 'text' ? 'structured' : 'text');
-  };
-
-  const restoreView = () => {
+  const handlePrev = () => {
     preserveScroll(() => {
-      setCompareMode(true);
-      setSelectedView(null);
+      setCompareMode(false);
+      const nextIdx = (activeIdx - 1 + views.length) % views.length;
+      setActiveView(views[nextIdx].id);
+    });
+  };
+
+  const handleNext = () => {
+    preserveScroll(() => {
+      setCompareMode(false);
+      const nextIdx = (activeIdx + 1) % views.length;
+      setActiveView(views[nextIdx].id);
     });
   };
 
   return (
     <div className="srv-shell" ref={containerRef}>
-      <ActionBar
-        selectedView={selectedView}
-        compareMode={compareMode}
-        onSwitch={switchView}
-        onRestore={restoreView}
-      />
+      
+      {/* Sleek ChatGPT-style response switcher */}
+      <div className="srv-chatgpt-bar">
+        <div className="srv-chatgpt-nav">
+          <button 
+            type="button" 
+            className="srv-nav-arrow" 
+            onClick={handlePrev} 
+            title="Previous version"
+          >
+            <HiOutlineChevronLeft />
+          </button>
+          <span className="srv-nav-indicator">
+            Response Version: <strong>{activeIdx + 1} / 3</strong>
+          </span>
+          <button 
+            type="button" 
+            className="srv-nav-arrow" 
+            onClick={handleNext} 
+            title="Next version"
+          >
+            <HiOutlineChevronRight />
+          </button>
+        </div>
 
-      <div className={`srv-grid ${compareMode ? 'compare' : 'selected-mode'}`}>
-        <SelectablePanel
-          id="text"
-          title="Text Summary Response"
-          selectedView={selectedView}
-          compareMode={compareMode}
-          onSelect={selectView}
-          preview={<p>{parsed.text.split('\n').find((line) => line.trim()) || 'Text summary response'}</p>}
-        >
-          <div className="srv-markdown">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{parsed.text}</ReactMarkdown>
-          </div>
-        </SelectablePanel>
-
-        <SelectablePanel
-          id="structured"
-          title="Structured Dashboard Response"
-          selectedView={selectedView}
-          compareMode={compareMode}
-          onSelect={selectView}
-          preview={<p>{parsed.dashboard?.dashboard_title || 'Structured dashboard response'}</p>}
-        >
-          <StructuredDashboard dashboard={parsed.dashboard} />
-        </SelectablePanel>
+        <div className="srv-chatgpt-pills">
+          {views.map((v) => (
+            <button
+              key={v.id}
+              type="button"
+              className={`srv-pill-btn ${!compareMode && activeView === v.id ? 'active' : ''}`}
+              onClick={() => handleSelectView(v.id)}
+            >
+              <v.icon />
+              <span>{v.label}</span>
+            </button>
+          ))}
+          <button
+            type="button"
+            className={`srv-pill-btn srv-compare-pill ${compareMode ? 'active' : ''}`}
+            onClick={() => setCompareMode(true)}
+          >
+            <HiOutlineSwitchHorizontal />
+            <span>Compare All</span>
+          </button>
+        </div>
       </div>
+
+      {/* Main content viewport */}
+      <div className={`srv-content-viewport ${compareMode ? 'compare-all-mode' : 'single-view-mode'}`}>
+        
+        {/* VIEWPORT MODE: COMPARE ALL (Split view triggers 1 in 10 times or via compare pill) */}
+        {compareMode ? (
+          <div className="srv-compare-grid animate-fade-in">
+            
+            <section className="srv-compare-panel srv-dashboard-panel">
+              <header className="srv-panel-header">
+                <div>
+                  <span className="srv-eyebrow">Interactive Response</span>
+                  <h3>Dashboard Layout</h3>
+                </div>
+              </header>
+              <div className="srv-panel-body">
+                <DashboardResponseView dashboard={parsed.dashboard} />
+              </div>
+              <button 
+                type="button" 
+                className="srv-use-button" 
+                onClick={() => handleSelectView('dashboard')}
+              >
+                Use Dashboard View
+              </button>
+            </section>
+
+            <section className="srv-compare-panel srv-report-panel">
+              <header className="srv-panel-header">
+                <div>
+                  <span className="srv-eyebrow">Analyst Ledger</span>
+                  <h3>Report Layout</h3>
+                </div>
+              </header>
+              <div className="srv-panel-body">
+                <ReportResponseView dashboard={parsed.dashboard} />
+              </div>
+              <button 
+                type="button" 
+                className="srv-use-button" 
+                onClick={() => handleSelectView('report')}
+              >
+                Use Report View
+              </button>
+            </section>
+
+            <section className="srv-compare-panel srv-text-panel">
+              <header className="srv-panel-header">
+                <div>
+                  <span className="srv-eyebrow">Narrative Summary</span>
+                  <h3>Plain Text Layout</h3>
+                </div>
+              </header>
+              <div className="srv-panel-body">
+                <TextResponseView text={parsed.text} />
+              </div>
+              <button 
+                type="button" 
+                className="srv-use-button" 
+                onClick={() => handleSelectView('text')}
+              >
+                Use Text View
+              </button>
+            </section>
+
+          </div>
+        ) : (
+          /* VIEWPORT MODE: SINGLE CUSTOMIZED RESPONSE */
+          <div className="srv-single-panel animate-fade-in-scale">
+            <div className="srv-single-body">
+              {activeView === 'dashboard' && <DashboardResponseView dashboard={parsed.dashboard} />}
+              {activeView === 'report' && <ReportResponseView dashboard={parsed.dashboard} />}
+              {activeView === 'text' && <TextResponseView text={parsed.text} />}
+            </div>
+          </div>
+        )}
+
+      </div>
+
     </div>
   );
 }
