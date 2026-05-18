@@ -123,4 +123,5 @@ async def root():
     }
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host=HOST, port=PORT, reload=True)
+    is_render = os.environ.get("RENDER") is not None
+    uvicorn.run("main:app", host=HOST, port=PORT, reload=not is_render)
