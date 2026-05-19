@@ -6,6 +6,7 @@ const useVoiceStore = create((set) => ({
   recordingDuration: 0,
   audioBlob: null,
   transcribedText: null,
+  realtimeTranscript: '',
   isTranscribing: false,
   volume: 0,
   averageVolume: 0,   // tracks overall average for silence detection
@@ -16,6 +17,7 @@ const useVoiceStore = create((set) => ({
   setRecordingDuration: (duration) => set({ recordingDuration: duration }),
   setAudioBlob: (blob) => set({ audioBlob: blob }),
   setTranscribedText: (text) => set({ transcribedText: text }),
+  setRealtimeTranscript: (text) => set({ realtimeTranscript: text }),
   setTranscribing: (isTranscribing) => set({ isTranscribing }),
   setVolume: (volume) => set({ volume }),
   setAverageVolume: (averageVolume) => set({ averageVolume }),
@@ -26,6 +28,7 @@ const useVoiceStore = create((set) => ({
     recordingDuration: 0,
     audioBlob: null,
     transcribedText: null,
+    realtimeTranscript: '',
     isTranscribing: false,
     volume: 0,
     averageVolume: 0,

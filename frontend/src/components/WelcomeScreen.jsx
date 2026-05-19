@@ -3,6 +3,7 @@ import { HiMicrophone, HiStop } from 'react-icons/hi';
 import AudioWaveform, { AudioGlow } from './AudioVisualizer';
 import TextInput from './TextInput';
 import AppLogo from './AppLogo';
+import useVoiceStore from '../store/useVoiceStore';
 
 const EXAMPLES = [
   { text: 'Give me healthcare dashboard report', icon: 'KPI' },
@@ -25,6 +26,8 @@ export default function WelcomeScreen({
   isTranscribing,
   isBusy,
 }) {
+  const realtimeTranscript = useVoiceStore((s) => s.realtimeTranscript);
+
   return (
     <div
       id="welcome-screen"
@@ -114,7 +117,7 @@ export default function WelcomeScreen({
           </div>
 
           {/* Waveform — always mounted so canvas is in DOM; opacity shows/hides it */}
-          <div className="relative flex items-center justify-center" style={{ minHeight: 30 }}>
+          <div className="relative flex items-center justify-center animate-fade-in" style={{ minHeight: 30 }}>
             <AudioWaveform width={180} height={30} />
             {!isRecording && (
               <span
@@ -125,6 +128,14 @@ export default function WelcomeScreen({
               </span>
             )}
           </div>
+          {isRecording && realtimeTranscript && (
+            <p 
+              className="text-center text-xs max-w-sm text-gold font-medium animate-fade-in italic px-4 break-words"
+              style={{ marginTop: '0.25rem' }}
+            >
+              "{realtimeTranscript}"
+            </p>
+          )}
         </div>
 
         {/* ── Chips ── */}

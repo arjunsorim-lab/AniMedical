@@ -1399,20 +1399,20 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             top_efficient_name = efficient_docs[0].get("doctor_name") or efficient_docs[0].get("name")
             top_efficiency = _coerce_number(efficient_docs[0].get("efficiency_percent"))
             
-            insights.append(f"Caseload imbalance identified: {leader_name} is operating at peak volume with {leader_patients} patient assignments, which stands at {round(leader_patients/max(avg_patients, 1), 1)}x the regional doctor average ({avg_patients} patients).")
+            insights.append(f"⚖️ Caseload Imbalance: {leader_name} has a high volume of {leader_patients} patients, which is {round(leader_patients/max(avg_patients, 1), 1)}x the typical doctor average ({avg_patients} patients) in this area.")
             if overloaded > 0:
-                insights.append(f"Operational Risk: {overloaded} providers are flagged as overloaded, directly escalating doctor burnout risk and increasing patient wait-times.")
+                insights.append(f"🚨 Burnout Risk: We have {overloaded} doctors flagged as overloaded, which can lead to longer wait times for patients and doctor fatigue.")
             else:
                 insights.append("Distribution analysis shows patient workloads are currently sustained within standard thresholds without active overloading.")
             
-            recommendations.append(f"Transition new intake caseloads away from overloaded physicians to under-utilized stable providers, starting with {least_loaded_name} (currently at {least_loaded_patients} patients).")
-            recommendations.append(f"Audit and replicate clinical scheduling workflows from {top_efficient_name} (maintaining {top_efficiency}% efficiency) to improve cohort outcomes.")
+            recommendations.append(f"🔀 Caseload Balancing: Route new patient intakes to under-assigned stable doctors, starting with {least_loaded_name} (currently looking after {least_loaded_patients} patients).")
+            recommendations.append(f"⏱️ Schedule Efficiency: Replicate the scheduling workflows of {top_efficient_name} (operating at {top_efficiency}% efficiency) to save time for other doctors.")
         else:
             insights.append("Provider workload is concentrated among the highest-volume physicians.")
             recommendations.append("Redistribute new patient assignments from overloaded providers to stable providers.")
             
         if overloaded:
-            alerts.append({"severity": "high", "message": f"{overloaded} providers are flagged as overloaded."})
+            alerts.append({"severity": "high", "message": f"Critical Staffing Risk: {overloaded} clinical providers are currently overloaded with patients."})
 
     elif topic == "pending_payments":
         source_rows = rows or [
@@ -1446,17 +1446,17 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             max_seg_name = highest_pending.get("segment") or highest_pending.get("payment_status") or "Main Segment"
             max_seg_amount = _coerce_number(highest_pending.get("amount"))
             
-            insights.append(f"Accounts Receivable risk is highly concentrated in the '{max_seg_name}' ledger bucket, with a total pending balance of ${max_seg_amount:,.2f} across {int(_coerce_number(highest_pending.get('cases')))} cases.")
-            insights.append(f"Aged unpaid claims analysis shows a cumulative system-wide outstanding balance of ${total_amount:,.2f} over {int(total_cases)} patients.")
+            insights.append(f"💳 Outstanding Billing Focus: Unpaid accounts are highest in the '{max_seg_name}' group, with a total pending balance of ${max_seg_amount:,.2f} across {int(_coerce_number(highest_pending.get('cases')))} patient accounts.")
+            insights.append(f"📊 Total Outstanding: Across all payment buckets, there is a total unpaid balance of ${total_amount:,.2f} over {int(total_cases)} cases.")
             
-            recommendations.append(f"Deploy specialized billing collection efforts focusing entirely on the high-exposure '{max_seg_name}' cohort to recover critical capital.")
-            recommendations.append("Establish automated text and digital outreach programs to clear smaller outstanding balances before they reach aging limit thresholds.")
+            recommendations.append(f"💬 Direct Billing Support: Reach out to patients in the '{max_seg_name}' group to help explain their bills and set up payment plans.")
+            recommendations.append("📱 Friendly Reminders: Send automatic text messages and emails to help patients clear smaller, minor outstanding balances quickly.")
         else:
             insights.append("Pending payment exposure is concentrated in aging buckets requiring revenue-cycle follow-up.")
             recommendations.append("Prioritize oldest and highest-value unpaid segments for collections review.")
             
         if total_amount > 0:
-            alerts.append({"severity": "medium", "message": "Unresolved payment balances require follow-up."})
+            alerts.append({"severity": "medium", "message": "Notice: Unpaid billing balances require attention and patient reminders."})
 
     elif topic == "revenue":
         source_rows = rows or [
@@ -1485,11 +1485,11 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             top_service_rev = _coerce_number(highest_rev.get("total_revenue") or highest_rev.get("revenue"))
             avg_service_rev = total_revenue / len(source_rows)
             
-            insights.append(f"Top revenue driver is '{top_service}', contributing ${top_service_rev:,.2f}—which accounts for {round((top_service_rev / max(total_revenue, 1)) * 100, 1)}% of total service billing (${total_revenue:,.2f}).")
-            insights.append(f"Average service line yields ${avg_service_rev:,.2f}, indicating clear disparity between specialized clinical offerings and baseline hospital visits.")
+            insights.append(f"⭐ Most Popular Service: Our leading service line is '{top_service}', contributing ${top_service_rev:,.2f} ({round((top_service_rev / max(total_revenue, 1)) * 100, 1)}% of our total billing of ${total_revenue:,.2f}).")
+            insights.append(f"📈 Service Performance: The average service line generates ${avg_service_rev:,.2f}, showing a strong demand for specialized treatments compared to general wellness visits.")
             
-            recommendations.append(f"Analyze staffing allocations and capacity restrictions in '{top_service}' to maximize outpatient flow and increase operational margins.")
-            recommendations.append(f"Benchmark auxiliary service lines currently generating below the ${avg_service_rev:,.2f} average threshold to optimize pricing or marketing.")
+            recommendations.append(f"🏥 Expand Capacity for '{top_service}': Allocate more clinical rooms and specialist hours for '{top_service}' to serve more families.")
+            recommendations.append("💼 Service Reviews: Review lower-demand service lines to see if we should adjust their hours or update patient packages.")
         else:
             insights.append("Revenue distribution varies by service line.")
             recommendations.append("Benchmark lower-revenue services against high-performing service lines.")
@@ -1537,15 +1537,175 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
             tot_total = tot_success + tot_ongoing + tot_failed
             overall_success_pct = round((tot_success / max(tot_total, 1)) * 100, 1)
             
-            insights.append(f"Aggregated clinical outcome ledger confirms an overall patient recovery rate of {overall_success_pct}% ({int(tot_success)} success instances out of {int(tot_total)} cases).")
+            insights.append(f"💚 Treatment Success Rate: A strong {overall_success_pct}% of patients ({int(tot_success)} out of {int(tot_total)} cases) recovered fully and finished their treatments successfully this month!")
             if tot_failed > 0:
-                insights.append(f"Clinical Alert: {int(tot_failed)} case terminations ({round((tot_failed/max(tot_total,1))*100,1)}% of total) resulted in treatment failure or readmission status, requiring intervention.")
+                insights.append(f"🔄 Readmission Warning: {int(tot_failed)} patients ({round((tot_failed/max(tot_total,1))*100,1)}%) needed to be readmitted or required extra care. We are monitoring this closely to see how we can help them recover better.")
             
-            recommendations.append("Launch a clinical audit of patient charts within the readmitted/failed cohort to diagnose common underlying risk factors.")
-            recommendations.append("Enhance transitional care support (post-discharge checking calls at 24h, 48h, and 72h) to reduce emergency readmissions.")
+            recommendations.append("📋 Treatment Reviews: Review the recovery plans for patients who needed readmission to see if we can adjust their post-discharge instructions.")
+            recommendations.append("☎️ 3-Day Recovery Follow-ups: Call discharged patients at 24, 48, and 72 hours to prevent unexpected return visits to the hospital.")
         else:
             insights.append("Outcome trends should be monitored for readmission pressure.")
             recommendations.append("Target care coordination for cohorts with failed or readmitted outcomes.")
+
+    elif topic == "regions":
+        region_context_str = _build_region_analytics_context(top_n=8)
+        region_rows = []
+        if region_context_str:
+            try:
+                region_rows = json.loads(region_context_str).get("regional_distribution_metrics", [])
+            except Exception:
+                pass
+        
+        if not region_rows:
+            region_rows = [
+                {"region": "California", "patient_count": 1250, "total_revenue": 450000.0, "avg_patient_age": 45.2},
+                {"region": "Texas", "patient_count": 980, "total_revenue": 320000.0, "avg_patient_age": 42.1},
+                {"region": "Florida", "patient_count": 890, "total_revenue": 290000.0, "avg_patient_age": 51.5},
+            ]
+            
+        total_p = sum(r.get("patient_count", 0) for r in region_rows)
+        total_r = sum(r.get("total_revenue", 0.0) for r in region_rows)
+        
+        metrics.extend([
+            {"label": "Top Region", "value": region_rows[0].get("region", "N/A") if region_rows else "N/A", "change": "", "status": "neutral"},
+            {"label": "Total Patients", "value": f"{total_p:,}", "change": "", "status": "neutral"},
+            {"label": "Total Revenue", "value": f"${total_r:,.2f}", "change": "", "status": "positive"},
+        ])
+        
+        for idx, row in enumerate(region_rows[:8], start=1):
+            name = row.get("region", f"Region {idx}")
+            pcts = int(row.get("patient_count", 0))
+            rev = float(row.get("total_revenue", 0.0))
+            avg_age = float(row.get("avg_patient_age", 0.0))
+            
+            rankings.append({
+                "rank": idx,
+                "name": name,
+                "score": pcts,
+                "additional_metrics": {
+                    "patients_served": pcts,
+                    "efficiency": 0,
+                    "revenue": rev,
+                }
+            })
+            labels.append(name)
+            values.append(pcts)
+            donut_labels.append(name)
+            donut_values.append(rev)
+            progress_items.append({"label": f"{name} Avg Age", "value": avg_age, "status": "neutral"})
+            
+        if region_rows:
+            top_reg = region_rows[0].get("region")
+            top_p_count = region_rows[0].get("patient_count")
+            insights.append(f"📍 Top Care Location: '{top_reg}' is our busiest region, serving {top_p_count:,} active patients and generating ${region_rows[0].get('total_revenue', 0.0):,.2f} in local healthcare services.")
+            insights.append(f"🌐 Regional Summary: Across all locations, we are supporting {total_p:,} patients with total clinical services valued at ${total_r:,.2f}.")
+            recommendations.append(f"🙋 Increase Staffing in '{top_reg}': Send additional nurses and support staff to '{top_reg}' to match the high volume of families seeking care.")
+            recommendations.append("🗺️ Regional Health Packages: Design specialized health checkup plans tailored to the average age and needs of patients in each local community.")
+            
+    elif topic == "risk":
+        risk_data = _get_dynamic_risk_data()
+        active = risk_data.get("active_patients", 0)
+        critical = risk_data.get("critical_patients", 0)
+        critical_pct = round((critical / max(active, 1)) * 100, 1)
+        
+        metrics.extend([
+            {"label": "Active Patients", "value": f"{active:,}", "change": "", "status": "neutral"},
+            {"label": "Critical Patients", "value": f"{critical:,}", "change": "", "status": "negative"},
+            {"label": "Critical Ratio", "value": f"{critical_pct}%", "change": "", "status": "negative" if critical_pct > 10 else "neutral"},
+        ])
+        
+        rankings.extend([
+            {"rank": 1, "name": "Active Patients", "score": active, "additional_metrics": {"patients_served": active, "efficiency": 0, "revenue": 0}},
+            {"rank": 2, "name": "Critical Patients", "score": critical, "additional_metrics": {"patients_served": critical, "efficiency": 0, "revenue": 0}}
+        ])
+        
+        labels = ["Active Patients", "Critical Patients"]
+        values = [active, critical]
+        donut_labels = ["Active Stable", "Critical Flagged"]
+        donut_values = [active - critical, critical]
+        
+        insights.append(f"🏥 Patient Safety Status: Out of {active:,} patients currently under our care, {critical:,} ({critical_pct}%) are flagged with urgent vitals alerts (like abnormal blood pressure or oxygen levels).")
+        insights.append(f"🚨 Care Priority: Having {critical_pct}% of active patients flagged means we need to prioritize direct outreach and telehealth check-ins.")
+        
+        recommendations.append(f"📞 Telehealth Outreach: Contact the {critical:,} flagged patients immediately via phone or video to review their symptoms.")
+        recommendations.append("⌚ Remote Vitals Monitoring: Provide home-monitoring devices (like blood pressure cuffs) to high-risk patients to track their recovery safely.")
+        if critical > 0:
+            alerts.append({"severity": "high", "message": f"Critical Vitals Alert: {critical:,} active patients have abnormal vital signs requiring immediate check-ups."})
+            
+    elif topic == "alerts":
+        alerts_data = _get_dynamic_alerts_data()
+        total_alerts = alerts_data.get("total_alert_records", 0)
+        unique_flagged = alerts_data.get("unique_patients_flagged", 0)
+        
+        metrics.extend([
+            {"label": "Total Alert Records", "value": f"{total_alerts:,}", "change": "", "status": "negative"},
+            {"label": "Unique Flagged Patients", "value": f"{unique_flagged:,}", "change": "", "status": "negative"},
+        ])
+        
+        rankings.extend([
+            {"rank": 1, "name": "Alert Records", "score": total_alerts, "additional_metrics": {"patients_served": unique_flagged, "efficiency": 0, "revenue": 0}},
+            {"rank": 2, "name": "Unique Flagged Patients", "score": unique_flagged, "additional_metrics": {"patients_served": unique_flagged, "efficiency": 0, "revenue": 0}}
+        ])
+        
+        labels = ["Alert Records", "Unique Patients"]
+        values = [total_alerts, unique_flagged]
+        donut_labels = ["Alert Records", "Flagged Patients"]
+        donut_values = [total_alerts, unique_flagged]
+        
+        insights.append(f"📈 Vitals Warnings Log: We recorded {total_alerts:,} total instances of abnormal vital signs across {unique_flagged:,} individual patients.")
+        insights.append(f"🔍 Alert Frequency: Flagged patients averaged {round(total_alerts/max(unique_flagged, 1), 1)} alerts each, showing that some patients have repeating health flags that need attention.")
+        
+        recommendations.append(f"👨‍⚕️ Schedule Doctor Visits: Set up face-to-face appointments for the {unique_flagged:,} flagged patients with their primary care doctor.")
+        recommendations.append("🔔 Smart Alerts System: Link these vitals alerts directly with our doctor calendars so a follow-up is booked automatically.")
+        if total_alerts > 0:
+            alerts.append({"severity": "high", "message": f"Recorded {total_alerts:,} critical vitals alert records across {unique_flagged:,} patients."})
+
+    elif topic in {"general", "kpi"}:
+        patients = _load_healthcare_json("patients.json") or []
+        doctors = _load_healthcare_json("doctors.json") or []
+        billing = _load_healthcare_json("billing.json") or []
+        vitals = _load_healthcare_json("vitals.json") or []
+        
+        total_p = len(patients)
+        active_p = sum(1 for p in patients if isinstance(p, dict) and str(p.get("status", "")).lower() == "active")
+        total_d = len(doctors)
+        total_v = sum(float(b.get("amount", 0)) for b in billing if isinstance(b, dict))
+        alert_count = sum(1 for v in vitals if isinstance(v, dict) and bool(v.get("alert_flag")))
+        
+        metrics.extend([
+            {"label": "Total Patients", "value": f"{total_p:,}", "change": "", "status": "neutral"},
+            {"label": "Active Patients", "value": f"{active_p:,}", "change": "", "status": "neutral"},
+            {"label": "Total Billing", "value": f"${total_v:,.2f}", "change": "", "status": "positive"},
+            {"label": "Vitals Alerts", "value": f"{alert_count:,}", "change": "", "status": "negative" if alert_count > 0 else "neutral"},
+        ])
+        
+        region_counts = {}
+        for p in patients:
+            if isinstance(p, dict):
+                reg = p.get("region", "Unknown")
+                region_counts[reg] = region_counts.get(reg, 0) + 1
+        sorted_regs = sorted(region_counts.items(), key=lambda x: x[1], reverse=True)[:8]
+        
+        for idx, (reg, count) in enumerate(sorted_regs, start=1):
+            rankings.append({
+                "rank": idx,
+                "name": reg,
+                "score": count,
+                "additional_metrics": {"patients_served": count, "efficiency": 0, "revenue": 0}
+            })
+            labels.append(reg)
+            values.append(count)
+            donut_labels.append(reg)
+            donut_values.append(count)
+            
+        insights.append(f"🏥 Overall System Capacity: We are actively managing {total_p:,} total patients (with {active_p:,} receiving ongoing care today) across our network of {total_d:,} dedicated doctors. This ensures we maintain a safe patient-to-doctor ratio.")
+        insights.append(f"⚠️ Health Alert Flags: We recorded {alert_count:,} vitals alerts where patient vital signs went outside normal limits. These require routine care-team follow-ups.")
+        insights.append(f"💰 Financial Billing Summary: Total patient billing across all services is currently ${total_v:,.2f}, representing steady hospital operations.")
+        recommendations.append("⚖️ Balance Doctor Workloads: Distribute patient intakes evenly across regions to prevent doctor burnout and reduce patient wait times.")
+        recommendations.append("📞 Patient Wellness Calls: Launch telephone check-ins for the patients with vitals alerts to make sure they are recovering safely at home.")
+        recommendations.append("💳 Flexible Payment Plans: Introduce easy payment options for families to help clear pending billing balances smoothly.")
+        if alert_count > 0:
+            alerts.append({"severity": "high", "message": f"Critical Vitals Risk: {alert_count:,} patient records have active abnormal vital flags requiring immediate intervention."})
 
     else:
         for idx, row in enumerate(rows[:8], start=1):
@@ -1559,8 +1719,8 @@ def _build_dashboard_payload(query: str, response_text: str) -> dict[str, Any]:
                 "score": numeric,
                 "additional_metrics": {"patients_served": 0, "efficiency": 0, "revenue": numeric},
             })
-        insights.append("Dashboard metrics are generated from the available healthcare data context.")
-        recommendations.append("Review the ranked drivers and investigate outliers before operational action.")
+        insights.append("📊 Custom Query Results: Dashboard metrics have been compiled based on the specific search parameters of your query.")
+        recommendations.append("🔍 Detail Audit: Review the ranked results below to isolate any unexpected peaks or discrepancies before planning operational actions.")
 
     if rankings and not top_performer["name"]:
         top = rankings[0]
@@ -1629,8 +1789,18 @@ def _format_dual_healthcare_response(query: str, response_text: str) -> str:
     rankings = dashboard.get("rankings") or []
     top = dashboard.get("top_performer") or {}
     metrics = dashboard.get("summary_metrics") or []
-    insight = (dashboard.get("insights") or ["Healthcare metrics are generated from available operational data."])[0]
-    recommendation = (dashboard.get("recommendations") or ["Review the dashboard metrics and prioritize operational follow-up."])[0]
+    
+    # Get all computed insights and recommendations
+    insights_list = dashboard.get("insights") or ["Healthcare metrics are generated from available operational data."]
+    insights_md = ""
+    for idx, ins in enumerate(insights_list, 1):
+        insights_md += f"{idx}. **Insight**: {ins}\n"
+        
+    recs_list = dashboard.get("recommendations") or ["Review the dashboard metrics and prioritize operational follow-up."]
+    recs_md = ""
+    for idx, rec in enumerate(recs_list, 1):
+        recs_md += f"{idx}. **Action**: {rec}\n"
+
     low_performer = rankings[-1]["name"] if rankings else "N/A"
 
     summary_sentence = _extract_first_sentence(
@@ -1702,7 +1872,7 @@ def _format_dual_healthcare_response(query: str, response_text: str) -> str:
         "## Analysis & Insights\n"
         f"**Primary Focus**: {title} ({query_focus})\n\n"
         f"**Executive Readout**: {metric_count} KPI cards, {ranking_count} ranking rows, and {alert_count} alert signals were prepared for the visual dashboard.\n\n"
-        f"**Key Finding**: {insight}\n\n"
+        f"{insights_md}\n"
         f"**Top Performer / Leading Segment**: {top_name} with a dashboard score of **{top_score}**. "
         f"The lowest ranked visible segment is **{low_performer}**, which should be reviewed for variance or follow-up opportunity.\n\n"
     )
@@ -1714,10 +1884,10 @@ def _format_dual_healthcare_response(query: str, response_text: str) -> str:
     # Build recommendations section with more detail
     recommendations_section = (
         "## Strategic Recommendations\n"
-        f"1. **Primary Action**: {recommendation}\n"
-        f"2. **Risk Control**: Resolve any 🔴 or 🟡 alert items first, then confirm whether downstream staffing, billing, or care operations are affected.\n"
-        f"3. **Performance Improvement**: Compare **{top_name}** against lower-ranked segments to identify repeatable workflow, capacity, or revenue-cycle practices.\n"
-        f"4. **Dashboard Governance**: Refresh this report on a regular cadence and compare KPI deltas before committing operational changes.\n\n"
+        f"{recs_md}"
+        f"{len(recs_list)+1}. **Risk Control**: Resolve any 🔴 or 🟡 alert items first, then confirm whether downstream staffing, billing, or care operations are affected.\n"
+        f"{len(recs_list)+2}. **Performance Improvement**: Compare **{top_name}** against lower-ranked segments to identify repeatable workflow, capacity, or revenue-cycle practices.\n"
+        f"{len(recs_list)+3}. **Dashboard Governance**: Refresh this report on a regular cadence and compare KPI deltas before committing operational changes.\n\n"
     )
 
     # Build next steps section

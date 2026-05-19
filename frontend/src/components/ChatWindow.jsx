@@ -49,6 +49,7 @@ export default function ChatWindow() {
   const isRecording    = useVoiceStore((s) => s.isRecording);
   const audioBlob      = useVoiceStore((s) => s.audioBlob);
   const isTranscribing = useVoiceStore((s) => s.isTranscribing);
+  const realtimeTranscript = useVoiceStore((s) => s.realtimeTranscript);
   const setTranscribing    = useVoiceStore((s) => s.setTranscribing);
   const setTranscribedText = useVoiceStore((s) => s.setTranscribedText);
   const resetVoice         = useVoiceStore((s) => s.reset);
@@ -187,8 +188,14 @@ export default function ChatWindow() {
     const processAudio = async () => {
       setTranscribing(true);
       try {
-        const result = await transcribeAudio(audioBlob);
-        const text = (result.text || '').trim();
+        let text = (useVoiceStore.getState().realtimeTranscript || '').trim();
+        
+        // If local speech recognition yielded nothing, fall back to backend STT
+        if (!text) {
+          const result = await transcribeAudio(audioBlob);
+          text = (result.text || '').trim();
+        }
+
         if (!text) {
           setTranscribing(false);
           toast('No speech detected. Please speak clearly.', { duration: 3000 });
@@ -387,6 +394,12 @@ export default function ChatWindow() {
               Esc
             </kbd>
           </button>
+        )}
+
+        {isRecording && realtimeTranscript && (
+          <div className="text-xs text-gold font-medium bg-[var(--surf)] border border-gold/20 rounded-md px-3 py-1.5 max-w-[1000px] w-full text-center animate-fade-in shadow-sm italic break-words">
+            "{realtimeTranscript}"
+          </div>
         )}
 
         {/* Input pill — full width on mobile, capped on desktop */}

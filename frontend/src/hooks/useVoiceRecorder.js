@@ -4,6 +4,28 @@ import useVoiceStore from '../store/useVoiceStore';
 
 const MAX_RECORDING_SECONDS = 60;
 
+const correctHealthcareSpeech = (text) => {
+  let cleaned = text;
+  const corrections = [
+    { pattern: /\bpatience\b/gi, replacement: 'patients' },
+    { pattern: /\bpatient's\b/gi, replacement: 'patients' },
+    { pattern: /\bdoctor's\b/gi, replacement: 'doctor' },
+    { pattern: /\bactive versus critical\b/gi, replacement: 'active vs critical patient count' },
+    { pattern: /\bactive vs critical\b/gi, replacement: 'active vs critical patient count' },
+    { pattern: /\bdoctor performance rank\b/gi, replacement: 'doctor performance ranking' },
+    { pattern: /\bvital alerts\b/gi, replacement: 'vitals alerts' },
+    { pattern: /\bvitals alert\b/gi, replacement: 'vitals alerts' },
+    { pattern: /\bregion wise\b/gi, replacement: 'region-wise' },
+    { pattern: /\bpending payment\b/gi, replacement: 'pending payment cases' },
+    { pattern: /\bpatient outcome trend\b/gi, replacement: 'patient outcome trends' },
+  ];
+  
+  for (const corr of corrections) {
+    cleaned = cleaned.replace(corr.pattern, corr.replacement);
+  }
+  return cleaned;
+};
+
 /**
  * Custom hook for voice recording using MediaRecorder + Web Audio API.
  *
@@ -24,6 +46,7 @@ export default function useVoiceRecorder() {
   const timerRef          = useRef(null);
   const autoStopRef       = useRef(null);
   const volumeSamplesRef  = useRef([]);
+  const recognitionRef    = useRef(null);
 
   const {
     isRecording,
@@ -36,12 +59,26 @@ export default function useVoiceRecorder() {
     reset,
   } = useVoiceStore();
 
+  const stopRecognition = useCallback(() => {
+    if (recognitionRef.current) {
+      const rec = recognitionRef.current;
+      recognitionRef.current = null;
+      try {
+        rec.onend = null;
+        rec.onerror = null;
+        rec.onresult = null;
+        rec.stop();
+      } catch (err) {}
+    }
+  }, []);
+
   // Clean up on unmount
   useEffect(() => {
     return () => { cleanupAll(); };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const cleanupAll = useCallback(() => {
+    stopRecognition();
     if (animFrameRef.current) {
       cancelAnimationFrame(animFrameRef.current);
       animFrameRef.current = null;
@@ -62,7 +99,7 @@ export default function useVoiceRecorder() {
       streamRef.current.getTracks().forEach((t) => t.stop());
       streamRef.current = null;
     }
-  }, []);
+  }, [stopRecognition]);
 
   /**
    * Start analysing volume from the mic stream
@@ -173,6 +210,62 @@ export default function useVoiceRecorder() {
         cleanupAll();
       };
 
+      // Initialize SpeechRecognition if supported
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+      if (SpeechRecognition) {
+        const rec = new SpeechRecognition();
+        rec.continuous = false;
+        rec.interimResults = true;
+        rec.lang = 'en-US';
+        
+        if (SpeechGrammarList) {
+          const grammar = '#JSGF V1.0; grammar medical; public <command> = give me healthcare dashboard report | revenue by service this month | total patients served today | doctor performance ranking | active vs critical patient count | abnormal vitals alerts summary | patients per doctor | region-wise patient distribution | pending payment cases | patient outcome trends ;';
+          const speechRecognitionList = new SpeechGrammarList();
+          speechRecognitionList.addFromString(grammar, 1);
+          rec.grammars = speechRecognitionList;
+        }
+        
+        rec.onresult = (event) => {
+          let interimTranscript = '';
+          let finalTranscript = '';
+          
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+              finalTranscript += event.results[i][0].transcript;
+            } else {
+              interimTranscript += event.results[i][0].transcript;
+            }
+          }
+          
+          let fullText = (finalTranscript + interimTranscript).trim();
+          if (fullText) {
+            fullText = correctHealthcareSpeech(fullText);
+            useVoiceStore.getState().setRealtimeTranscript(fullText);
+          }
+        };
+        
+        rec.onerror = (e) => {
+          console.warn('Speech recognition error:', e.error);
+        };
+        
+        rec.onend = () => {
+          // If still recording, restart
+          if (useVoiceStore.getState().isRecording && recognitionRef.current === rec) {
+            try {
+              rec.start();
+            } catch (err) {}
+          }
+        };
+        
+        recognitionRef.current = rec;
+        try {
+          rec.start();
+        } catch (err) {
+          console.warn('Could not start speech recognition:', err);
+        }
+      }
+
       // Start recording — collect data every 100ms
       recorder.start(100);
       setRecording(true);
@@ -209,12 +302,13 @@ export default function useVoiceRecorder() {
         toast.error(msg);
       }
     }
-  }, [reset, setRecording, setRecordingDuration, setAudioBlob, setVolume, setAverageVolume, setError, startAnalyser, cleanupAll]);
+  }, [reset, setRecording, setRecordingDuration, setAudioBlob, setVolume, setAverageVolume, setError, startAnalyser, cleanupAll, stopRecognition]);
 
   /**
    * Internal cleanup after onstop (separate from full cleanupAll so mic release stays here)
    */
   function doCleanup() {
+    stopRecognition();
     if (animFrameRef.current) {
       cancelAnimationFrame(animFrameRef.current);
       animFrameRef.current = null;
@@ -241,10 +335,11 @@ export default function useVoiceRecorder() {
    * Stop recording (user-initiated or auto-stop)
    */
   const stopRecording = useCallback(() => {
+    stopRecognition();
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
     }
-  }, []);
+  }, [stopRecognition]);
 
   return { startRecording, stopRecording };
 }

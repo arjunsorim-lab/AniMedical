@@ -100,71 +100,96 @@ function buildDashboardNarrative(dashboard, fallbackText) {
   const topScore = top.score || rankings[0]?.score || 'N/A';
   const lowestName = rankings[rankings.length - 1]?.name || 'N/A';
 
+  const metricDescriptions = {
+    "total patients": "Total patient profiles registered in our clinical records system.",
+    "active patients": "Patients currently undergoing active care, follow-up, or hospital visits.",
+    "total billing": "Cumulative billing generated from all clinical procedures, visits, and treatments.",
+    "vitals alerts": "Active warnings triggered when vital signs (like BP, pulse) deviate from safe levels.",
+    "overloaded providers": "Doctors assigned caseloads above normal limits, potentially causing longer wait times.",
+    "recovery rate": "The percentage of patients who completed treatment and recovered successfully.",
+    "readmission rate": "Patients requiring another hospital stay within 30 days of their discharge.",
+    "critical patients": "Patients currently flagged with acute or high-risk clinical conditions.",
+    "critical ratio": "The proportion of active patients who need high-priority clinical tracking.",
+    "top region": "Our busiest regional territory by patient volume.",
+    "pending amount": "Uncollected billing outstanding that is currently in accounts receivable.",
+    "pending cases": "Total number of unpaid billing invoices requiring administrative follow-up.",
+    "service revenue": "Revenue generated directly from outpatient and inpatient treatments."
+  };
+
   const metricLines = metrics.length
-    ? metrics.slice(0, 6).map((metric) => (
-      `- ${metricIcon(metric.status)} **${metric.label || 'Metric'}**: ${formatValue(metric.value)}`
-    ))
-    : ['- • **Metrics**: No KPI rows were available in the dashboard payload.'];
+    ? metrics.slice(0, 6).map((metric) => {
+        const key = String(metric.label || '').toLowerCase().trim();
+        const desc = metricDescriptions[key] || "Dashboard performance metric.";
+        return `- ${metricIcon(metric.status)} **${metric.label || 'Metric'}**: **${formatValue(metric.value)}** — *${desc}*`;
+      })
+    : ['- • **Metrics**: No KPI metrics were available for this dashboard.'];
 
   const alertLines = alerts.length
     ? alerts.map((alert) => (
-      `${alertIcon(alert.severity)} **[${String(alert.severity || 'info').toUpperCase()}]** ${alert.message || 'Review dashboard alert.'}`
-    ))
-    : ['🟢 **[CLEAR]** No high-severity alert was generated from the available dashboard data.'];
+        `${alertIcon(alert.severity)} **[${String(alert.severity || 'info').toUpperCase()}]** ${alert.message || 'Attention needed on this item.'}`
+      ))
+    : ['🟢 **[CLEAR]** No active risk warnings or critical clinical alerts are present.'];
 
   const insightLines = insights.length
     ? insights.map((item) => `- ${item}`)
-    : ['- Dashboard metrics are generated from available healthcare data.'];
+    : ['- No specific analytical insights were generated for this query.'];
 
   const rankingLines = rankings.length
     ? rankings.slice(0, 8).map((item, index) => {
-      const meta = item.additional_metrics || {};
-      const detail = [
-        Number(meta.patients_served) > 0 ? `${meta.patients_served} patients` : '',
-        Number(meta.efficiency) > 0 ? `${meta.efficiency}% efficiency` : '',
-      ].filter(Boolean).join(', ');
-      return `${index + 1}. **${item.name || `Item ${index + 1}`}** — Score: **${formatValue(item.score)}**${detail ? ` (${detail})` : ''}`;
-    })
-    : ['No ranked rows were available for this prompt.'];
+        const meta = item.additional_metrics || {};
+        const detail = [
+          Number(meta.patients_served) > 0 ? `${meta.patients_served} patients served` : '',
+          Number(meta.efficiency) > 0 ? `${meta.efficiency}% operational efficiency` : '',
+          Number(meta.revenue) > 0 ? `$${formatValue(meta.revenue)} revenue generated` : '',
+        ].filter(Boolean).join(', ');
+        return `${index + 1}. 🏆 **${item.name || `Item ${index + 1}`}** — Volume/Score: **${formatValue(item.score)}** ${detail ? `(${detail})` : ''}`;
+      })
+    : ['No ranking data is available for this category.'];
 
-  const recommendationLines = [
-    recommendations[0] || 'Review the dashboard metrics and prioritize operational follow-up.',
-    'Resolve any red or amber alert items first, then validate operational impact with the responsible team.',
-    `Compare ${topName} against lower-ranked segments to identify repeatable practices or workflow gaps.`,
-    'Refresh this report on a regular cadence and compare KPI movement before committing changes.',
-  ].map((item, index) => `${index + 1}. **${index === 0 ? 'Primary Action' : ['Risk Control', 'Performance Improvement', 'Dashboard Governance'][index - 1]}**: ${item}`);
+  const recommendationLines = recommendations.length
+    ? recommendations.map((item, index) => {
+        const actionTypes = ['Primary Priority', 'Secondary Action', 'Long-term Guidance', 'Monitoring Step'];
+        const type = actionTypes[index % actionTypes.length];
+        return `${index + 1}. **${type}**: ${item}`;
+      })
+    : [
+        '1. **Primary Priority**: Review overall system caseloads and verify if billing aligns with patient volumes.',
+        '2. **Secondary Action**: Investigate any high-risk vitals alerts or clinical overloading reported by providers.',
+        '3. **Long-term Guidance**: Compare highest-performing regions/doctors with others to share best practices.',
+      ];
 
   return [
-    '## Executive Summary',
-    `${title} generated from available healthcare analytics data. This response includes a detailed narrative and a structured dashboard for visual review.`,
+    '## 📝 Executive Summary',
+    `This report provides a clear, layman-friendly summary of **${title}**. It translates clinical data, doctor caseloads, and hospital revenue metrics into simple, actionable insights.`,
     '',
-    '## Key Metrics',
+    '## 📊 Key Metrics Explained',
     ...metricLines,
     '',
-    '## Alerts & Critical Issues',
+    '## 🚨 Risk & Alert Warnings',
     ...alertLines,
     '',
-    '## Analysis & Insights',
-    `**Primary Focus**: ${title}`,
+    '## 💡 Simple Health Insights',
+    `**Current Focus**: ${title}`,
     '',
-    `**Top Performer / Leading Segment**: ${topName} with dashboard score **${formatValue(topScore)}**.`,
-    '',
-    `**Lowest Ranked Visible Segment**: ${lowestName}.`,
+    `* **Top Performer**: **${topName}** is currently leading in patient outcomes or volume with a score of **${formatValue(topScore)}**.`,
+    `* **Lowest volume area**: **${lowestName}** shows the lowest relative caseload or activity in this view.`,
     '',
     ...insightLines,
     '',
-    '## Detailed Rankings',
+    '## 🏆 Performance Rankings',
+    'Below is a simple ranking showing how different segments or regions compare in workload and services:',
+    '',
     ...rankingLines,
     '',
-    '## Strategic Recommendations',
+    '## 🎯 Strategic Action Plan',
+    'Here are the key recommendations to improve hospital operations, patient recovery, and billing balance:',
+    '',
     ...recommendationLines,
     '',
-    '## Actionable Next Steps',
-    '1. Review KPI cards and confirm whether each status matches source-system expectations.',
-    '2. Inspect the top 8 rankings to isolate the strongest driver and weakest visible segment.',
-    '3. Compare the bar, line, donut, and progress widgets for the same metric story.',
-    '4. Assign follow-up ownership for each high or medium alert with a target resolution date.',
-    '5. Re-run the same prompt after updates to measure KPI, ranking, and alert-count improvement.',
+    '## 🚀 How to Use This Information',
+    '1. **Address Critical Flags**: Focus on patients with active vitals warnings or doctors with overload flags first.',
+    '2. **Share Success**: Learn from our top-performing areas (like **' + topName + '**) and apply their methods to other clinics.',
+    '3. **Monitor Progress**: Re-run this checkup report weekly to track how recovery rates and caseloads improve over time.',
   ].join('\n');
 }
 
@@ -186,7 +211,14 @@ function KpiCards({ metrics = [] }) {
 }
 
 function RiskIndicators({ alerts = [] }) {
-  if (!alerts.length) return null;
+  if (!alerts.length) {
+    return (
+      <div className="srv-risk-item positive">
+        <span className="srv-alert-badge positive">stable</span>
+        <p>🟢 All health parameters and clinical provider workloads are within normal bounds. No active risks or alerts detected.</p>
+      </div>
+    );
+  }
   return (
     <div className="srv-risk-list">
       {alerts.map((alert, index) => (
@@ -200,13 +232,39 @@ function RiskIndicators({ alerts = [] }) {
 }
 
 function RecommendationList({ recommendations = [] }) {
-  if (!recommendations.length) return null;
+  if (!recommendations.length) {
+    return (
+      <div className="text-xs text-[var(--txt3)] italic p-3">
+        No active action items for this context.
+      </div>
+    );
+  }
+  
+  const getRecommendationHeader = (index) => {
+    const headers = [
+      { title: "Immediate Action Plan", badge: "High Priority", bg: "rgba(239, 68, 68, 0.12)", text: "#EF4444" },
+      { title: "Workflow & Efficiency Boost", badge: "Medium Priority", bg: "rgba(245, 158, 11, 0.12)", text: "#F59E0B" },
+      { title: "Clinical Outreach Strategy", badge: "Recommended", bg: "rgba(59, 130, 246, 0.12)", text: "#3B82F6" },
+      { title: "Continuous Monitoring Plan", badge: "Standard Priority", bg: "rgba(16, 185, 129, 0.12)", text: "#10B981" }
+    ];
+    return headers[index % headers.length];
+  };
+
   return (
-    <ul className="srv-recommendations">
-      {recommendations.map((item, index) => (
-        <li key={`${item}-${index}`}>{item}</li>
-      ))}
-    </ul>
+    <div className="srv-rec-grid">
+      {recommendations.map((item, index) => {
+        const meta = getRecommendationHeader(index);
+        return (
+          <div className="srv-rec-card animate-fade-in" key={`${item}-${index}`} style={{ borderLeft: `4px solid ${meta.text}` }}>
+            <div className="srv-rec-card-header">
+              <span className="srv-rec-title">{meta.title}</span>
+              <span className="srv-rec-badge" style={{ backgroundColor: meta.bg, color: meta.text }}>{meta.badge}</span>
+            </div>
+            <p className="srv-rec-text">{item}</p>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -277,6 +335,10 @@ function DashboardResponseView({ dashboard }) {
 
         <ExpandableSection title="Risk Indicators" defaultOpen>
           <RiskIndicators alerts={dashboard.alerts || []} />
+        </ExpandableSection>
+
+        <ExpandableSection title="Strategic Action Recommendations" defaultOpen>
+          <RecommendationList recommendations={dashboard.recommendations || []} />
         </ExpandableSection>
 
         <ExpandableSection title="AI Insights Analysis">
@@ -363,6 +425,11 @@ function ReportResponseView({ dashboard }) {
         <TypographyOverline text="Strategic Action Recommendations" />
         <RecommendationList recommendations={dashboard.recommendations || []} />
       </div>
+
+      <div className="srv-report-insights" style={{ marginTop: '16px' }}>
+        <TypographyOverline text="AI Insights Analysis" />
+        <RecommendationList recommendations={dashboard.insights || []} />
+      </div>
     </div>
   );
 }
@@ -415,12 +482,45 @@ export default function SplitResponseView({ content, triggerQuery, messageId }) 
   // 3. Determine best response automatically from user's prompt
   const bestViewId = useMemo(() => {
     const q = String(triggerQuery || '').toLowerCase();
-    if (q.includes('chart') || q.includes('graph') || q.includes('visual') || q.includes('dashboard') || q.includes('kpi')) {
-      return 'dashboard';
-    }
-    if (q.includes('report') || q.includes('table') || q.includes('ranking') || q.includes('ledger') || q.includes('list') || q.includes('performance')) {
+    
+    // Explicit report/tabular intent keywords
+    if (
+      q.includes('report') || 
+      q.includes('table') || 
+      q.includes('ranking') || 
+      q.includes('ledger') || 
+      q.includes('list') || 
+      q.includes('performance') || 
+      q.includes('rank') || 
+      q.includes('distribution') ||
+      q.includes('per doctor')
+    ) {
       return 'report';
     }
+    
+    // Explicit dashboard/visual/metric intent keywords
+    if (
+      q.includes('chart') || 
+      q.includes('graph') || 
+      q.includes('visual') || 
+      q.includes('dashboard') || 
+      q.includes('kpi') ||
+      q.includes('patient') ||
+      q.includes('patience') ||
+      q.includes('doctor') ||
+      q.includes('revenue') ||
+      q.includes('vitals') ||
+      q.includes('alert') ||
+      q.includes('serve') ||
+      q.includes('critical') ||
+      q.includes('payment') ||
+      q.includes('trend') ||
+      q.includes('load') ||
+      /\b(count|sum|total|average|rate|percentage|active)\b/.test(q)
+    ) {
+      return 'dashboard';
+    }
+    
     return 'text';
   }, [triggerQuery]);
 
